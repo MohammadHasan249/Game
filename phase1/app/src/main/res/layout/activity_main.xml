@@ -30,4 +30,23 @@
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="96dp"
+        android:layout_height="62dp"
+        android:onClick="goFlipCard"
+        android:text="FlipCard Game"
+        app:layout_constraintEnd_toStartOf="@+id/button2"
+        tools:layout_editor_absoluteY="11dp" />
+
+    <Button
+        android:id="@+id/button2"
+        android:layout_width="94dp"
+        android:layout_height="53dp"
+        android:layout_marginEnd="176dp"
+        android:onClick="goMathGame"
+        android:text="Math Game"
+        app:layout_constraintEnd_toEndOf="parent"
+        tools:layout_editor_absoluteY="14dp" />
 </androidx.constraintlayout.widget.ConstraintLayout>

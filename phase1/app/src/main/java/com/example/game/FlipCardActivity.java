@@ -7,6 +7,14 @@ import android.os.Bundle;
 import android.view.View;
 
 public class FlipCardActivity extends AppCompatActivity {
+    public void mainBack(View view) {
+        Intent mainActivityIntent = new Intent(this, MainActivity.class);
+        startActivity(mainActivityIntent);
+    }
+    public void test(View view)
+    {
+
+    }
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -17,10 +25,8 @@ public class FlipCardActivity extends AppCompatActivity {
 //        LinearLayout ll = (LinearLayout)findViewById(R.id.rootlinearlayout);
 //        LayoutParams lp = new LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT);
 //        ll.addView(myButton, lp);
+
     }
 
-    public void mainBack(View view) {
-        Intent mainActivityIntent = new Intent(this, MainActivity.class);
-        startActivity(mainActivityIntent);
-    }
+
 }
