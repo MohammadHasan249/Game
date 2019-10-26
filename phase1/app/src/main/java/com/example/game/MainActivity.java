@@ -8,7 +8,7 @@ import android.view.View;
 
 public class MainActivity extends AppCompatActivity {
     public void goFlipCard(View view) {
-        Intent start = new Intent(getApplicationContext(), FlipCardActivity.class);
+        Intent start = new Intent(getApplicationContext(), FlipCardInit.class);
         startActivity(start);
     }
 

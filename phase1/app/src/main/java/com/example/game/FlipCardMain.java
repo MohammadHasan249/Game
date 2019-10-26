@@ -6,14 +6,10 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
-public class FlipCardActivity extends AppCompatActivity {
+public class FlipCardMain extends AppCompatActivity {
     public void mainBack(View view) {
-        Intent mainActivityIntent = new Intent(this, MainActivity.class);
+        Intent mainActivityIntent = new Intent(this, FlipCardInit.class);
         startActivity(mainActivityIntent);
-    }
-    public void test(View view)
-    {
-
     }
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,6 +23,4 @@ public class FlipCardActivity extends AppCompatActivity {
 //        ll.addView(myButton, lp);
 
     }
-
-
 }
