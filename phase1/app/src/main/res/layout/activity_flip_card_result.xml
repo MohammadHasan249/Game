@@ -6,4 +6,103 @@
     android:layout_height="match_parent"
     tools:context=".FlipCardResult">
 
+    <TextView
+        android:id="@+id/textView8"
+        android:layout_width="63dp"
+        android:layout_height="17dp"
+        android:text="TextView"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <EditText
+        android:id="@+id/resultsTitle"
+        android:layout_width="318dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="24dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="Results"
+        android:textAlignment="center"
+        android:textIsSelectable="false"
+        android:textSize="36sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.493"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/stat1Title"
+        android:layout_width="130dp"
+        android:layout_height="47dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="@android:dimen/notification_large_icon_height"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="Total Time:"
+        android:textColor="#03A9F4"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/resultsTitle" />
+
+    <EditText
+        android:id="@+id/stat3Title"
+        android:layout_width="318dp"
+        android:layout_height="51dp"
+        android:layout_marginStart="24dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="Correct Matches Per Minute:"
+        android:textColor="#11DD19"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:layout_editor_absoluteY="397dp" />
+
+    <TextView
+        android:id="@+id/stat1Result"
+        android:layout_width="80dp"
+        android:layout_height="32dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="8dp"
+        android:text="TextView"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/stat1Title" />
+
+    <TextView
+        android:id="@+id/stat3Result"
+        android:layout_width="80dp"
+        android:layout_height="32dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="8dp"
+        android:text="TextView"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/stat3Title" />
+
+    <TextView
+        android:id="@+id/stat2Result"
+        android:layout_width="80dp"
+        android:layout_height="32dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="8dp"
+        android:text="TextView"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/stat2Title" />
+
+    <EditText
+        android:id="@+id/stat2Title"
+        android:layout_width="213dp"
+        android:layout_height="52dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="@android:dimen/notification_large_icon_width"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="Incorrect Matches:"
+        android:textColor="#F00710"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/stat1Title" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
