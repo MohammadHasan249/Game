@@ -28,5 +28,4 @@ public class FlipCardInit extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_flip_card_init);
     }
-
 }

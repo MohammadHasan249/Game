@@ -29,12 +29,12 @@ public class FlipCardMain extends AppCompatActivity {
         if (receiver != null)
         {
             difficulty = receiver.getString("Level");
-            //this.setDiffculity(diffculity);
+            //this.setDifficulty(difficulty);
             //this.generateCards(this.numMatches);
         }
 
     }
-    private void setDiffculity(String difficulty)
+    private void setDifficulty(String difficulty)
     {
         if (difficulty.equals("easy"))
             numMatches = 5;
