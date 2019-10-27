@@ -9,7 +9,7 @@ import android.view.View;
 import android.widget.TextView;
 import java.util.ArrayList;
 public class FlipCardMain extends AppCompatActivity {
-    String diffculity;
+    String difficulty;
     int numMatches = 0;
     public void mainBack(View view) {
         Intent mainActivityIntent = new Intent(this, FlipCardInit.class);
@@ -28,7 +28,7 @@ public class FlipCardMain extends AppCompatActivity {
         Bundle receiver = getIntent().getExtras();
         if (receiver != null)
         {
-            diffculity = receiver.getString("Level");
+            difficulty = receiver.getString("Level");
             //this.setDiffculity(diffculity);
             //this.generateCards(this.numMatches);
         }

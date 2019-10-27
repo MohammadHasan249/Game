@@ -10,17 +10,17 @@ import android.widget.RadioButton;
 public class FlipCardInit extends AppCompatActivity {
     // easy is level 1, hard is level 2 and insane is level 3
     public void startGame(View view) {
-        String diffculity;
+        String difficulty;
         RadioButton easy = findViewById(R.id.rdEasy);
         RadioButton hard = findViewById(R.id.rdHard);
         if (easy.isChecked())
-            diffculity = "easy";
+            difficulty = "easy";
         else if (hard.isChecked())
-            diffculity = "hard";
+            difficulty = "hard";
         else
-            diffculity = "insane";
+            difficulty = "insane";
         Intent startGame = new Intent(this, FlipCardMain.class);
-        startGame.putExtra("Level", diffculity);
+        startGame.putExtra("Level", difficulty);
         startActivity(startGame);
     }
     @Override
