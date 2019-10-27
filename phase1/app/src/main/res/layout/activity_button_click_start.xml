@@ -1,6 +1,51 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/linearLayout"
+    android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-</LinearLayout>
+    <TextView
+        android:id="@+id/textView8"
+        android:layout_width="270dp"
+        android:layout_height="63dp"
+        android:layout_marginTop="320dp"
+        android:baselineAligned="false"
+        android:text="Score Multiplier"
+        android:textAlignment="center"
+        android:textColor="#e74c3c"
+        android:textSize="36sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.617"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <RadioGroup
+        android:layout_width="268dp"
+        android:layout_height="141dp"
+        tools:layout_editor_absoluteX="89dp"
+        tools:layout_editor_absoluteY="377dp" >
+
+        <RadioButton
+            android:id="@+id/sm_1x"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="1x" />
+
+        <RadioButton
+            android:id="@+id/sm_1.5x"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="1.5x" />
+
+        <RadioButton
+            android:id="@+id/sm_2x"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="2x" />
+    </RadioGroup>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
