@@ -72,19 +72,19 @@
         app:layout_constraintTop_toBottomOf="@+id/textView7">
 
         <RadioButton
-            android:id="@+id/radioButton"
+            android:id="@+id/rb_30"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="30s" />
 
         <RadioButton
-            android:id="@+id/radioButton2"
+            android:id="@+id/rb_45"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="45s" />
 
         <RadioButton
-            android:id="@+id/radioButton3"
+            android:id="@+id/rb_60"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="60s" />
