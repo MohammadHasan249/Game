@@ -1,6 +1,7 @@
 package com.example.game;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.RadioButton;
@@ -28,9 +29,19 @@ public class ButtonClickStart extends AppCompatActivity {
             score = "1.5";
         else
             score = "2";
+        int c;
+        RadioButton c1 = findViewById(R.id.colour_red);
+        RadioButton c2 = findViewById(R.id.colour_green);
+        if (c1.isChecked())
+            c = Color.RED;
+        else if (c2.isChecked())
+            c = Color.GREEN;
+        else
+            c = Color.BLUE;
         Intent beginGame = new Intent(getApplicationContext(), ButtonClickMain.class);
         beginGame.putExtra("Time", time);
         beginGame.putExtra("Score", score);
+        beginGame.putExtra("Color", c);
         startActivity(beginGame);
     }
 
