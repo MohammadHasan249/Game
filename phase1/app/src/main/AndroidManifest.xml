@@ -16,6 +16,8 @@
         <activity android:name=".MathGameResult" />
         <activity android:name=".MathGame" />
         <activity android:name=".ButtonClickStart" />
+        <activity android:name=".ButtonClickMain" />
+        <activity android:name=".ButtonClickResult" />
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
