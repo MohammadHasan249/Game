@@ -38,7 +38,7 @@ public class ButtonClickStart extends AppCompatActivity {
             c = Color.GREEN;
         else
             c = Color.BLUE;
-        Intent beginGame = new Intent(getApplicationContext(), ButtonClickMain.class);
+        Intent beginGame = new Intent(this, ButtonClickMain.class);
         beginGame.putExtra("Time", time);
         beginGame.putExtra("Score", score);
         beginGame.putExtra("Color", c);
