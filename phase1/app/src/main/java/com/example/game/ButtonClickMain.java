@@ -5,6 +5,7 @@ import android.content.res.Resources;
 import android.graphics.Point;
 import android.os.Bundle;
 import android.util.DisplayMetrics;
+import android.util.Log;
 import android.view.Display;
 import android.view.View;
 import android.view.WindowManager;
@@ -17,7 +18,7 @@ public class ButtonClickMain extends AppCompatActivity {
         return Resources.getSystem().getDisplayMetrics().widthPixels;
     }
 
-    public static int getScreenWHeight() {
+    public static int getScreenHeight() {
         return Resources.getSystem().getDisplayMetrics().heightPixels;
     }
 
