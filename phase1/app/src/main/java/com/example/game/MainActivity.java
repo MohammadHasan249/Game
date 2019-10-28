@@ -16,6 +16,11 @@ public class MainActivity extends AppCompatActivity {
         Intent start = new Intent(getApplicationContext(), MathGame.class);
         startActivity(start);
     }
+
+    public void goButtonClick(View view) {
+        Intent start = new Intent(getApplicationContext(), ButtonClickStart.class);
+        startActivity(start);
+    }
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
