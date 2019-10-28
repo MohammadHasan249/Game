@@ -9,7 +9,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".FlipCardResult"></activity>
+        <activity android:name=".HomePage"></activity>
+        <activity android:name=".FlipCardResult" />
         <activity android:name=".FlipCardInit" />
         <activity android:name=".FlipCardMain" />
         <activity android:name=".MathGameResult" />
