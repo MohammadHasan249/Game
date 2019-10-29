@@ -13,9 +13,8 @@ import java.util.Collections;
 import android.widget.TableLayout;
 import android.widget.TableRow;
 import android.widget.Button;
-
+import android.view.Gravity;
 public class FlipCardMain extends AppCompatActivity {
-    ArrayList<FlipCards> cardsList;
     String difficulty;
     int numMatches = 0;
     //waiting for henry to give me the color instance so i will be setting it here for now
@@ -32,11 +31,11 @@ public class FlipCardMain extends AppCompatActivity {
     private void setDiffculity(String difficulty)
     {
         if (difficulty.equals("easy"))
-            numMatches = 5;
+            numMatches = 15;
         else if (difficulty.equals("hard"))
-            numMatches = 10;
-        else
             numMatches = 20;
+        else
+            numMatches = 25;
     }
     private ArrayList<Character> symbolGenerater(int numMatches)
     {
@@ -69,23 +68,31 @@ public class FlipCardMain extends AppCompatActivity {
         Collections.shuffle(charList);
         return charList;
     }
+
+
+    //this is broken
     private void generateCards(int numMatches)
     {
-        //only want 5 cards in each row
-        int numrows = numMatches/5;
-        TableLayout stk = (TableLayout) findViewById(R.id.tableLayoutFlipCard);
-        TableRow tbrow0 = new TableRow(this);
-        FlipCards f1 = new FlipCards(this, cardBackColor, "a", tbrow0);
-        f1.getBtnInstance().setOnClickListener(handleOnClick(f1.getBtnInstance()));
-        stk.addView(tbrow0);
-    }
-    //setting on click
-    View.OnClickListener handleOnClick(final Button button) {
-        return new View.OnClickListener() {
-            public void onClick(View v) {
-                button.setText("helllllllooooooo");
+        ArrayList<Character> charList = this.symbolGenerater(numMatches);
+        TableLayout stk = findViewById(R.id.tableLayoutFlipCard);
+        int i = 0;
+        TableRow tbrow = new TableRow(this);
+        tbrow.setGravity(Gravity.CENTER_HORIZONTAL);
+        tbrow.setLayoutParams(new TableLayout.LayoutParams(TableLayout.LayoutParams.WRAP_CONTENT, TableLayout.LayoutParams.WRAP_CONTENT));
+        for (Character s : charList)
+        {
+            if (i == 5)
+            {
+                stk.addView(tbrow);
+                tbrow = new TableRow(this);
+                tbrow.setLayoutParams(new TableLayout.LayoutParams(TableLayout.LayoutParams.WRAP_CONTENT, TableLayout.LayoutParams.WRAP_CONTENT));
+                tbrow.setGravity(Gravity.CENTER_HORIZONTAL);
+                i = 0;
             }
-        };
+            FlipCards f1 = new FlipCards(this, cardBackColor, s.toString(), tbrow, 5, 3);
+            FlipCards.allcards.add(f1);
+            i++;
+        }
     }
 
     @Override
