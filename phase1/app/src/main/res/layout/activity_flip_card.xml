@@ -16,11 +16,11 @@
         app:srcCompat="@drawable/clock" />
 
     <TextView
-        android:id="@+id/timer"
-        android:layout_width="46dp"
-        android:layout_height="52dp"
+        android:id="@+id/countDownTimerTextView"
+        android:layout_width="75dp"
+        android:layout_height="47dp"
         android:layout_marginTop="10dp"
-        android:text="0s"
+        android:text=" 00s"
         android:textColor="#0995E9"
         android:textSize="36sp"
         android:textStyle="bold"
@@ -36,7 +36,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/timer">
+        app:layout_constraintTop_toBottomOf="@+id/countDownTimerTextView">
 
         <TableRow
             android:layout_width="match_parent"
@@ -54,5 +54,16 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent" />
     </TableLayout>
+
+    <Button
+        android:id="@+id/startPauseButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        android:text="Start"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -14,7 +14,17 @@ import android.widget.TableLayout;
 import android.widget.TableRow;
 import android.widget.Button;
 import android.view.Gravity;
+import android.widget.TextView;
+
 public class FlipCardMain extends AppCompatActivity {
+
+    /// for timer
+    private long start_time = 10000; // In Milli seconds
+
+    private TextView countDownTextView;
+    private Button startPauseButton;
+
+
     String difficulty;
     int numMatches = 0;
     //waiting for henry to give me the color instance so i will be setting it here for now
@@ -28,6 +38,7 @@ public class FlipCardMain extends AppCompatActivity {
         Intent mainActivityIntent = new Intent(this, FlipCardResult.class);
         startActivity(mainActivityIntent);
     }
+
     private void setDiffculity(String difficulty)
     {
         if (difficulty.equals("easy"))
@@ -106,6 +117,28 @@ public class FlipCardMain extends AppCompatActivity {
             this.setDiffculity(this.difficulty);
             this.generateCards(this.numMatches);
         }
+
+        /// for timer
+        startPauseButton = findViewById(R.id.startPauseButton);
+        countDownTextView = findViewById(R.id.countDownTimerTextView);
+        // making the timer obj, sending in the start time, startbutton and the textview objects
+        Timer timerObj = new Timer(start_time, startPauseButton, countDownTextView);
+        countDownTextView.setText((int) timerObj.getTimeLeft()/1000 + "s");
+        timerObj.startTimer();
+        final Boolean is_running = timerObj.getIsTimerRunning();
+
+        /*startPauseButton.setOnClickListener(new View.OnClickListener() {
+         //////// can u fix this error, its not letting me use the timer obj//////////////
+            @Override
+            public void onClick(View view) {
+                if (is_running) {
+                    timerObj.pauseTimer();
+                } else {
+                    timerObj.startTimer();
+                }
+            }
+        });
+*/
     }
-    }
+}
 
