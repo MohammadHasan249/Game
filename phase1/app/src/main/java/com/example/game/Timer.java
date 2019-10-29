@@ -23,6 +23,14 @@ public class Timer {
         countDownTextView = text;
     }
 
+    public CountDownTimer getCountDownTimer() {
+        return countDownTimer;
+    }
+
+    public void setCountDownTimer(CountDownTimer countDownTimer) {
+        this.countDownTimer = countDownTimer;
+    }
+
     public long getTimeLeft(){
         return timeLeftInMilliSeconds;
     }
