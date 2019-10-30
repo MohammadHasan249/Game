@@ -61,6 +61,8 @@ public class MainActivity extends AppCompatActivity {
             if (!c.moveToFirst()){  // c.moveToFirst() return true if there is data, false if no data
                 // Sign up the user if the username typed in is not in database
                 gameDB.execSQL("INSERT INTO users (username, password) VALUES ('"+currUserName+"', '"+currPassword+"')");
+                // Unspecified column values by default become Int = 0, VARCHAR = null
+
                 login();
             }else{
                 Toast.makeText(getApplicationContext(), "Username already exists", Toast.LENGTH_SHORT).show();
@@ -100,10 +102,18 @@ public class MainActivity extends AppCompatActivity {
         btnSignUp = findViewById(R.id.btnSignUp);
         editTextUserName = findViewById(R.id.editTextUserName);
         editTextPassword = findViewById(R.id.editTextPassword);
+        sharedPreferences = this.getSharedPreferences(getPackageName(), Context.MODE_PRIVATE);
 
         gameDB = this.openOrCreateDatabase("gameDB", MODE_PRIVATE, null);
-        gameDB.execSQL("CREATE TABLE IF NOT EXISTS users (username VARCHAR, password VARCHAR, currLevel INT(2), level1 VARCHAR, level2 VARCHAR, level3 VARCHAR ,id INTEGER PRIMARY KEY)");
-        sharedPreferences = this.getSharedPreferences(getPackageName(), Context.MODE_PRIVATE);
+
+//        gameDB.execSQL("DROP TABLE users");
+//        sharedPreferences.edit().putString("loggedInUsername", "NA").apply();
+
+        gameDB.execSQL("CREATE TABLE IF NOT EXISTS users (username VARCHAR, password VARCHAR, currLevel INT(2), " +
+                "colorSelected INT(2), difficultySelected VARCHAR, musicSelected VARCHAR, " +
+                "l1EasyBestScore INT(4), l1HardBestScore INT(4), l1RecentScore INT(4), " +
+                "l2EasyBestScore INT(4), l2HardBestScore INT(4), l2RecentScore INT(4), " +
+                "l3EasyBestScore INT(4), l3HardBestScore INT(4), l3RecentScore INT(4))");
 
         user = sharedPreferences.getString("loggedInUsername", "NA");
 

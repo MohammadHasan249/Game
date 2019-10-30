@@ -11,8 +11,10 @@ import android.widget.TextView;
 public class HomePage extends AppCompatActivity {
 
     SharedPreferences sharedPreferences;
+//    String username;
     TextView textViewUsername;
-    String username;
+
+    CurrUser user;
 
 
     public void btnLogoutFunc(View view){
@@ -26,10 +28,10 @@ public class HomePage extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home_page);
 
-        sharedPreferences = this.getSharedPreferences(getPackageName(), Context.MODE_PRIVATE);
-        username = sharedPreferences.getString("loggedInUsername", "NAA");
+        user = new CurrUser(this);
         textViewUsername = findViewById(R.id.textViewUsername);
-        textViewUsername.setText(username);
+        textViewUsername.setText(user.getUsername());
+        sharedPreferences = this.getSharedPreferences(getPackageName(), Context.MODE_PRIVATE);
 
     }
 }
