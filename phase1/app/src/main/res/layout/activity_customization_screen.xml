@@ -8,11 +8,11 @@
 
     <RadioGroup
         android:id="@+id/radioGroupDifficulty"
-        android:layout_width="426dp"
+        android:layout_width="350dp"
         android:layout_height="84dp"
         android:layout_marginTop="15dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textViewDifficulty">
 
@@ -24,7 +24,7 @@
             android:gravity="center_horizontal"
             android:tag="easy"
             android:text="Easy"
-            android:textSize="25sp" />
+            android:textSize="20sp" />
 
         <RadioButton
             android:id="@+id/radioHard"
@@ -33,12 +33,12 @@
             android:gravity="center_horizontal"
             android:tag="hard"
             android:text="Hard"
-            android:textSize="25sp" />
+            android:textSize="20sp" />
     </RadioGroup>
 
     <RadioGroup
         android:id="@+id/radioGroupColor"
-        android:layout_width="419dp"
+        android:layout_width="350dp"
         android:layout_height="115dp"
         android:layout_marginTop="15dp"
         android:gravity="center_horizontal"
@@ -55,7 +55,7 @@
             android:tag="-65536"
             android:text="Red"
             android:textColor="@android:color/holo_red_dark"
-            android:textSize="25sp" />
+            android:textSize="20sp" />
 
         <RadioButton
             android:id="@+id/radioBlue"
@@ -65,7 +65,7 @@
             android:tag="-16776961"
             android:text="Blue"
             android:textColor="@android:color/holo_blue_dark"
-            android:textSize="25sp" />
+            android:textSize="20sp" />
 
         <RadioButton
             android:id="@+id/radioGreen"
@@ -76,20 +76,22 @@
             android:tag="-16711936"
             android:text="Green"
             android:textColor="@android:color/holo_green_dark"
-            android:textSize="25sp" />
+            android:textSize="20sp" />
     </RadioGroup>
 
     <TextView
         android:id="@+id/textViewCusomization"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="35dp"
+        android:layout_marginStart="104dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="104dp"
         android:background="#00FF6A"
+        android:gravity="center_horizontal"
         android:text="Customizations"
         android:textColor="@android:color/black"
-        android:textSize="45sp"
+        android:textSize="30sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.632"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -97,12 +99,12 @@
         android:id="@+id/textViewColorTheme"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="35dp"
+        android:layout_marginTop="15dp"
         android:text="Color Theme"
         android:textColor="@android:color/black"
-        android:textSize="35sp"
+        android:textSize="25sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintHorizontal_bias="0.476"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textViewCusomization" />
 
@@ -110,10 +112,10 @@
         android:id="@+id/textViewDifficulty"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="25dp"
+        android:layout_marginTop="15dp"
         android:text="Difficulty"
         android:textColor="@android:color/black"
-        android:textSize="35sp"
+        android:textSize="25sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
@@ -123,10 +125,10 @@
         android:id="@+id/textViewSoundTrack"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="25dp"
+        android:layout_marginTop="15dp"
         android:text="Sound Track"
         android:textColor="@android:color/black"
-        android:textSize="35sp"
+        android:textSize="25sp"
         app:layout_constraintBottom_toTopOf="@+id/radioGroupSoundtrack"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
@@ -135,11 +137,11 @@
 
     <RadioGroup
         android:id="@+id/radioGroupSoundtrack"
-        android:layout_width="0dp"
+        android:layout_width="350dp"
         android:layout_height="115dp"
         android:layout_marginTop="15dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textViewSoundTrack">
 
@@ -151,7 +153,7 @@
             android:gravity="center_horizontal"
             android:tag="noSoundtrack"
             android:text="No Music"
-            android:textSize="25sp" />
+            android:textSize="20sp" />
 
         <RadioButton
             android:id="@+id/radioSoundtrack1"
@@ -159,7 +161,7 @@
             android:layout_height="wrap_content"
             android:gravity="center_horizontal"
             android:text="Sound Track 1"
-            android:textSize="25sp" />
+            android:textSize="20sp" />
 
         <RadioButton
             android:id="@+id/radioSoundtrack2"
@@ -167,20 +169,22 @@
             android:layout_height="wrap_content"
             android:gravity="center_horizontal"
             android:text="Sound Track 2"
-            android:textSize="25sp" />
+            android:textSize="20sp" />
     </RadioGroup>
 
     <Button
         android:id="@+id/btnStart"
         android:layout_width="172dp"
         android:layout_height="65dp"
-        android:layout_marginTop="25dp"
+        android:layout_marginStart="123dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="124dp"
         android:background="#00FF6A"
+        android:onClick="btnStartFunc"
         android:text="START"
         android:textColor="@android:color/black"
         android:textSize="35sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/radioGroupSoundtrack" />
 

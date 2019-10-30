@@ -71,7 +71,7 @@ public class CurrUser {
 
     public void setColorSelected(int colorSelected) {
         this.colorSelected = colorSelected;
-        gameDB.execSQL("UPDATE users WHERE username='"+this.getUsername()+"' SET colorSelected= '"+colorSelected+"'");
+        gameDB.execSQL("UPDATE users SET colorSelected= '"+colorSelected+"' WHERE username = '"+this.getUsername()+"'");
     }
 
     public String getDifficultySelected() {
@@ -80,7 +80,7 @@ public class CurrUser {
 
     public void setDifficultySelected(String difficultySelected) {
         this.difficultySelected = difficultySelected;
-        gameDB.execSQL("UPDATE users WHERE username = '"+this.getUsername()+"' SET difficultySelected= '"+difficultySelected+"'");
+        gameDB.execSQL("UPDATE users SET difficultySelected= '"+difficultySelected+"' WHERE username = '"+this.getUsername()+"'");
     }
 
     public int getMusicSelected() {
@@ -89,7 +89,8 @@ public class CurrUser {
 
     public void setMusicSelected(int musicSelected) {
         this.musicSelected = musicSelected;
-        gameDB.execSQL("UPDATE users WHERE username = '"+this.getUsername()+"' SET musicSelected= '"+musicSelected+"'");
+
+        gameDB.execSQL("UPDATE users SET musicSelected= '"+musicSelected+"' WHERE username = '"+this.getUsername()+"'");
     }
 
     public int getCurrLevel() {
@@ -98,7 +99,7 @@ public class CurrUser {
 
     public void setCurrLevel(int currLevel) {
         this.currLevel = currLevel;
-        gameDB.execSQL("UPDATE users WHERE username = '"+this.getUsername()+"' SET currLevel= '"+currLevel+"'");
+        gameDB.execSQL("UPDATE users SET currLevel= '"+currLevel+"' WHERE username = '"+this.getUsername()+"'");
     }
 
     public int getL1EasyBestScore() {
@@ -125,7 +126,7 @@ public class CurrUser {
 
     public void setL1RecentScore(int l1RecentScore) {
         this.l1RecentScore = l1RecentScore;
-        gameDB.execSQL("UPDATE users WHERE username = '"+this.getUsername()+"' SET l1RecentScore= '"+l1RecentScore+"'");
+        gameDB.execSQL("UPDATE users SET l1RecentScore= '"+l1RecentScore+"' WHERE username = '"+this.getUsername()+"'");
     }
 
     public int getL2EasyBestScore() {
@@ -134,7 +135,7 @@ public class CurrUser {
 
     public void setL2EasyBestScore(int l2EasyBestScore) {
         this.l2EasyBestScore = l2EasyBestScore;
-        gameDB.execSQL("UPDATE users WHERE username = '"+this.getUsername()+"' SET l2EasyBestScore= '"+l2EasyBestScore+"'");
+        gameDB.execSQL("UPDATE users SET l2EasyBestScore= '"+l2EasyBestScore+"' WHERE username = '"+this.getUsername()+"'");
     }
 
     public int getL2HardBestScore() {
@@ -143,7 +144,7 @@ public class CurrUser {
 
     public void setL2HardBestScore(int l2HardBestScore) {
         this.l2HardBestScore = l2HardBestScore;
-        gameDB.execSQL("UPDATE users WHERE username = '"+this.getUsername()+"' SET l2HardBestScore= '"+l2HardBestScore+"'");
+        gameDB.execSQL("UPDATE users SET l2HardBestScore= '"+l2HardBestScore+"' WHERE username = '"+this.getUsername()+"'");
     }
 
     public int getL2RecentScore() {
@@ -152,7 +153,7 @@ public class CurrUser {
 
     public void setL2RecentScore(int l2RecentScore) {
         this.l2RecentScore = l2RecentScore;
-        gameDB.execSQL("UPDATE users WHERE username = '"+this.getUsername()+"' SET l2RecentScore= '"+l2RecentScore+"'");
+        gameDB.execSQL("UPDATE users SET l2RecentScore= '"+l2RecentScore+"' WHERE username = '"+this.getUsername()+"'");
     }
 
     public int getL3EasyBestScore() {
@@ -161,7 +162,7 @@ public class CurrUser {
 
     public void setL3EasyBestScore(int l3EasyBestScore) {
         this.l3EasyBestScore = l3EasyBestScore;
-        gameDB.execSQL("UPDATE users WHERE username = '"+this.getUsername()+"' SET l3EasyBestScore= '"+l3EasyBestScore+"'");
+        gameDB.execSQL("UPDATE users SET l3EasyBestScore= '"+l3EasyBestScore+"' WHERE username = '"+this.getUsername()+"'");
     }
 
     public int getL3HardBestScore() {
@@ -170,7 +171,7 @@ public class CurrUser {
 
     public void setL3HardBestScore(int l3HardBestScore) {
         this.l3HardBestScore = l3HardBestScore;
-        gameDB.execSQL("UPDATE users WHERE username = '"+this.getUsername()+"' SET l3HardBestScore= '"+l3HardBestScore+"'");
+        gameDB.execSQL("UPDATE users SET l3HardBestScore= '"+l3HardBestScore+"' WHERE username = '"+this.getUsername()+"'");
     }
 
     public int getL3RecentScore() {
@@ -179,6 +180,6 @@ public class CurrUser {
 
     public void setL3RecentScore(int l3RecentScore) {
         this.l3RecentScore = l3RecentScore;
-        gameDB.execSQL("UPDATE users WHERE username = '"+this.getUsername()+"' SET l3RecentScore= '"+l3RecentScore+"'");
+        gameDB.execSQL("UPDATE users SET l3RecentScore= '"+l3RecentScore+"' WHERE username = '"+this.getUsername()+"'");
     }
 }

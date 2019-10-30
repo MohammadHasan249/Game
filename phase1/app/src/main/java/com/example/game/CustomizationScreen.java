@@ -20,6 +20,7 @@ public class CustomizationScreen extends AppCompatActivity {
     MediaPlayer currMedia;
 
     public void btnStartFunc(View view){
+
         radioCheckedColor = findViewById(radioGroupColor.getCheckedRadioButtonId());
         radioCheckedDifficulty = findViewById(radioGroupDifficulty.getCheckedRadioButtonId());
         radioCheckedSoundtrack = findViewById(radioGroupSoundtrack.getCheckedRadioButtonId());
@@ -28,13 +29,6 @@ public class CustomizationScreen extends AppCompatActivity {
         user.setDifficultySelected(radioCheckedDifficulty.getTag().toString());
         user.setMusicSelected(Integer.parseInt(radioCheckedSoundtrack.getTag().toString()));
         user.setCurrLevel(1);
-
-        System.out.println(user.getUsername() + " USERNAME MARKER");
-        System.out.println(user.getColorSelected() + " COLOR MARKER");
-        System.out.println(user.getDifficultySelected() + " DIFFICULTY MARKER");
-        System.out.println(user.getMusicSelected() + " MUSIC MARKER");
-        System.out.println(user.getCurrLevel() + " LEVEL MARKER");
-
 
         if (currMedia != null){
             currMedia.stop();
