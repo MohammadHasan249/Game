@@ -1,17 +1,17 @@
-package com.example.game;
+package com.example.game.FlipCardGame;
 
 import android.content.Context;
 import android.os.CountDownTimer;
+import android.os.SystemClock;
 import android.view.Gravity;
+import android.widget.Chronometer;
 import android.widget.TableLayout;
 import android.widget.TableRow;
 import android.widget.TextView;
 
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.Observable;
 import java.util.Random;
-import java.util.Timer;
 
 public class FlipCardGameManager {
     private String difficulty;
@@ -24,8 +24,10 @@ public class FlipCardGameManager {
     private TableLayout stk;
     private ArrayList<FlipCards> allCards;
     private FlipCardMain observer;
+    private boolean firstClick;
+    private Chronometer timer;
 
-    FlipCardGameManager(String difficulty, int colorInt, TextView flipCardScore, Context packageContext, TableLayout stk, FlipCardMain observer) {
+    FlipCardGameManager(String difficulty, int colorInt, TextView flipCardScore, Context packageContext, TableLayout stk, FlipCardMain observer, Chronometer timer) {
         this.difficulty = difficulty;
         this.setNumMatches(this.difficulty);
         this.cardBackColor = colorInt;
@@ -36,15 +38,28 @@ public class FlipCardGameManager {
         this.numMatchAttempt = 0;
         this.allCards = this.generateCards(this.numMatches);
         this.observer = observer;
+        this.firstClick = false;
+        this.timer = timer;
     }
 
     void update() {
+        if (!this.firstClick) {
+            this.timer.setBase(SystemClock.elapsedRealtime());
+            this.timer.start();
+            this.firstClick = true;
+        }
         this.updateCards();
         if (this.numCorrect == this.numMatches) {
-            this.observer.endGame();
+            this.timer.stop();
+            long timeToCompleteMs = this.returnElapsedTime();
+            FlipCardResult newResult = new FlipCardResult(this.difficulty, this.numCorrect, this.numMatchAttempt, timeToCompleteMs);
+            this.observer.endGame(newResult);
         }
     }
 
+    private long returnElapsedTime() {
+        return SystemClock.elapsedRealtime() - this.timer.getBase();
+    }
     private void updateCards() {
         ArrayList<FlipCards> flipped = new ArrayList<>();
         for (FlipCards f : this.allCards) {

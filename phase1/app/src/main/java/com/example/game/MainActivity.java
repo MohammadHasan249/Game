@@ -14,6 +14,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.example.game.FlipCardGame.FlipCardInit;
+
 public class MainActivity extends AppCompatActivity {
     public void goFlipCard(View view) {
         Intent start = new Intent(getApplicationContext(), FlipCardInit.class);

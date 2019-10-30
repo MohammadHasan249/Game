@@ -1,10 +1,14 @@
-package com.example.game;
+package com.example.game.FlipCardGame;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.widget.Chronometer;
 import android.widget.TableLayout;
 import android.widget.TextView;
+
+import com.example.game.R;
 
 public class FlipCardMain extends AppCompatActivity {
 
@@ -18,13 +22,17 @@ public class FlipCardMain extends AppCompatActivity {
             String difficulty = receiver.getString("Level");
             TextView flipCardScore = findViewById(R.id.flipCardScore);
             TableLayout stk = findViewById(R.id.tableLayoutFlipCard);
-            FlipCardGameManager newGame = new FlipCardGameManager(difficulty, Color.RED, flipCardScore, this.getApplicationContext(), stk, this);
+            Chronometer timer = findViewById(R.id.flipCardTimer);
+            FlipCardGameManager newGame = new FlipCardGameManager(difficulty, Color.RED,
+                    flipCardScore, this.getApplicationContext(), stk, this, timer);
         }
     }
 
-    void endGame() {
-        System.out.println("results");
+    void endGame(FlipCardResult newResult) {
+        Intent showResult = new Intent(this, FlipCardResultViewHandler.class);
+        showResult.putExtra("FlipCardResult", newResult);
+        finish();
+        startActivity(showResult);
     }
-
     }
 

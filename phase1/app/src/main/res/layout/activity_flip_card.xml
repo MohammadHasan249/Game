@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".FlipCardMain">
+    tools:context=".FlipCardGame.FlipCardMain">
 
     <TextView
         android:id="@+id/flipCardScore"
@@ -17,6 +17,21 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <Chronometer
+        android:id="@+id/flipCardTimer"
+        android:layout_width="108dp"
+        android:layout_height="47dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginBottom="16dp"
+        android:textColor="#EE070E"
+        android:textSize="30sp"
+        app:layout_constraintBottom_toTopOf="@+id/tableLayoutFlipCard"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.17"
+        app:layout_constraintStart_toStartOf="@+id/imageView"
+        app:layout_constraintTop_toBottomOf="@+id/imageView"
+        app:layout_constraintVertical_bias="0.0" />
+
     <ImageView
         android:id="@+id/imageView"
         android:layout_width="122dp"
@@ -26,28 +41,13 @@
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/clock" />
 
-    <TextView
-        android:id="@+id/countDownTimerTextView"
-        android:layout_width="75dp"
-        android:layout_height="47dp"
-        android:layout_marginTop="10dp"
-        android:text=" 00s"
-        android:textColor="#0995E9"
-        android:textSize="36sp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView" />
-
     <TableLayout
         android:id="@+id/tableLayoutFlipCard"
         android:layout_width="411dp"
         android:layout_height="486dp"
-        android:layout_marginTop="32dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/countDownTimerTextView">
+        app:layout_constraintStart_toStartOf="parent">
 
         <TableRow
             android:layout_width="match_parent"
@@ -65,16 +65,6 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent" />
     </TableLayout>
-
-    <Button
-        android:id="@+id/startPauseButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="10dp"
-        android:layout_marginTop="10dp"
-        android:text="Start"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
