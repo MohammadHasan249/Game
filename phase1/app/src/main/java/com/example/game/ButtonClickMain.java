@@ -18,12 +18,29 @@ public class ButtonClickMain extends AppCompatActivity {
     private Button[][] buttons = new Button[5][4];
     Random r = new Random();
     CountDownTimer timer;
+    int glob_r;
+    int glob_c;
+
 
 
     void goButtonClickResult(View view) {
         Intent goResult = new Intent(getApplicationContext(), ButtonClickResult.class);
         startActivity(goResult);
     }
+
+    private void buttonVisVisible(Button[][] buttons){
+        int testR = r.nextInt(5);
+        int testC = r.nextInt(4);
+        buttons[testR][testC].setVisibility(View.VISIBLE);
+        glob_r = testR;
+        glob_c = testC;
+    }
+
+    private void buttonVisInvisible(Button[][] buttons){
+        buttons[glob_r][glob_c].setVisibility(View.INVISIBLE);
+
+    }
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,24 +53,27 @@ public class ButtonClickMain extends AppCompatActivity {
                 Button currentButton = new Button(this);
                 buttons[r][c] = currentButton;
                 currentRow.addView(currentButton);
+                buttons[r][c].setVisibility(View.INVISIBLE);
             }
             tableLayout.addView(currentRow);
         }
-        /**
+
         Bundle bundle = getIntent().getExtras();
         //start_time = (int) bundle.get("Time");
         //startRandomButton(mainButton);
         timer = new CountDownTimer(60000, 1000){
             @Override
             public void onTick(long millisUntilFinished) {
-                //setButtonRandomPosition();
+                buttonVisVisible(buttons);
+
             }
             public void onFinish() {
+
                 // So far have made intent to go to result screen
                 //goMathGameResult();
                 // Should also save data to SQL from here
             }
-        };
-         */
+        }.start();
+
     }
 }
