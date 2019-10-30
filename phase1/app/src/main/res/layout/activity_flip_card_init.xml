@@ -16,6 +16,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/flipCardInitTitle"
         android:checkedButton="@+id/rdEasy">
+
         <RadioButton
             android:id="@+id/rdEasy"
             android:layout_width="224dp"
@@ -25,8 +26,9 @@
             android:layout_marginTop="40dp"
             android:text="Easy"
             android:textAlignment="center"
-            android:textColor="#3F51B5"
-            android:textSize="30sp" />
+            android:textColor="#1EE922"
+            android:textSize="30sp"
+            android:textStyle="bold" />
 
         <RadioButton
             android:id="@+id/rdHard"
@@ -37,8 +39,9 @@
             android:layout_marginTop="40dp"
             android:text="Hard"
             android:textAlignment="center"
-            android:textColor="#673AB7"
+            android:textColor="#043CDD"
             android:textSize="30sp"
+            android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="@id/rdEasy"
             app:layout_constraintTop_toBottomOf="@id/rdEasy" />
 
@@ -53,6 +56,7 @@
             android:textAlignment="center"
             android:textColor="#E91E63"
             android:textSize="30sp"
+            android:textStyle="bold"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="parent" />
 
@@ -60,13 +64,14 @@
 
     <TextView
         android:id="@+id/flipCardInitTitle"
-        android:layout_width="395dp"
-        android:layout_height="50dp"
+        android:layout_width="391dp"
+        android:layout_height="54dp"
         android:layout_marginTop="16dp"
+        android:fontFamily="sans-serif-black"
         android:text="Choose Difficulty"
         android:textAlignment="center"
-        android:textColor="#E91E63"
-        android:textSize="36sp"
+        android:textColor="#000000"
+        android:textSize="40sp"
         app:layout_constraintTop_toTopOf="parent"
         tools:layout_editor_absoluteX="12dp" />
 
@@ -75,7 +80,7 @@
         android:layout_width="126dp"
         android:layout_height="58dp"
         android:layout_marginTop="5dp"
-        android:layout_marginEnd="12dp"
+        android:layout_marginEnd="8dp"
         android:onClick="startGame"
         android:text="Start Game"
         app:layout_constraintEnd_toEndOf="@+id/radioGroup"
