@@ -1,9 +1,11 @@
 package com.example.game;
 
+import android.content.Context;
 import android.content.Intent;
 import android.content.res.Resources;
 import android.graphics.Point;
 import android.os.Bundle;
+import android.os.CountDownTimer;
 import android.util.DisplayMetrics;
 import android.util.Log;
 import android.view.Display;
@@ -19,21 +21,17 @@ import java.util.Random;
 public class ButtonClickMain extends AppCompatActivity {
 
     private ArrayList<Button> buttons;
-    private Random r = new Random();
+    Button button_main;
+    Random r = new Random();
+    CountDownTimer timer;
 
-    public static int getScreenWidth() {
-        return Resources.getSystem().getDisplayMetrics().widthPixels;
-    }
-
-    public static int getScreenHeight() {
-        return Resources.getSystem().getDisplayMetrics().heightPixels;
-    }
 
     public void setButtons(int n) {
         for (int i = 0; i < n; i++) {
+            Random y = new Random();
             Button b = new Button(this);
-            b.setX(r.nextInt(getScreenWidth()));
-            b.setY(r.nextInt(getScreenHeight()));
+            //b.setX(y.nextInt(getDisplaySize(this).x));
+            //b.setY(y.nextInt(getDisplaySize(this).y));
             buttons.add(b);
         }
     }
@@ -42,16 +40,25 @@ public class ButtonClickMain extends AppCompatActivity {
         Intent goResult = new Intent(getApplicationContext(), ButtonClickResult.class);
         startActivity(goResult);
     }
-    public void setButtonRandomPosition(View view){
-        int randomX = new Random().nextInt(getScreenWidth());
-        int randomY = new Random().nextInt(getScreenHeight());
-        view.setX(randomX);
-        view.setY(randomY);
-    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_button_click_main);
+        Bundle bundle = getIntent().getExtras();
+        //start_time = (int) bundle.get("Time");
+        //startRandomButton(mainButton);
+
+        timer = new CountDownTimer(60000, 1000){
+            @Override
+            public void onTick(long millisUntilFinished) {
+                //setButtonRandomPosition();
+            }
+            public void onFinish() {
+                // So far have made intent to go to result screen
+                //goMathGameResult();
+                // Should also save data to SQL from here
+            }
+        };
     }
 }
