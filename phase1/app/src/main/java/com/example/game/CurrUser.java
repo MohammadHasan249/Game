@@ -16,8 +16,8 @@ public class CurrUser {
 
     private String username;
 
-    private int colorSelected;
-    private String difficultySelected, musicSelected;
+    private int colorSelected, musicSelected;
+    private String difficultySelected;
 
     private int currLevel;
 
@@ -40,7 +40,7 @@ public class CurrUser {
         // Fill customizations
         colorSelected = c.getInt(c.getColumnIndex("colorSelected"));
         difficultySelected = c.getString(c.getColumnIndex("difficultySelected"));
-        musicSelected = c.getString(c.getColumnIndex("musicSelected"));
+        musicSelected = c.getInt(c.getColumnIndex("musicSelected"));
 
         // Fill level left off at
         currLevel = c.getInt(c.getColumnIndex("currLevel"));
@@ -83,11 +83,11 @@ public class CurrUser {
         gameDB.execSQL("UPDATE users WHERE username = '"+this.getUsername()+"' SET difficultySelected= '"+difficultySelected+"'");
     }
 
-    public String getMusicSelected() {
+    public int getMusicSelected() {
         return musicSelected;
     }
 
-    public void setMusicSelected(String musicSelected) {
+    public void setMusicSelected(int musicSelected) {
         this.musicSelected = musicSelected;
         gameDB.execSQL("UPDATE users WHERE username = '"+this.getUsername()+"' SET musicSelected= '"+musicSelected+"'");
     }
@@ -121,7 +121,6 @@ public class CurrUser {
 
     public int getL1RecentScore() {
         return l1RecentScore;
-
     }
 
     public void setL1RecentScore(int l1RecentScore) {

@@ -22,6 +22,7 @@
             android:layout_height="wrap_content"
             android:checked="true"
             android:gravity="center_horizontal"
+            android:tag="easy"
             android:text="Easy"
             android:textSize="25sp" />
 
@@ -30,6 +31,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center_horizontal"
+            android:tag="hard"
             android:text="Hard"
             android:textSize="25sp" />
     </RadioGroup>
@@ -50,6 +52,7 @@
             android:layout_height="wrap_content"
             android:checked="true"
             android:gravity="center_horizontal"
+            android:tag="-65536"
             android:text="Red"
             android:textColor="@android:color/holo_red_dark"
             android:textSize="25sp" />
@@ -59,6 +62,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center_horizontal"
+            android:tag="-16776961"
             android:text="Blue"
             android:textColor="@android:color/holo_blue_dark"
             android:textSize="25sp" />
@@ -69,6 +73,7 @@
             android:layout_height="wrap_content"
             android:checked="false"
             android:gravity="center_horizontal"
+            android:tag="-16711936"
             android:text="Green"
             android:textColor="@android:color/holo_green_dark"
             android:textSize="25sp" />
@@ -122,14 +127,14 @@
         android:text="Sound Track"
         android:textColor="@android:color/black"
         android:textSize="35sp"
-        app:layout_constraintBottom_toTopOf="@+id/radioGroupMusic"
+        app:layout_constraintBottom_toTopOf="@+id/radioGroupSoundtrack"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/radioGroupDifficulty" />
 
     <RadioGroup
-        android:id="@+id/radioGroupMusic"
+        android:id="@+id/radioGroupSoundtrack"
         android:layout_width="0dp"
         android:layout_height="115dp"
         android:layout_marginTop="15dp"
@@ -144,11 +149,12 @@
             android:layout_height="wrap_content"
             android:checked="true"
             android:gravity="center_horizontal"
+            android:tag="noSoundtrack"
             android:text="No Music"
             android:textSize="25sp" />
 
         <RadioButton
-            android:id="@+id/radioButton4"
+            android:id="@+id/radioSoundtrack1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center_horizontal"
@@ -156,7 +162,7 @@
             android:textSize="25sp" />
 
         <RadioButton
-            android:id="@+id/radioButton5"
+            android:id="@+id/radioSoundtrack2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center_horizontal"
@@ -176,6 +182,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/radioGroupMusic" />
+        app:layout_constraintTop_toBottomOf="@+id/radioGroupSoundtrack" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
