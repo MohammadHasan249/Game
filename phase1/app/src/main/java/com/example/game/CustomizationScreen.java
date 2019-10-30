@@ -15,7 +15,7 @@ public class CustomizationScreen extends AppCompatActivity {
 
     RadioGroup radioGroupColor, radioGroupDifficulty, radioGroupSoundtrack;
     RadioButton radioCheckedColor, radioCheckedDifficulty, radioCheckedSoundtrack;
-    RadioButton radioSoundtrack1, radioSoundtrack2;
+    RadioButton radioNoSoundtrack, radioSoundtrack1, radioSoundtrack2;
     CurrUser user;
     MediaPlayer currMedia;
 
@@ -30,11 +30,17 @@ public class CustomizationScreen extends AppCompatActivity {
         user.setMusicSelected(Integer.parseInt(radioCheckedSoundtrack.getTag().toString()));
         user.setCurrLevel(1);
 
+        System.out.println("MARKER 0");
         if (currMedia != null){
+            System.out.println("MARKER 1");
             currMedia.stop();
+
         }
-        currMedia = MediaPlayer.create(this, user.getMusicSelected());
-        currMedia.start();
+        if (user.getMusicSelected() != 0){
+            System.out.println("MARKER 2");
+            currMedia = MediaPlayer.create(this, user.getMusicSelected());
+            currMedia.start();
+        }
     }
 
 
@@ -49,7 +55,9 @@ public class CustomizationScreen extends AppCompatActivity {
 
         radioSoundtrack1 = findViewById(R.id.radioSoundtrack1);
         radioSoundtrack2 = findViewById(R.id.radioSoundtrack2);
+        radioNoSoundtrack = findViewById(R.id.radioNoSountrack);
 
+        radioNoSoundtrack.setTag(0);
         radioSoundtrack1.setTag(R.raw.soundtrack1);
         radioSoundtrack2.setTag(R.raw.soundtrack2);
 
