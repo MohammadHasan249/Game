@@ -1,4 +1,4 @@
-package com.example.game;
+package com.example.game.FlipCardGame;
 
 import android.content.Context;
 import android.graphics.Color;

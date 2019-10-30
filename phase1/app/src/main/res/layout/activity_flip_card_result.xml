@@ -4,7 +4,32 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".FlipCardResult">
+    tools:context=".FlipCardGame.FlipCardResultViewHandler">
+
+    <TextView
+        android:id="@+id/DifficultyTextView"
+        android:layout_width="395dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="16dp"
+        android:textAlignment="center"
+        android:textColor="#673AB7"
+        android:textSize="36sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/DifficultyTitle" />
+
+    <TextView
+        android:id="@+id/DifficultyTitle"
+        android:layout_width="395dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="16dp"
+        android:text="Difficulty"
+        android:textAlignment="center"
+        android:textColor="#E91E63"
+        android:textSize="40dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/resultsTitle" />
 
     <EditText
         android:id="@+id/resultsTitle"
@@ -23,71 +48,48 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:id="@+id/stat1Title"
-        android:layout_width="130dp"
+        android:id="@+id/TimetoCompletionTitle"
+        android:layout_width="223dp"
         android:layout_height="47dp"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="@android:dimen/notification_large_icon_height"
+        android:layout_marginStart="76dp"
+        android:layout_marginTop="36dp"
         android:ems="10"
         android:inputType="textPersonName"
-        android:text="Total Time:"
+        android:text="Time to Completion"
         android:textColor="#03A9F4"
         android:textSize="24sp"
         android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.236"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/resultsTitle" />
+        app:layout_constraintTop_toBottomOf="@+id/DifficultyTextView" />
+
+    <TextView
+        android:id="@+id/NumCorrectMatchesTextView"
+        android:layout_width="80dp"
+        android:layout_height="32dp"
+        android:layout_marginStart="176dp"
+        android:layout_marginTop="8dp"
+        android:text="TextView"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/NumCorrectMatchesTitle" />
+
+    <TextView
+        android:id="@+id/TimetoCompletionTextView"
+        android:layout_width="80dp"
+        android:layout_height="32dp"
+        android:layout_marginStart="176dp"
+        android:layout_marginTop="8dp"
+        android:text="TextView"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/TimetoCompletionTitle" />
 
     <EditText
-        android:id="@+id/stat3Title"
-        android:layout_width="318dp"
-        android:layout_height="51dp"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="64dp"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:text="Correct Matches Per Minute:"
-        android:textColor="#11DD19"
-        android:textSize="24sp"
-        android:textStyle="bold"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/stat2Title" />
-
-    <TextView
-        android:id="@+id/stat1Result"
-        android:layout_width="80dp"
-        android:layout_height="32dp"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="8dp"
-        android:text="TextView"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/stat1Title" />
-
-    <TextView
-        android:id="@+id/stat3Result"
-        android:layout_width="80dp"
-        android:layout_height="32dp"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="8dp"
-        android:text="TextView"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/stat3Title" />
-
-    <TextView
-        android:id="@+id/stat2Result"
-        android:layout_width="80dp"
-        android:layout_height="32dp"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="8dp"
-        android:text="TextView"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/stat2Title" />
-
-    <EditText
-        android:id="@+id/stat2Title"
+        android:id="@+id/NumIncorrectTitle"
         android:layout_width="213dp"
         android:layout_height="52dp"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="@android:dimen/notification_large_icon_width"
+        android:layout_marginStart="104dp"
+        android:layout_marginTop="32dp"
         android:ems="10"
         android:inputType="textPersonName"
         android:text="Incorrect Matches:"
@@ -95,7 +97,34 @@
         android:textSize="24sp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/stat1Title" />
+        app:layout_constraintTop_toBottomOf="@+id/NumCorrectMatchesTextView" />
+
+    <TextView
+        android:id="@+id/NumIncorrectTextView"
+        android:layout_width="80dp"
+        android:layout_height="32dp"
+        android:layout_marginStart="176dp"
+        android:layout_marginTop="8dp"
+        android:text="TextView"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/NumIncorrectTitle" />
+
+    <EditText
+        android:id="@+id/NumCorrectMatchesTitle"
+        android:layout_width="208dp"
+        android:layout_height="45dp"
+        android:layout_marginStart="112dp"
+        android:layout_marginTop="20dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="Correct Matches"
+        android:textColor="#11DD19"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/TimetoCompletionTextView" />
 
     <Button
         android:id="@+id/playAgainButton"

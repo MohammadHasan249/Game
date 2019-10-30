@@ -1,11 +1,14 @@
-package com.example.game;
+package com.example.game.FlipCardGame;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.widget.Chronometer;
 import android.widget.TableLayout;
 import android.widget.TextView;
+
+import com.example.game.R;
 
 public class FlipCardMain extends AppCompatActivity {
 
@@ -25,9 +28,11 @@ public class FlipCardMain extends AppCompatActivity {
         }
     }
 
-    void endGame() {
-        System.out.println("results");
+    void endGame(FlipCardResult newResult) {
+        Intent showResult = new Intent(this, FlipCardResultViewHandler.class);
+        showResult.putExtra("FlipCardResult", newResult);
+        finish();
+        startActivity(showResult);
     }
-
     }
 

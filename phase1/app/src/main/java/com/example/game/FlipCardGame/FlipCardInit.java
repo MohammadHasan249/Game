@@ -1,4 +1,4 @@
-package com.example.game;
+package com.example.game.FlipCardGame;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -6,6 +6,8 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.RadioButton;
+
+import com.example.game.R;
 
 public class FlipCardInit extends AppCompatActivity {
     // easy is level 1, hard is level 2 and insane is level 3

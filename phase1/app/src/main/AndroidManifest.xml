@@ -11,9 +11,9 @@
         android:theme="@style/AppTheme">
         <activity android:name=".CustomizationScreen"></activity>
         <activity android:name=".HomePage" />
-        <activity android:name=".FlipCardResult" />
-        <activity android:name=".FlipCardInit" />
-        <activity android:name=".FlipCardMain" />
+        <activity android:name=".FlipCardGame.FlipCardResultViewHandler" />
+        <activity android:name=".FlipCardGame.FlipCardInit" />
+        <activity android:name=".FlipCardGame.FlipCardMain" />
         <activity android:name=".MathGameResult" />
         <activity android:name=".MathGame" />
         <activity android:name=".ButtonClickStart" />

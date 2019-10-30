@@ -1,4 +1,4 @@
-package com.example.game;
+package com.example.game.FlipCardGame;
 
 import android.content.Context;
 import android.os.CountDownTimer;
@@ -24,8 +24,8 @@ public class FlipCardGameManager {
     private TableLayout stk;
     private ArrayList<FlipCards> allCards;
     private FlipCardMain observer;
-    private boolean firstclick;
-    Chronometer timer;
+    private boolean firstClick;
+    private Chronometer timer;
 
     FlipCardGameManager(String difficulty, int colorInt, TextView flipCardScore, Context packageContext, TableLayout stk, FlipCardMain observer, Chronometer timer) {
         this.difficulty = difficulty;
@@ -38,27 +38,27 @@ public class FlipCardGameManager {
         this.numMatchAttempt = 0;
         this.allCards = this.generateCards(this.numMatches);
         this.observer = observer;
-        this.firstclick = false;
+        this.firstClick = false;
         this.timer = timer;
     }
 
     void update() {
-        if (!this.firstclick) {
+        if (!this.firstClick) {
             this.timer.setBase(SystemClock.elapsedRealtime());
             this.timer.start();
-            this.firstclick = true;
+            this.firstClick = true;
         }
         this.updateCards();
         if (this.numCorrect == this.numMatches) {
             this.timer.stop();
-            this.returnElapsedTime();
-            this.observer.endGame();
+            long timeToCompleteMs = this.returnElapsedTime();
+            FlipCardResult newResult = new FlipCardResult(this.difficulty, this.numCorrect, this.numMatchAttempt, timeToCompleteMs);
+            this.observer.endGame(newResult);
         }
     }
 
-    private int returnElapsedTime() {
-        long elapsedMillis = SystemClock.elapsedRealtime() - this.timer.getBase();
-        return Math.round(elapsedMillis / 1000);
+    private long returnElapsedTime() {
+        return SystemClock.elapsedRealtime() - this.timer.getBase();
     }
     private void updateCards() {
         ArrayList<FlipCards> flipped = new ArrayList<>();
