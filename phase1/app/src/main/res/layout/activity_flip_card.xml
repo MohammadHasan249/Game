@@ -6,6 +6,17 @@
     android:layout_height="match_parent"
     tools:context=".FlipCardMain">
 
+    <TextView
+        android:id="@+id/flipCardScore"
+        android:layout_width="106dp"
+        android:layout_height="56dp"
+        android:layout_marginTop="32dp"
+        android:scrollbarSize="0sp"
+        android:text="0 | 0"
+        android:textSize="30sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <ImageView
         android:id="@+id/imageView"
         android:layout_width="122dp"
