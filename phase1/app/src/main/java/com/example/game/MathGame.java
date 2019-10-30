@@ -20,6 +20,7 @@ public class MathGame extends AppCompatActivity {
     int fourNumBound, numOfAdditions, numOfAdditionBounds, startValue, startValueHolder, randomIndex, time_ms, intHolder;
     boolean timer_set;
     CountDownTimer timer;
+//    Timer timer;
 
     // End result stats variables
     int numCorrect, numFailedAttempts, timeHolder;
