@@ -12,6 +12,9 @@ import android.view.Display;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.Button;
+import android.widget.LinearLayout;
+import android.widget.TableLayout;
+import android.widget.TableRow;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -20,20 +23,27 @@ import java.util.Random;
 
 public class ButtonClickMain extends AppCompatActivity {
 
-    private ArrayList<Button> buttons;
-    Button button_main;
+    private Button[][] buttons = new Button[4][4];
+    LinearLayout linearLayout = findViewById(R.id.linearLayoutbtns);
+    TableLayout tableLayout;
+    TableRow currentRow;
+    Button button;
     Random r = new Random();
     CountDownTimer timer;
 
 
-    public void setButtons(int n) {
-        for (int i = 0; i < n; i++) {
-            Random y = new Random();
-            Button b = new Button(this);
-            //b.setX(y.nextInt(getDisplaySize(this).x));
-            //b.setY(y.nextInt(getDisplaySize(this).y));
-            buttons.add(b);
+    public void setButtons() {
+        tableLayout = new TableLayout(this);
+        for (int row = 0; row < 4; row++) {
+            currentRow = new TableRow(this);
+            for (int col = 0; col < 4; col++) {
+                button = new Button(this);
+                buttons[row][col] = button;
+                currentRow.addView(button);
+            }
+            this.tableLayout.addView(currentRow);
         }
+        linearLayout.addView(tableLayout);
     }
 
     void goButtonClickResult(View view) {
@@ -48,7 +58,7 @@ public class ButtonClickMain extends AppCompatActivity {
         Bundle bundle = getIntent().getExtras();
         //start_time = (int) bundle.get("Time");
         //startRandomButton(mainButton);
-
+        setButtons();
         timer = new CountDownTimer(60000, 1000){
             @Override
             public void onTick(long millisUntilFinished) {
