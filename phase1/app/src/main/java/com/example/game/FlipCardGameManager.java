@@ -116,7 +116,7 @@ public class FlipCardGameManager {
 
     private void setNumMatches(String difficulty) {
         if (difficulty.equals("easy"))
-            this.numMatches = 1;
+            this.numMatches = 10;
         else
             this.numMatches = 20;
     }

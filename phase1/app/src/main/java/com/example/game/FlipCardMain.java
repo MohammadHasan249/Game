@@ -6,8 +6,6 @@ import android.os.Bundle;
 import android.widget.TableLayout;
 import android.widget.TextView;
 
-import java.util.Observer;
-import java.util.Observable;
 public class FlipCardMain extends AppCompatActivity {
 
     @Override

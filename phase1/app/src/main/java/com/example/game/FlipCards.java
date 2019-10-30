@@ -84,7 +84,6 @@ class FlipCards {
                     flipCard();
                     manager.update();
                 }
-
             }
         };
     }
