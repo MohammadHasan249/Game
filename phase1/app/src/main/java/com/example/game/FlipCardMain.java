@@ -3,6 +3,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.graphics.Color;
 import android.os.Bundle;
+import android.widget.Chronometer;
 import android.widget.TableLayout;
 import android.widget.TextView;
 
@@ -18,7 +19,9 @@ public class FlipCardMain extends AppCompatActivity {
             String difficulty = receiver.getString("Level");
             TextView flipCardScore = findViewById(R.id.flipCardScore);
             TableLayout stk = findViewById(R.id.tableLayoutFlipCard);
-            FlipCardGameManager newGame = new FlipCardGameManager(difficulty, Color.RED, flipCardScore, this.getApplicationContext(), stk, this);
+            Chronometer timer = findViewById(R.id.flipCardTimer);
+            FlipCardGameManager newGame = new FlipCardGameManager(difficulty, Color.RED,
+                    flipCardScore, this.getApplicationContext(), stk, this, timer);
         }
     }
 

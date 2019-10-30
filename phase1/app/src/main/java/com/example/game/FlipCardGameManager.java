@@ -2,16 +2,16 @@ package com.example.game;
 
 import android.content.Context;
 import android.os.CountDownTimer;
+import android.os.SystemClock;
 import android.view.Gravity;
+import android.widget.Chronometer;
 import android.widget.TableLayout;
 import android.widget.TableRow;
 import android.widget.TextView;
 
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.Observable;
 import java.util.Random;
-import java.util.Timer;
 
 public class FlipCardGameManager {
     private String difficulty;
@@ -24,8 +24,10 @@ public class FlipCardGameManager {
     private TableLayout stk;
     private ArrayList<FlipCards> allCards;
     private FlipCardMain observer;
+    private boolean firstclick;
+    Chronometer timer;
 
-    FlipCardGameManager(String difficulty, int colorInt, TextView flipCardScore, Context packageContext, TableLayout stk, FlipCardMain observer) {
+    FlipCardGameManager(String difficulty, int colorInt, TextView flipCardScore, Context packageContext, TableLayout stk, FlipCardMain observer, Chronometer timer) {
         this.difficulty = difficulty;
         this.setNumMatches(this.difficulty);
         this.cardBackColor = colorInt;
@@ -36,15 +38,28 @@ public class FlipCardGameManager {
         this.numMatchAttempt = 0;
         this.allCards = this.generateCards(this.numMatches);
         this.observer = observer;
+        this.firstclick = false;
+        this.timer = timer;
     }
 
     void update() {
+        if (!this.firstclick) {
+            this.timer.setBase(SystemClock.elapsedRealtime());
+            this.timer.start();
+            this.firstclick = true;
+        }
         this.updateCards();
         if (this.numCorrect == this.numMatches) {
+            this.timer.stop();
+            this.returnElapsedTime();
             this.observer.endGame();
         }
     }
 
+    private int returnElapsedTime() {
+        long elapsedMillis = SystemClock.elapsedRealtime() - this.timer.getBase();
+        return Math.round(elapsedMillis / 1000);
+    }
     private void updateCards() {
         ArrayList<FlipCards> flipped = new ArrayList<>();
         for (FlipCards f : this.allCards) {
