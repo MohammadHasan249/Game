@@ -24,14 +24,14 @@ import java.util.Random;
 public class ButtonClickMain extends AppCompatActivity {
 
     private Button[][] buttons = new Button[4][4];
-    LinearLayout linearLayout = findViewById(R.id.linearLayoutbtns);
-    TableLayout tableLayout;
-    TableRow currentRow;
+    //LinearLayout linearLayout = findViewById(R.id.linearLayoutbtns);
+    //TableLayout tableLayout;
+    //TableRow currentRow;
     Button button;
     Random r = new Random();
     CountDownTimer timer;
 
-
+/**
     public void setButtons() {
         tableLayout = new TableLayout(this);
         for (int row = 0; row < 4; row++) {
@@ -45,7 +45,7 @@ public class ButtonClickMain extends AppCompatActivity {
         }
         linearLayout.addView(tableLayout);
     }
-
+*/
     void goButtonClickResult(View view) {
         Intent goResult = new Intent(getApplicationContext(), ButtonClickResult.class);
         startActivity(goResult);
@@ -55,10 +55,10 @@ public class ButtonClickMain extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_button_click_main);
+        /**
         Bundle bundle = getIntent().getExtras();
         //start_time = (int) bundle.get("Time");
         //startRandomButton(mainButton);
-        setButtons();
         timer = new CountDownTimer(60000, 1000){
             @Override
             public void onTick(long millisUntilFinished) {
@@ -70,5 +70,6 @@ public class ButtonClickMain extends AppCompatActivity {
                 // Should also save data to SQL from here
             }
         };
+         */
     }
 }
