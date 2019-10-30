@@ -51,9 +51,9 @@ public class MainActivity extends AppCompatActivity {
         currUserName = editTextUserName.getText().toString();
         currPassword = editTextPassword.getText().toString();
 
-        if (currUserName == "" || currUserName.length() < 3 ){
+        if (currUserName.isEmpty() || currUserName.length() < 3 ){
             Toast.makeText(getApplicationContext(), "Username must contain at least 3 letters", Toast.LENGTH_SHORT).show();
-        }else if (currPassword == "" || currPassword.length() < 3){
+        }else if (currPassword.isEmpty() || currPassword.length() < 3){
             Toast.makeText(getApplicationContext(), "Password must contain at least 3 letters", Toast.LENGTH_SHORT).show();
         }else{
             Cursor c = gameDB.rawQuery("SELECT * FROM users WHERE username = '"+currUserName+"'", null);
@@ -62,7 +62,7 @@ public class MainActivity extends AppCompatActivity {
                 // Sign up the user if the username typed in is not in database
                 gameDB.execSQL("INSERT INTO users (username, password) VALUES ('"+currUserName+"', '"+currPassword+"')");
                 // Unspecified column values by default become Int = 0, VARCHAR = null
-
+                c.close();
                 login();
             }else{
                 Toast.makeText(getApplicationContext(), "Username already exists", Toast.LENGTH_SHORT).show();
@@ -79,6 +79,7 @@ public class MainActivity extends AppCompatActivity {
             passwordIndex = c.getColumnIndex("password");
             if(currPassword.equals(c.getString(passwordIndex))){
                 //Found existing existing user with username / password matching inputs
+                c.close();
                 login();
             }else{
                 Toast.makeText(getApplicationContext(), "Incorrect Password", Toast.LENGTH_SHORT).show();
@@ -106,8 +107,16 @@ public class MainActivity extends AppCompatActivity {
 
         gameDB = this.openOrCreateDatabase("gameDB", MODE_PRIVATE, null);
 
+
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// IF YOU GET AN ERROR UNCOMMENT THESE 2 LINES AND RUN ONCE, THEN comment Out these 2 lines again
+
 //        gameDB.execSQL("DROP TABLE users");
 //        sharedPreferences.edit().putString("loggedInUsername", "NA").apply();
+
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
 
         gameDB.execSQL("CREATE TABLE IF NOT EXISTS users (username VARCHAR, password VARCHAR, currLevel INT(2), " +
                 "colorSelected INT(2), difficultySelected VARCHAR, musicSelected VARCHAR, " +
