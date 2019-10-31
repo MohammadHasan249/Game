@@ -18,9 +18,6 @@ public class ButtonClickMain extends AppCompatActivity {
     private Button[][] buttons = new Button[5][4];
     Random r = new Random();
     CountDownTimer timer;
-    int glob_r;
-    int glob_c;
-
 
 
     void goButtonClickResult(View view) {
@@ -32,12 +29,6 @@ public class ButtonClickMain extends AppCompatActivity {
         int testR = r.nextInt(5);
         int testC = r.nextInt(4);
         buttons[testR][testC].setVisibility(View.VISIBLE);
-        glob_r = testR;
-        glob_c = testC;
-    }
-
-    private void buttonVisInvisible(Button[][] buttons){
-        buttons[glob_r][glob_c].setVisibility(View.INVISIBLE);
 
     }
 
@@ -53,20 +44,24 @@ public class ButtonClickMain extends AppCompatActivity {
                 Button currentButton = new Button(this);
                 buttons[r][c] = currentButton;
                 currentRow.addView(currentButton);
-                buttons[r][c].setVisibility(View.INVISIBLE);
             }
             tableLayout.addView(currentRow);
         }
 
         Bundle bundle = getIntent().getExtras();
-        //start_time = (int) bundle.get("Time");
-        //startRandomButton(mainButton);
+
         timer = new CountDownTimer(60000, 1000){
             @Override
             public void onTick(long millisUntilFinished) {
+                for (int r = 0; r < 5; r++) {
+                    for (int c = 0; c < 4; c++) {
+                        buttons[r][c].setVisibility(View.INVISIBLE);
+                    }
+                }
                 buttonVisVisible(buttons);
 
             }
+            
             public void onFinish() {
 
                 // So far have made intent to go to result screen
