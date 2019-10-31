@@ -13,7 +13,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Random;
 
-public class FlipCardGameManager {
+class FlipCardGameManager {
     private String difficulty;
     private int numMatches;
     private int numCorrect;
@@ -145,9 +145,9 @@ public class FlipCardGameManager {
     //set numMatches based on the difficulty of the game selected buy the user
     private void setNumMatches(String difficulty) {
         if (difficulty.equals("easy"))
-            this.numMatches = 10;
+            this.numMatches = 8;
         else
-            this.numMatches = 20;
+            this.numMatches = 16;
     }
 
     //generates a new table row in our table layout
@@ -166,7 +166,7 @@ public class FlipCardGameManager {
         int i = 0;
         TableRow tbrow = this.generateNewRow();
         for (Character s : charList) {
-            if (i == 5) {
+            if (i == 4) {
                 this.stk.addView(tbrow);
                 tbrow = this.generateNewRow();
                 i = 0;
