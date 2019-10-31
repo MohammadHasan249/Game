@@ -52,5 +52,6 @@ public class FlipCardResult implements Serializable {
 
     void setFlipCardResult(CurrUser user) {
         user.setL3RecentScore(this.timeToCompletion);
+        user.updateL3BestScore();
     }
 }
