@@ -7,9 +7,9 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TableLayout;
 import android.widget.TableRow;
+import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.constraintlayout.widget.ConstraintLayout;
 
 import java.util.Random;
 
@@ -19,12 +19,14 @@ public class ButtonClickMain extends AppCompatActivity {
     private Button[][] buttons = new Button[5][4];
     Random r = new Random();
     CountDownTimer timer;
-    //CurrUser user;
+    CurrUser user;
     int diff_time;
+    static int numClicks = 0;
+    static int score = 0;
     //----------------------------------
 
-    void goButtonClickResult(View view) {
-        Intent goResult = new Intent(getApplicationContext(), ButtonClickResult.class);
+    void goButtonClickResult() {
+        Intent goResult = new Intent(this, ButtonClickResult.class);
         startActivity(goResult);
     }
 
@@ -33,38 +35,49 @@ public class ButtonClickMain extends AppCompatActivity {
         int testR = r.nextInt(5);
         int testC = r.nextInt(4);
         buttons[testR][testC].setVisibility(View.VISIBLE);
+    }
 
+    private View.OnClickListener handleOnClick(final Button button) {
+        return new View.OnClickListener() {
+            public void onClick(View v) {
+                numClicks += 1;
+                if (button.getVisibility() == View.VISIBLE) {
+                    score += 1;
+                }
+            }
+        };
     }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_button_click_main);
+        user.setCurrLevel(1);
+        final TextView scoreTxt = findViewById(R.id.scoreBtnClick);
         TableLayout tableLayout = findViewById(R.id.tableLayoutBtns);
-        //--------User Creation and Parsing---------
-        //user = new CurrUser(this);
 
-//        if(user.getDifficultySelected().equals("hard")){
-//            diff_time = 333;
-//        }
-//        else{
-//            diff_time = 1000;
-//        }
+        //--------User Creation and Parsing---------
+        user = new CurrUser(this);
+
+        if(user.getDifficultySelected().equals("hard")){
+            diff_time = 333;
+        }
+        else{
+            diff_time = 1000;
+        }
 
         //----Creation of Button Grid---------
         for (int r = 0; r < 5; r++) {
             TableRow currentRow = new TableRow(this);
             for (int c = 0; c < 4; c++) {
                 Button currentButton = new Button(this);
-                //currentButton.setBackgroundColor(user.getColorSelected()); //Colour Customization
+                currentButton.setOnClickListener(handleOnClick(currentButton));
+                currentButton.setBackgroundColor(user.getColorSelected()); //Colour Customization
                 buttons[r][c] = currentButton;
                 currentRow.addView(currentButton);
             }
             tableLayout.addView(currentRow);
         }
-
-
-        Bundle bundle = getIntent().getExtras(); //what is this
 
 
         //---- Creation of Timer/Difficulty Customization-----
@@ -80,13 +93,12 @@ public class ButtonClickMain extends AppCompatActivity {
                 }
                 //Set a random button to visible
                 buttonVisVisible(buttons);
-
+                scoreTxt.setText(score);
             }
 
             public void onFinish() {
-
                 // So far have made intent to go to result screen
-                //goMathGameResult();
+                goButtonClickResult();
                 // Should also save data to SQL from here
             }
         }.start();

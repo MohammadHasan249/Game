@@ -3,6 +3,7 @@ package com.example.game;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.media.MediaPlayer;
@@ -41,6 +42,9 @@ public class CustomizationScreen extends AppCompatActivity {
             currMedia = MediaPlayer.create(this, user.getMusicSelected());
             currMedia.start();
         }
+
+        Intent goLevel1 = new Intent(this, ButtonClickMain.class);
+        startActivity(goLevel1);
     }
 
 
