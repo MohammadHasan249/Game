@@ -30,7 +30,7 @@ public class CurrUser {
     // Level 3 (Flip Card)
     private int l3EasyBestScore, l3HardBestScore, l3RecentScore;
 
-    CurrUser(Context context){
+    public CurrUser(Context context) {
         sharedPreferences = context.getSharedPreferences(context.getPackageName(), MODE_PRIVATE);
         username = sharedPreferences.getString("loggedInUsername", "NA");
         gameDB = context.openOrCreateDatabase("gameDB", MODE_PRIVATE, null);

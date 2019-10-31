@@ -24,6 +24,7 @@ public class FlipCardResultViewHandler extends AppCompatActivity {
         numIncorrect.setText(newResult.getStrNumIncorrect());
     }
 
+    // recieves an instance of the FlipCardResult Class then display the scores within that object
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

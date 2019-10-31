@@ -2,16 +2,16 @@ package com.example.game.FlipCardGame;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
-import android.graphics.Color;
 import android.os.Bundle;
 import android.widget.Chronometer;
 import android.widget.TableLayout;
 import android.widget.TextView;
 
+import com.example.game.CurrUser;
 import com.example.game.R;
 
 public class FlipCardMain extends AppCompatActivity {
-
+    CurrUser user;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -19,16 +19,18 @@ public class FlipCardMain extends AppCompatActivity {
         Bundle receiver = getIntent().getExtras();
         if (receiver != null)
         {
-            String difficulty = receiver.getString("Level");
+            user = new CurrUser(this);
             TextView flipCardScore = findViewById(R.id.flipCardScore);
             TableLayout stk = findViewById(R.id.tableLayoutFlipCard);
             Chronometer timer = findViewById(R.id.flipCardTimer);
-            FlipCardGameManager newGame = new FlipCardGameManager(difficulty, Color.RED,
+            FlipCardGameManager newGame = new FlipCardGameManager(user.getDifficultySelected(), user.getColorSelected(),
                     flipCardScore, this.getApplicationContext(), stk, this, timer);
         }
     }
 
     void endGame(FlipCardResult newResult) {
+        newResult.setFlipCardResult(user);
+        //newResult.Updatel3HighScore();
         Intent showResult = new Intent(this, FlipCardResultViewHandler.class);
         showResult.putExtra("FlipCardResult", newResult);
         finish();

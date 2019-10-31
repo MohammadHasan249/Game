@@ -8,35 +8,35 @@
 
     <TextView
         android:id="@+id/flipCardScore"
-        android:layout_width="106dp"
-        android:layout_height="56dp"
-        android:layout_marginTop="32dp"
+        android:layout_width="369dp"
+        android:layout_height="55dp"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="20dp"
         android:scrollbarSize="0sp"
         android:text="0 | 0"
-        android:textSize="30sp"
+        android:textColor="#000000"
+        android:textSize="36sp"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView" />
 
     <Chronometer
         android:id="@+id/flipCardTimer"
         android:layout_width="108dp"
         android:layout_height="47dp"
-        android:layout_marginTop="24dp"
-        android:layout_marginBottom="16dp"
+        android:layout_marginTop="45dp"
         android:textColor="#EE070E"
         android:textSize="30sp"
-        app:layout_constraintBottom_toTopOf="@+id/tableLayoutFlipCard"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.17"
-        app:layout_constraintStart_toStartOf="@+id/imageView"
-        app:layout_constraintTop_toBottomOf="@+id/imageView"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintStart_toEndOf="@+id/imageView"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
         android:id="@+id/imageView"
-        android:layout_width="122dp"
-        android:layout_height="126dp"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_width="111dp"
+        android:layout_height="104dp"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="10dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/clock" />
@@ -65,6 +65,16 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent" />
     </TableLayout>
+
+    <ImageView
+        android:id="@+id/imageView4"
+        android:layout_width="147dp"
+        android:layout_height="132dp"
+        android:layout_marginTop="11dp"
+        android:layout_marginEnd="2dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/brain" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

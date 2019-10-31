@@ -1,7 +1,10 @@
 package com.example.game.FlipCardGame;
 
+import com.example.game.CurrUser;
+
 import java.io.Serializable;
 
+//a class to keep track of all the results in the flip card game
 public class FlipCardResult implements Serializable {
     private int numCorrect;
     private int timeToCompletion;
@@ -32,8 +35,7 @@ public class FlipCardResult implements Serializable {
     }
 
     String getStrTimeToCompletion() {
-        String toReturn = Integer.toString(this.timeToCompletion) + " seconds";
-        return toReturn;
+        return (this.timeToCompletion) + " seconds";
     }
 
     String getStrNumCorrect() {
@@ -46,5 +48,9 @@ public class FlipCardResult implements Serializable {
 
     String getStrDifficulty() {
         return this.difficulty;
+    }
+
+    void setFlipCardResult(CurrUser user) {
+        user.setL3RecentScore(this.timeToCompletion);
     }
 }

@@ -8,40 +8,43 @@
 
     <TextView
         android:id="@+id/DifficultyTextView"
-        android:layout_width="395dp"
-        android:layout_height="50dp"
+        android:layout_width="185dp"
+        android:layout_height="51dp"
         android:layout_marginTop="16dp"
         android:textAlignment="center"
-        android:textColor="#673AB7"
+        android:textColor="#923AB7"
         android:textSize="36sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/DifficultyTitle" />
+        app:layout_constraintStart_toEndOf="@+id/DifficultyTitle"
+        app:layout_constraintTop_toBottomOf="@+id/resultsTitle" />
 
     <TextView
         android:id="@+id/DifficultyTitle"
-        android:layout_width="395dp"
-        android:layout_height="50dp"
+        android:layout_width="187dp"
+        android:layout_height="51dp"
         android:layout_marginTop="16dp"
-        android:text="Difficulty"
+        android:fontFamily="sans-serif-medium"
+        android:text="Difficulty:"
         android:textAlignment="center"
-        android:textColor="#E91E63"
+        android:textColor="#000000"
         android:textSize="40dp"
-        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/resultsTitle" />
 
     <EditText
         android:id="@+id/resultsTitle"
-        android:layout_width="169dp"
-        android:layout_height="59dp"
+        android:layout_width="165dp"
+        android:layout_height="70dp"
         android:layout_marginTop="24dp"
         android:ems="10"
+        android:fontFamily="sans-serif-black"
         android:inputType="textPersonName"
         android:text="Results"
         android:textAlignment="center"
+        android:textColor="#000000"
         android:textIsSelectable="false"
-        android:textSize="36sp"
+        android:textSize="42sp"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.493"
         app:layout_constraintStart_toStartOf="parent"
@@ -49,28 +52,27 @@
 
     <EditText
         android:id="@+id/TimetoCompletionTitle"
-        android:layout_width="223dp"
-        android:layout_height="47dp"
-        android:layout_marginStart="76dp"
-        android:layout_marginTop="36dp"
+        android:layout_width="128dp"
+        android:layout_height="45dp"
+        android:layout_marginTop="110dp"
         android:ems="10"
         android:inputType="textPersonName"
-        android:text="Time to Completion"
+        android:text="Total Time"
         android:textColor="#03A9F4"
         android:textSize="24sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.236"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/DifficultyTextView" />
+        app:layout_constraintTop_toBottomOf="@+id/resultsTitle" />
 
     <TextView
         android:id="@+id/NumCorrectMatchesTextView"
         android:layout_width="80dp"
         android:layout_height="32dp"
-        android:layout_marginStart="176dp"
         android:layout_marginTop="8dp"
         android:text="TextView"
+        android:textColor="#000000"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/NumCorrectMatchesTitle" />
 
@@ -78,9 +80,10 @@
         android:id="@+id/TimetoCompletionTextView"
         android:layout_width="80dp"
         android:layout_height="32dp"
-        android:layout_marginStart="176dp"
         android:layout_marginTop="8dp"
         android:text="TextView"
+        android:textColor="#000000"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/TimetoCompletionTitle" />
 
@@ -88,14 +91,14 @@
         android:id="@+id/NumIncorrectTitle"
         android:layout_width="213dp"
         android:layout_height="52dp"
-        android:layout_marginStart="104dp"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="25dp"
         android:ems="10"
         android:inputType="textPersonName"
-        android:text="Incorrect Matches:"
+        android:text="Incorrect Matches"
         android:textColor="#F00710"
         android:textSize="24sp"
         android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/NumCorrectMatchesTextView" />
 
@@ -103,18 +106,18 @@
         android:id="@+id/NumIncorrectTextView"
         android:layout_width="80dp"
         android:layout_height="32dp"
-        android:layout_marginStart="176dp"
         android:layout_marginTop="8dp"
         android:text="TextView"
+        android:textColor="#000000"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/NumIncorrectTitle" />
 
     <EditText
         android:id="@+id/NumCorrectMatchesTitle"
-        android:layout_width="208dp"
-        android:layout_height="45dp"
-        android:layout_marginStart="112dp"
-        android:layout_marginTop="20dp"
+        android:layout_width="190dp"
+        android:layout_height="51dp"
+        android:layout_marginTop="25dp"
         android:ems="10"
         android:inputType="textPersonName"
         android:text="Correct Matches"
@@ -122,7 +125,6 @@
         android:textSize="24sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/TimetoCompletionTextView" />
 
@@ -136,5 +138,13 @@
         android:text="Play Again"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
+
+    <ImageView
+        android:id="@+id/imageView5"
+        android:layout_width="184dp"
+        android:layout_height="125dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:srcCompat="@drawable/results_meme" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
