@@ -42,6 +42,10 @@ public class FlipCardGameManager {
         this.timer = timer;
     }
 
+    //this is an update class that is called when the cards are flipped
+    // if this is the first click, it will start the timer then call updatecards
+    // if the game is over when the player got all the matches then stop the timer and pass back
+    // the flip card result class to the observer(FlipCardMain) to end the intent there
     void update() {
         if (!this.firstClick) {
             this.timer.setBase(SystemClock.elapsedRealtime());
@@ -57,9 +61,14 @@ public class FlipCardGameManager {
         }
     }
 
+    //calculating the time elapsed
     private long returnElapsedTime() {
         return SystemClock.elapsedRealtime() - this.timer.getBase();
     }
+
+    //goes over the list of all cards, if 2 of them are flipped, check if they are a match
+    // if they are then update cards and lock them
+    //if they aren't then we put a delay then flip them back
     private void updateCards() {
         ArrayList<FlipCards> flipped = new ArrayList<>();
         for (FlipCards f : this.allCards) {
@@ -86,6 +95,7 @@ public class FlipCardGameManager {
         }
     }
 
+    // putting delay then flipping the 2 in correctly matched cards back
     private void nonMatchCardDelay(final FlipCards f1, final FlipCards f2) {
         new CountDownTimer(450, 450) {
             public void onTick(long millisUntilFinished) {
@@ -99,11 +109,14 @@ public class FlipCardGameManager {
         }.start();
     }
 
+    //update score board
     private void updateScore() {
         String toShow = (this.numCorrect) + " | " + (this.numMatchAttempt);
         this.flipCardScore.setText(toShow);
     }
 
+    //generates a random list of symbols with size numMatches times 2, so every match will have
+    // 2 cards with the same symbol
     private ArrayList<Character> symbolGenerator(int numMatches) {
         Random rand = new Random();
         ArrayList<Character> charList = new ArrayList<>();
@@ -129,6 +142,7 @@ public class FlipCardGameManager {
         return charList;
     }
 
+    //set numMatches based on the difficulty of the game selected buy the user
     private void setNumMatches(String difficulty) {
         if (difficulty.equals("easy"))
             this.numMatches = 10;
@@ -136,6 +150,7 @@ public class FlipCardGameManager {
             this.numMatches = 20;
     }
 
+    //generates a new table row in our table layout
     private TableRow generateNewRow() {
         TableRow tbrow = new TableRow(this.packageContext);
         tbrow.setGravity(Gravity.CENTER_HORIZONTAL);
@@ -143,6 +158,7 @@ public class FlipCardGameManager {
         return tbrow;
     }
 
+    //generates cards of the game and adds them to a list to keep track of them.
     private ArrayList<FlipCards> generateCards(int numMatches) {
         ArrayList<Character> charList = this.symbolGenerator(numMatches);
         ArrayList<FlipCards> allCardCreation = new ArrayList<>();

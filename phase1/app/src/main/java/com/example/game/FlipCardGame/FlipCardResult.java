@@ -2,6 +2,7 @@ package com.example.game.FlipCardGame;
 
 import java.io.Serializable;
 
+//a class to keep track of all the results in the flip card game
 public class FlipCardResult implements Serializable {
     private int numCorrect;
     private int timeToCompletion;
@@ -32,8 +33,7 @@ public class FlipCardResult implements Serializable {
     }
 
     String getStrTimeToCompletion() {
-        String toReturn = Integer.toString(this.timeToCompletion) + " seconds";
-        return toReturn;
+        return (this.timeToCompletion) + " seconds";
     }
 
     String getStrNumCorrect() {

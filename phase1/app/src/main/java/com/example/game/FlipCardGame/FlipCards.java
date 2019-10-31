@@ -30,8 +30,9 @@ class FlipCards {
         this.enabled = true;
         this.manager = manager;
     }
-    private Drawable setBoarderColor(Button btnInstance, int cardBackColor, int btnWidth)
-    {
+
+    //setting the color with the boarder of the card
+    private Drawable setBoarderColor(Button btnInstance, int cardBackColor, int btnWidth) {
         GradientDrawable drawable = new GradientDrawable();
         drawable.setShape(GradientDrawable.RECTANGLE);
         drawable.setStroke(btnWidth, Color.BLACK);
@@ -45,18 +46,14 @@ class FlipCards {
         return this.flipped;
     }
 
-    void flipCard()
-    {
-        if (enabled)
-        {
-            if (!flipped)
-            {
+    //flip the card
+    void flipCard() {
+        if (enabled) {
+            if (!flipped) {
                 this.btnInstance.setText(symbol);
                 btnInstance.setBackgroundColor(Color.WHITE);
                 flipped = !flipped;
-            }
-            else
-            {
+            } else {
                 this.btnInstance.setText("");
                 btnInstance.setBackground(fullColor);
                 flipped = !flipped;
@@ -69,6 +66,7 @@ class FlipCards {
         return this.symbol;
     }
 
+    //disables the card and prevents it from being clicked again
     void lockCard()
     {
         this.btnInstance.setEnabled(false);
@@ -76,7 +74,7 @@ class FlipCards {
         this.flipped= false;
     }
 
-    //setting on click
+    //when the card is clicked, it flips then call the update on the observer(FlipCardGameManager)
     private View.OnClickListener handleOnClick(final Button button) {
         return new View.OnClickListener() {
             public void onClick(View v) {
