@@ -94,7 +94,7 @@ public class ButtonClickMain extends AppCompatActivity {
             }
             // Set a random button to visible
             buttonVisVisible(buttons);
-            scoreTxt.setText(String.valueOf(score));
+            scoreTxt.setText(score + " | " + numClicks);
           }
 
           public void onFinish() {
