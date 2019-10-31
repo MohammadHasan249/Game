@@ -27,6 +27,8 @@ public class ButtonClickMain extends AppCompatActivity {
 
     void goButtonClickResult() {
         Intent goResult = new Intent(this, ButtonClickResult.class);
+        goResult.putExtra("Total Clicks", numClicks);
+        goResult.putExtra("Score", score);
         startActivity(goResult);
     }
 
@@ -40,10 +42,19 @@ public class ButtonClickMain extends AppCompatActivity {
     private View.OnClickListener handleOnClick(final Button button) {
         return new View.OnClickListener() {
             public void onClick(View v) {
-                numClicks += 1;
                 if (button.getVisibility() == View.VISIBLE) {
+                    numClicks += 1;
                     score += 1;
                 }
+            }
+        };
+    }
+
+    private View.OnClickListener handleIncorrect() {
+        return new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                numClicks += 1;
             }
         };
     }
@@ -55,6 +66,7 @@ public class ButtonClickMain extends AppCompatActivity {
         final TextView scoreTxt = findViewById(R.id.scoreBtnClick);
         final TextView countDownTxt = findViewById(R.id.countDownText);
         TableLayout tableLayout = findViewById(R.id.tableLayoutBtns);
+        tableLayout.setOnClickListener(handleIncorrect());
 
         //--------User Creation and Parsing---------
         user = new CurrUser(this);
@@ -103,6 +115,7 @@ public class ButtonClickMain extends AppCompatActivity {
             // So far have made intent to go to result screen
             goButtonClickResult();
             // Should also save data to SQL from here
+            user.setL1RecentScore(score);
           }
         }.start();
     }
