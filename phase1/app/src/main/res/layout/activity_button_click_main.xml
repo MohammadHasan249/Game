@@ -22,7 +22,7 @@
         android:layout_height="39dp"
         android:layout_marginStart="60dp"
         android:layout_marginTop="8dp"
-        android:text="00s"
+        android:text="60s"
         android:textAlignment="center"
         android:textColor="#03A9F4"
         android:textSize="30sp"

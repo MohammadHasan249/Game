@@ -53,6 +53,7 @@ public class ButtonClickMain extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_button_click_main);
         final TextView scoreTxt = findViewById(R.id.scoreBtnClick);
+        final TextView countDownTxt = findViewById(R.id.countDownText);
         TableLayout tableLayout = findViewById(R.id.tableLayoutBtns);
 
         //--------User Creation and Parsing---------
@@ -95,6 +96,7 @@ public class ButtonClickMain extends AppCompatActivity {
             // Set a random button to visible
             buttonVisVisible(buttons);
             scoreTxt.setText(score + " | " + numClicks);
+            countDownTxt.setText((int) millisUntilFinished/1000 + "s");
           }
 
           public void onFinish() {
