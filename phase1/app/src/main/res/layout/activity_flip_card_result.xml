@@ -8,13 +8,14 @@
 
     <TextView
         android:id="@+id/DifficultyTextView"
-        android:layout_width="185dp"
-        android:layout_height="51dp"
-        android:layout_marginTop="16dp"
-        android:textAlignment="center"
-        android:textColor="#923AB7"
+        android:layout_width="183dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="20dp"
+        android:textAlignment="textStart"
+        android:textColor="#5507C5"
         android:textSize="36sp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.157"
         app:layout_constraintStart_toEndOf="@+id/DifficultyTitle"
         app:layout_constraintTop_toBottomOf="@+id/resultsTitle" />
 
@@ -35,7 +36,7 @@
         android:id="@+id/resultsTitle"
         android:layout_width="165dp"
         android:layout_height="70dp"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="5dp"
         android:ems="10"
         android:fontFamily="sans-serif-black"
         android:inputType="textPersonName"
@@ -67,22 +68,28 @@
 
     <TextView
         android:id="@+id/NumCorrectMatchesTextView"
-        android:layout_width="80dp"
-        android:layout_height="32dp"
+        android:layout_width="347dp"
+        android:layout_height="28dp"
         android:layout_marginTop="8dp"
         android:text="TextView"
+        android:textAlignment="center"
         android:textColor="#000000"
+        android:textSize="19sp"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/NumCorrectMatchesTitle" />
 
     <TextView
         android:id="@+id/TimetoCompletionTextView"
-        android:layout_width="80dp"
-        android:layout_height="32dp"
+        android:layout_width="347dp"
+        android:layout_height="31dp"
         android:layout_marginTop="8dp"
         android:text="TextView"
+        android:textAlignment="center"
         android:textColor="#000000"
+        android:textSize="19sp"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/TimetoCompletionTitle" />
@@ -91,7 +98,7 @@
         android:id="@+id/NumIncorrectTitle"
         android:layout_width="213dp"
         android:layout_height="52dp"
-        android:layout_marginTop="25dp"
+        android:layout_marginTop="10dp"
         android:ems="10"
         android:inputType="textPersonName"
         android:text="Incorrect Matches"
@@ -104,11 +111,14 @@
 
     <TextView
         android:id="@+id/NumIncorrectTextView"
-        android:layout_width="80dp"
-        android:layout_height="32dp"
+        android:layout_width="347dp"
+        android:layout_height="30dp"
         android:layout_marginTop="8dp"
         android:text="TextView"
+        android:textAlignment="center"
         android:textColor="#000000"
+        android:textSize="18sp"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/NumIncorrectTitle" />
@@ -117,7 +127,7 @@
         android:id="@+id/NumCorrectMatchesTitle"
         android:layout_width="190dp"
         android:layout_height="51dp"
-        android:layout_marginTop="25dp"
+        android:layout_marginTop="10dp"
         android:ems="10"
         android:inputType="textPersonName"
         android:text="Correct Matches"
@@ -141,10 +151,12 @@
 
     <ImageView
         android:id="@+id/imageView5"
-        android:layout_width="184dp"
-        android:layout_height="125dp"
+        android:layout_width="218dp"
+        android:layout_height="146dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/NumIncorrectTextView"
+        app:layout_constraintVertical_bias="0.98"
         app:srcCompat="@drawable/results_meme" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

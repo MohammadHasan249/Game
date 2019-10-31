@@ -5,17 +5,18 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".FlipCardGame.FlipCardInit">
+
     <RadioGroup
         android:id="@+id/radioGroup"
-        android:layout_width="402dp"
-        android:layout_height="490dp"
+        android:layout_width="427dp"
+        android:layout_height="493dp"
         android:layout_marginTop="32dp"
+        android:checkedButton="@+id/rdEasy"
         android:orientation="vertical"
         app:layout_constraintBottom_toTopOf="@+id/btnStart"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/flipCardInitTitle"
-        android:checkedButton="@+id/rdEasy">
+        app:layout_constraintTop_toBottomOf="@+id/flipCardInitTitle">
 
         <RadioButton
             android:id="@+id/rdEasy"
@@ -64,26 +65,26 @@
 
     <TextView
         android:id="@+id/flipCardInitTitle"
-        android:layout_width="391dp"
-        android:layout_height="54dp"
+        android:layout_width="345dp"
+        android:layout_height="60dp"
         android:layout_marginTop="16dp"
         android:fontFamily="sans-serif-black"
         android:text="Choose Difficulty"
         android:textAlignment="center"
         android:textColor="#000000"
         android:textSize="40sp"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:layout_editor_absoluteX="12dp" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/btnStart"
         android:layout_width="126dp"
         android:layout_height="58dp"
-        android:layout_marginTop="5dp"
-        android:layout_marginEnd="8dp"
+        android:layout_marginEnd="20dp"
         android:onClick="startGame"
         android:text="Start Game"
-        app:layout_constraintEnd_toEndOf="@+id/radioGroup"
-        app:layout_constraintTop_toBottomOf="@+id/radioGroup" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/radioGroup" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

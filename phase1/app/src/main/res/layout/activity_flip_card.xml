@@ -8,8 +8,8 @@
 
     <TextView
         android:id="@+id/flipCardScore"
-        android:layout_width="369dp"
-        android:layout_height="55dp"
+        android:layout_width="350dp"
+        android:layout_height="57dp"
         android:layout_marginStart="15dp"
         android:layout_marginTop="20dp"
         android:scrollbarSize="0sp"
@@ -43,11 +43,12 @@
 
     <TableLayout
         android:id="@+id/tableLayoutFlipCard"
-        android:layout_width="411dp"
-        android:layout_height="486dp"
+        android:layout_width="357dp"
+        android:layout_height="469dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent">
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/flipCardScore">
 
         <TableRow
             android:layout_width="match_parent"
@@ -68,8 +69,8 @@
 
     <ImageView
         android:id="@+id/imageView4"
-        android:layout_width="147dp"
-        android:layout_height="132dp"
+        android:layout_width="130dp"
+        android:layout_height="124dp"
         android:layout_marginTop="11dp"
         android:layout_marginEnd="2dp"
         app:layout_constraintEnd_toEndOf="parent"
