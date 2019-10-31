@@ -82,26 +82,26 @@ public class ButtonClickMain extends AppCompatActivity {
 
         //---- Creation of Timer/Difficulty Customization-----
         diff_time = 1000;
-        timer = new CountDownTimer(60000, diff_time){
-            @Override
-            public void onTick(long millisUntilFinished) {
-                //Set every button to be invisible
-                for (int r = 0; r < 5; r++) {
-                    for (int c = 0; c < 4; c++) {
-                        buttons[r][c].setVisibility(View.INVISIBLE);
-                    }
-                }
-                //Set a random button to visible
-                buttonVisVisible(buttons);
-//                scoreTxt.setText(score);
+    timer =
+        new CountDownTimer(60000, diff_time) {
+          @Override
+          public void onTick(long millisUntilFinished) {
+            // Set every button to be invisible
+            for (int r = 0; r < 5; r++) {
+              for (int c = 0; c < 4; c++) {
+                buttons[r][c].setVisibility(View.INVISIBLE);
+              }
             }
+            // Set a random button to visible
+            buttonVisVisible(buttons);
+            scoreTxt.setText(String.valueOf(score));
+          }
 
-            public void onFinish() {
-                // So far have made intent to go to result screen
-                goButtonClickResult();
-                // Should also save data to SQL from here
-            }
+          public void onFinish() {
+            // So far have made intent to go to result screen
+            goButtonClickResult();
+            // Should also save data to SQL from here
+          }
         }.start();
-
     }
 }
