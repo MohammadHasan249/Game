@@ -50,8 +50,8 @@ public class ButtonClickMain extends AppCompatActivity {
         else{
             diff_time = 1000;
         }
-        
-        //----Creation of Button Grid----------
+
+        //----Creation of Button Grid---------
         for (int r = 0; r < 5; r++) {
             TableRow currentRow = new TableRow(this);
             for (int c = 0; c < 4; c++) {
