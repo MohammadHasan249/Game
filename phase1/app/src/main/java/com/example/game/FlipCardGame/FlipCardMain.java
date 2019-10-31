@@ -20,8 +20,8 @@ public class FlipCardMain extends AppCompatActivity {
         Bundle receiver = getIntent().getExtras();
         if (receiver != null)
         {
-            user = new CurrUser(this);
-            user.setCurrLevel(3);
+//            user = new CurrUser(this);
+//            user.setCurrLevel(3);
             TextView flipCardScore = findViewById(R.id.flipCardScore);
             TableLayout stk = findViewById(R.id.tableLayoutFlipCard);
             Chronometer timer = findViewById(R.id.flipCardTimer);
