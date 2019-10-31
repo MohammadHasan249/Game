@@ -19,7 +19,7 @@ public class ButtonClickMain extends AppCompatActivity {
     private Button[][] buttons = new Button[5][4];
     Random r = new Random();
     CountDownTimer timer;
-    CurrUser user;
+    //CurrUser user;
     int diff_time;
     //----------------------------------
 
@@ -42,21 +42,21 @@ public class ButtonClickMain extends AppCompatActivity {
         setContentView(R.layout.activity_button_click_main);
         TableLayout tableLayout = findViewById(R.id.tableLayoutBtns);
         //--------User Creation and Parsing---------
-        user = new CurrUser(this);
+        //user = new CurrUser(this);
 
-        if(user.getDifficultySelected().equals("hard")){
-            diff_time = 333;
-        }
-        else{
-            diff_time = 1000;
-        }
+//        if(user.getDifficultySelected().equals("hard")){
+//            diff_time = 333;
+//        }
+//        else{
+//            diff_time = 1000;
+//        }
 
         //----Creation of Button Grid---------
         for (int r = 0; r < 5; r++) {
             TableRow currentRow = new TableRow(this);
             for (int c = 0; c < 4; c++) {
                 Button currentButton = new Button(this);
-                currentButton.setBackgroundColor(user.getColorSelected()); //Colour Customization
+                //currentButton.setBackgroundColor(user.getColorSelected()); //Colour Customization
                 buttons[r][c] = currentButton;
                 currentRow.addView(currentButton);
             }
@@ -68,6 +68,7 @@ public class ButtonClickMain extends AppCompatActivity {
 
 
         //---- Creation of Timer/Difficulty Customization-----
+        diff_time = 1000;
         timer = new CountDownTimer(60000, diff_time){
             @Override
             public void onTick(long millisUntilFinished) {
