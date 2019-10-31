@@ -52,12 +52,12 @@ public class ButtonClickMain extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_button_click_main);
-        user.setCurrLevel(1);
         final TextView scoreTxt = findViewById(R.id.scoreBtnClick);
         TableLayout tableLayout = findViewById(R.id.tableLayoutBtns);
 
         //--------User Creation and Parsing---------
         user = new CurrUser(this);
+        user.setCurrLevel(1);
 
         if(user.getDifficultySelected().equals("hard")){
             diff_time = 333;
@@ -93,7 +93,7 @@ public class ButtonClickMain extends AppCompatActivity {
                 }
                 //Set a random button to visible
                 buttonVisVisible(buttons);
-                scoreTxt.setText(score);
+//                scoreTxt.setText(score);
             }
 
             public void onFinish() {
