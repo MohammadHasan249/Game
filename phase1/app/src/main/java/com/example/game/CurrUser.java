@@ -61,6 +61,47 @@ public class CurrUser {
         l3RecentScore = c.getInt(c.getColumnIndex("l3RecentScore"));
     }
 
+    // Methods
+    public void updateL1BestScore(){
+        if (this.getDifficultySelected().equals("easy")){
+            if (this.getL1RecentScore() > this.getL1EasyBestScore()){
+                this.setL1EasyBestScore(this.getL1RecentScore());
+            }
+        }else{
+            if (this.getL1RecentScore() > this.getL1HardBestScore()){
+                this.setL1HardBestScore(this.getL1RecentScore());
+            }
+        }
+    }
+
+    public void updateL2BestScore(){
+        if (this.getDifficultySelected().equals("easy")){
+            if (this.getL2RecentScore() > this.getL2EasyBestScore()){
+                this.setL2EasyBestScore(this.getL2RecentScore());
+            }
+        }else{
+            if (this.getL2RecentScore() > this.getL2HardBestScore()){
+                this.setL2HardBestScore(this.getL2RecentScore());
+            }
+        }
+    }
+
+    public void updateL3BestScore(){
+        if (this.getDifficultySelected().equals("easy")){
+            if (this.getL3RecentScore() < this.getL3EasyBestScore()){
+                this.setL1EasyBestScore(this.getL1RecentScore());
+            }
+        }else{
+            if (this.getL3RecentScore() < this.getL3HardBestScore()){
+                this.setL3HardBestScore(this.getL3RecentScore());
+            }
+        }
+    }
+
+
+
+// Setters and Getters
+
     public String getUsername() {
         return username;
     }
@@ -182,4 +223,6 @@ public class CurrUser {
         this.l3RecentScore = l3RecentScore;
         gameDB.execSQL("UPDATE users SET l3RecentScore= '"+l3RecentScore+"' WHERE username = '"+this.getUsername()+"'");
     }
+
+
 }
