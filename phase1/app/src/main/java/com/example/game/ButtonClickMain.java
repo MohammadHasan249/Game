@@ -75,7 +75,8 @@ public class ButtonClickMain extends AppCompatActivity {
         //--------User Creation and Parsing---------
         user = new CurrUser(this);
         user.setCurrLevel(1);
-
+        user.playMusic();
+        
         if(user.getDifficultySelected().equals("hard")){
             diff_time = 333;
         }
