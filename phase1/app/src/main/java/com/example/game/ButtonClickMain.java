@@ -27,6 +27,7 @@ public class ButtonClickMain extends AppCompatActivity {
     //----------------------------------
 
     void goButtonClickResult() {
+        user.stopMusic();
         Intent goResult = new Intent(this, ButtonClickResult.class);
         goResult.putExtra("Total Clicks", numClicks);
         goResult.putExtra("Score", score);
