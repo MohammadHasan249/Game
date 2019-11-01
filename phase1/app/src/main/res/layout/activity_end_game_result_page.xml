@@ -38,52 +38,57 @@
         android:id="@+id/numIncorrectTitle"
         android:layout_width="213dp"
         android:layout_height="52dp"
-        android:layout_marginTop="92dp"
+        android:layout_marginStart="7dp"
+        android:layout_marginTop="50dp"
         android:ems="10"
         android:inputType="textPersonName"
         android:text="Flip Card Score"
         android:textColor="#F00710"
         android:textSize="24sp"
         android:textStyle="bold"
-        app:layout_constraintTop_toBottomOf="@+id/Level2ScoreTitle"
-        tools:layout_editor_absoluteX="7dp" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/Level2ScoreTitle" />
 
     <EditText
         android:id="@+id/Level2ScoreTitle"
         android:layout_width="213dp"
         android:layout_height="50dp"
-        android:layout_marginTop="76dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="50dp"
         android:ems="10"
         android:inputType="textPersonName"
         android:text="Math Game Score"
         android:textColor="#11DD19"
         android:textSize="24sp"
         android:textStyle="bold"
-        app:layout_constraintTop_toBottomOf="@+id/Level1ScoreTitle"
-        tools:layout_editor_absoluteX="16dp" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/Level1ScoreTitle" />
 
     <EditText
         android:id="@+id/Level1ScoreTitle"
         android:layout_width="211dp"
         android:layout_height="59dp"
-        android:layout_marginTop="40dp"
+        android:layout_marginStart="9dp"
+        android:layout_marginTop="50dp"
         android:ems="10"
         android:inputType="textPersonName"
         android:text="Button Click Score"
         android:textColor="#03A9F4"
         android:textSize="24sp"
         android:textStyle="bold"
-        app:layout_constraintTop_toBottomOf="@+id/EndGameDifficultyTitle"
-        tools:layout_editor_absoluteX="9dp" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/EndGameDifficultyTitle" />
 
     <TextView
         android:id="@+id/Level1ScoreTextView"
         android:layout_width="124dp"
         android:layout_height="56dp"
         android:layout_marginStart="40dp"
-        android:layout_marginTop="52dp"
+        android:layout_marginTop="50dp"
+        android:gravity="center_vertical"
         android:text="TextView"
         android:textColor="#000000"
+        android:textSize="15sp"
         app:layout_constraintStart_toEndOf="@+id/Level1ScoreTitle"
         app:layout_constraintTop_toBottomOf="@+id/EndGameDifficultyTextView" />
 
@@ -92,9 +97,11 @@
         android:layout_width="128dp"
         android:layout_height="53dp"
         android:layout_marginStart="40dp"
-        android:layout_marginTop="80dp"
+        android:layout_marginTop="50dp"
+        android:gravity="center_vertical"
         android:text="TextView"
         android:textColor="#000000"
+        android:textSize="15sp"
         app:layout_constraintStart_toEndOf="@+id/Level2ScoreTitle"
         app:layout_constraintTop_toBottomOf="@+id/Level1ScoreTextView" />
 
@@ -103,9 +110,11 @@
         android:layout_width="135dp"
         android:layout_height="53dp"
         android:layout_marginStart="44dp"
-        android:layout_marginTop="96dp"
+        android:layout_marginTop="50dp"
+        android:gravity="center_vertical"
         android:text="TextView"
         android:textColor="#000000"
+        android:textSize="15sp"
         app:layout_constraintStart_toEndOf="@+id/numIncorrectTitle"
         app:layout_constraintTop_toBottomOf="@+id/Level2ScoreTextView" />
 
@@ -124,4 +133,18 @@
         android:textStyle="bold"
         tools:layout_editor_absoluteX="25dp"
         tools:layout_editor_absoluteY="16dp" />
+
+    <Button
+        android:id="@+id/btnFinish"
+        android:layout_width="171dp"
+        android:layout_height="72dp"
+        android:layout_marginTop="50dp"
+        android:background="#64DD17"
+        android:onClick="btnFinishFunc"
+        android:text="Finish"
+        android:textSize="45sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/numIncorrectTitle" />
 </androidx.constraintlayout.widget.ConstraintLayout>

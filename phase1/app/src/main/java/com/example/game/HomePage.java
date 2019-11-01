@@ -8,6 +8,7 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.game.FlipCardGame.FlipCardMain;
 
@@ -16,6 +17,17 @@ public class HomePage extends AppCompatActivity {
     SharedPreferences sharedPreferences;
     TextView textViewUsername;
     CurrUser user;
+
+    public void btnContinueFunc(View view){
+        int lev = user.getCurrLevel();
+        if (lev == 0){
+            Toast.makeText(getApplicationContext(), "You do not have any un-finished games click NEW GAME to start", Toast.LENGTH_LONG).show();
+        }else{
+            goCurrentLevel();
+        }
+
+
+    }
 
     public void btnNewGameFunc(View view){
         Intent start = new Intent(getApplicationContext(), CustomizationScreen.class);
