@@ -28,7 +28,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void goButtonClick(View view) {
-        Intent start = new Intent(getApplicationContext(), ButtonClickStart.class);
+        Intent start = new Intent(getApplicationContext(), ButtonClickMain.class);
         startActivity(start);
     }
 
