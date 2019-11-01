@@ -29,7 +29,7 @@ public class MathGame extends AppCompatActivity {
     int numCorrect, numFailedAttempts, timeHolder;
 
     void generateFourNumArray (int bound){
-        fourNum = new ArrayList<Integer>();
+        fourNum = new ArrayList<>();
         for (int i = 0; i < 4; i ++){
 
             intHolder = rand.nextInt(bound) + 3;
@@ -55,14 +55,16 @@ public class MathGame extends AppCompatActivity {
 
     void setUpReduceBtns(){
         for (int k=0; k < fourBtn.size(); k++){
-            fourBtn.get(k).setTag(Integer.valueOf(fourNum.get(k)));
-            fourBtn.get(k).setText("-" + fourNum.get(k).toString());
+            String strFourBtn = "-" + fourNum.get(k).toString();
+            fourBtn.get(k).setTag((fourNum.get(k)));
+            fourBtn.get(k).setText(strFourBtn);
         }
     }
 
     public void btnReduceMethod(View view) {
         startValue -= (Integer) view.getTag();
-        textValue.setText(Integer.toString(startValue));
+        String strTextValueLocal = Integer.toString(startValue);
+        textValue.setText(strTextValueLocal);
         if (startValue == 0){
             numCorrect += 1;
             updateScore();
@@ -98,7 +100,8 @@ public class MathGame extends AppCompatActivity {
         setUpReduceBtns();
 
         // Setup displays
-        textValue.setText(Integer.toString(startValue));
+        String strTextValue = Integer.toString(startValue);
+        textValue.setText(strTextValue);
     }
 
     void goMathGameResult(){
@@ -121,7 +124,8 @@ public class MathGame extends AppCompatActivity {
         timer = new CountDownTimer(time_ms, 1000){
             @Override
             public void onTick(long millisUntilFinished) {
-                textTimeDisplay.setText( (int) millisUntilFinished/1000 + "s");
+                String strTimeDisplay = (int) millisUntilFinished / 1000 + "s";
+                textTimeDisplay.setText(strTimeDisplay);
             }
             @Override
             public void onFinish() {
@@ -136,7 +140,8 @@ public class MathGame extends AppCompatActivity {
 //        timer.start();
     }
     void updateScore(){
-        textScore.setText(Integer.toString(numCorrect) + " | " + Integer.toString(numFailedAttempts));
+        String strScore = (numCorrect) + " | " + (numFailedAttempts);
+        textScore.setText(strScore);
     }
 
     private void changeBtnColor(){
@@ -165,7 +170,7 @@ public class MathGame extends AppCompatActivity {
         btnReduce4 = findViewById(R.id.btnReduce4);
         btnReset = findViewById(R.id.btnReset);
 
-        fourBtn = new ArrayList<Button>();
+        fourBtn = new ArrayList<>();
         fourBtn.add(btnReduce1);
         fourBtn.add(btnReduce2);
         fourBtn.add(btnReduce3);

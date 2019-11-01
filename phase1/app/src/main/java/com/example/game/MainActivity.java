@@ -77,7 +77,8 @@ public class MainActivity extends AppCompatActivity {
 
     public void hideKeyboard(View view){
         InputMethodManager mgr = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
-        mgr.toggleSoftInput(InputMethodManager.SHOW_FORCED, 0);
+        if (mgr != null)
+            mgr.toggleSoftInput(InputMethodManager.SHOW_FORCED, 0);
     }
 
     @Override
