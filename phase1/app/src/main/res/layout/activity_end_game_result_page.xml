@@ -10,11 +10,11 @@
         android:id="@+id/EndGameDifficultyTextView"
         android:layout_width="185dp"
         android:layout_height="51dp"
-        android:layout_marginStart="24dp"
         android:layout_marginTop="60dp"
         android:textAlignment="center"
         android:textColor="#923AB7"
         android:textSize="36sp"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/EndGameDifficultyTitle"
         app:layout_constraintTop_toBottomOf="@+id/resultsTitle2" />
 
@@ -22,7 +22,6 @@
         android:id="@+id/EndGameDifficultyTitle"
         android:layout_width="187dp"
         android:layout_height="51dp"
-        android:layout_marginStart="16dp"
         android:layout_marginTop="60dp"
         android:fontFamily="sans-serif-medium"
         android:text="Difficulty:"
@@ -36,9 +35,9 @@
 
     <EditText
         android:id="@+id/numIncorrectTitle"
-        android:layout_width="213dp"
-        android:layout_height="52dp"
-        android:layout_marginStart="7dp"
+        android:layout_width="211dp"
+        android:layout_height="59dp"
+        android:layout_marginStart="5dp"
         android:layout_marginTop="50dp"
         android:ems="10"
         android:inputType="textPersonName"
@@ -51,9 +50,9 @@
 
     <EditText
         android:id="@+id/Level2ScoreTitle"
-        android:layout_width="213dp"
-        android:layout_height="50dp"
-        android:layout_marginStart="16dp"
+        android:layout_width="211dp"
+        android:layout_height="59dp"
+        android:layout_marginStart="5dp"
         android:layout_marginTop="50dp"
         android:ems="10"
         android:inputType="textPersonName"
@@ -68,7 +67,7 @@
         android:id="@+id/Level1ScoreTitle"
         android:layout_width="211dp"
         android:layout_height="59dp"
-        android:layout_marginStart="9dp"
+        android:layout_marginStart="5dp"
         android:layout_marginTop="50dp"
         android:ems="10"
         android:inputType="textPersonName"
@@ -81,40 +80,40 @@
 
     <TextView
         android:id="@+id/Level1ScoreTextView"
-        android:layout_width="124dp"
-        android:layout_height="56dp"
-        android:layout_marginStart="40dp"
+        android:layout_width="183dp"
+        android:layout_height="58dp"
         android:layout_marginTop="50dp"
         android:gravity="center_vertical"
         android:text="TextView"
         android:textColor="#000000"
         android:textSize="15sp"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/Level1ScoreTitle"
         app:layout_constraintTop_toBottomOf="@+id/EndGameDifficultyTextView" />
 
     <TextView
         android:id="@+id/Level2ScoreTextView"
-        android:layout_width="128dp"
-        android:layout_height="53dp"
-        android:layout_marginStart="40dp"
+        android:layout_width="183dp"
+        android:layout_height="58dp"
         android:layout_marginTop="50dp"
         android:gravity="center_vertical"
         android:text="TextView"
         android:textColor="#000000"
         android:textSize="15sp"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/Level2ScoreTitle"
         app:layout_constraintTop_toBottomOf="@+id/Level1ScoreTextView" />
 
     <TextView
         android:id="@+id/Level3ScoreTextView"
-        android:layout_width="135dp"
-        android:layout_height="53dp"
-        android:layout_marginStart="44dp"
+        android:layout_width="183dp"
+        android:layout_height="58dp"
         android:layout_marginTop="50dp"
         android:gravity="center_vertical"
         android:text="TextView"
         android:textColor="#000000"
         android:textSize="15sp"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/numIncorrectTitle"
         app:layout_constraintTop_toBottomOf="@+id/Level2ScoreTextView" />
 
@@ -122,6 +121,7 @@
         android:id="@+id/resultsTitle2"
         android:layout_width="360dp"
         android:layout_height="75dp"
+        android:layout_marginTop="8dp"
         android:ems="10"
         android:fontFamily="sans-serif-black"
         android:inputType="textPersonName"
@@ -131,8 +131,9 @@
         android:textIsSelectable="false"
         android:textSize="42sp"
         android:textStyle="bold"
-        tools:layout_editor_absoluteX="25dp"
-        tools:layout_editor_absoluteY="16dp" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/btnFinish"
