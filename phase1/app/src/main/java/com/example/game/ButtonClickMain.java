@@ -24,6 +24,9 @@ public class ButtonClickMain extends AppCompatActivity {
     int numClicks = 0;
     int score = 0;
     TextView scoreTxt;
+
+    String instructions;
+    LevelOnCreate levelOnCreate;
     //----------------------------------
 
     public void goButtonClickResult() {
@@ -120,7 +123,11 @@ public class ButtonClickMain extends AppCompatActivity {
             // So far have made intent to go to result screen
             goButtonClickResult();
           }
-        }.start();
+        };
+
+    instructions = "Click on the moving button as many times as you can";
+    levelOnCreate = new LevelOnCreate (this,instructions, timer);
+
     }
     @Override
     public void onBackPressed() {
