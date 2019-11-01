@@ -21,8 +21,8 @@ public class ButtonClickMain extends AppCompatActivity {
     CountDownTimer timer;
     CurrUser user;
     int diff_time;
-    static int numClicks = 0;
-    static int score = 0;
+    int numClicks = 0;
+    int score = 0;
     TextView scoreTxt;
     //----------------------------------
 
