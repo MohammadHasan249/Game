@@ -24,6 +24,7 @@ public class ButtonClickMain extends AppCompatActivity {
   int numClicks = 0;
   int score = 0;
   TextView scoreTxt;
+  String scorePlaceholder;
 
   String instructions;
   LevelOnCreate levelOnCreate;
@@ -52,7 +53,8 @@ public class ButtonClickMain extends AppCompatActivity {
           numClicks += 1;
           score += 1;
         }
-        scoreTxt.setText(score + " | " + numClicks);
+        scorePlaceholder = score + " | " + numClicks;
+        scoreTxt.setText(scorePlaceholder);
       }
     };
   }
@@ -62,7 +64,8 @@ public class ButtonClickMain extends AppCompatActivity {
       @Override
       public void onClick(View v) {
         numClicks += 1;
-        scoreTxt.setText(score + " | " + numClicks);
+        scorePlaceholder = score + " | " + numClicks;
+        scoreTxt.setText(scorePlaceholder);
       }
     };
   }
@@ -114,7 +117,8 @@ public class ButtonClickMain extends AppCompatActivity {
             }
             // Set a random button to visible
             buttonVisVisible(buttons);
-            countDownTxt.setText((int) millisUntilFinished / 1000 + "s");
+            String countDownPlaceholder = (int) millisUntilFinished / 1000 + "s";
+            countDownTxt.setText(countDownPlaceholder);
           }
 
           public void onFinish() {
