@@ -8,7 +8,7 @@ import androidx.appcompat.app.AlertDialog;
 
 public class LevelOnCreate {
 
-    LevelOnCreate(Context context, String instructions){
+    public LevelOnCreate(Context context, String instructions){
         new AlertDialog.Builder(context)
                 .setIcon(android.R.drawable.ic_dialog_alert)
                 .setTitle("Level Instructions")
@@ -18,7 +18,7 @@ public class LevelOnCreate {
     }
 
 
-    LevelOnCreate(Context context, String instructions, final CountDownTimer t){
+    public LevelOnCreate(Context context, String instructions, final CountDownTimer t){
         new AlertDialog.Builder(context)
                 .setIcon(android.R.drawable.ic_dialog_alert)
                 .setTitle("Level Instructions")
