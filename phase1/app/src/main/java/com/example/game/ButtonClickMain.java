@@ -115,8 +115,6 @@ public class ButtonClickMain extends AppCompatActivity {
           public void onFinish() {
             // So far have made intent to go to result screen
             goButtonClickResult();
-            // Should also save data to SQL from here
-            user.setL1RecentScore(score);
           }
         }.start();
     }

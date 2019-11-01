@@ -17,4 +17,81 @@
         android:onClick="tol2Game"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
+
+    <TextView
+        android:id="@+id/btnClickResult"
+        android:layout_width="382dp"
+        android:layout_height="77dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="12dp"
+        android:fontFamily="sans-serif-black"
+        android:inputType="textPersonName"
+        android:text="ButtonClick Results"
+        android:textAlignment="center"
+        android:textColor="#000000"
+        android:textIsSelectable="false"
+        android:textSize="42sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/numClicksTxt"
+        android:layout_width="286dp"
+        android:layout_height="57dp"
+        android:layout_marginStart="56dp"
+        android:layout_marginTop="60dp"
+        android:ems="10"
+        android:fontFamily="sans-serif-black"
+        android:inputType="textPersonName"
+        android:text="Number of Clicks"
+        android:textColor="#03A9F4"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        android:textAlignment="center"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnClickResult" />
+
+    <TextView
+        android:id="@+id/numClicksScore"
+        android:layout_width="147dp"
+        android:layout_height="55dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="144dp"
+        android:text="0"
+        android:textAlignment="center"
+        android:textColor="#000000"
+        android:textSize="36dp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/numClicksTxt" />
+
+    <TextView
+        android:id="@+id/numCorrectClicksTxt"
+        android:layout_width="296dp"
+        android:layout_height="80dp"
+        android:layout_marginStart="56dp"
+        android:layout_marginTop="72dp"
+        android:text="Number of Correct Clicks"
+        android:textAlignment="center"
+        android:textColor="#11DD19"
+        android:textSize="30dp"
+        android:textStyle="bold"
+        android:textIsSelectable="false"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/numClicksScore" />
+
+    <TextView
+        android:id="@+id/numCorrectClicks"
+        android:layout_width="140dp"
+        android:layout_height="55dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="144dp"
+        android:text="0"
+        android:textAlignment="center"
+        android:textColor="#000000"
+        android:textSize="36dp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/numCorrectClicksTxt" />
 </androidx.constraintlayout.widget.ConstraintLayout>
