@@ -21,6 +21,7 @@ public class FlipCardMain extends AppCompatActivity {
 
         user = new CurrUser(this);
         user.setCurrLevel(3);
+        user.playMusic();
             TextView flipCardScore = findViewById(R.id.flipCardScore);
             TableLayout stk = findViewById(R.id.tableLayoutFlipCard);
             Chronometer timer = findViewById(R.id.flipCardTimer);

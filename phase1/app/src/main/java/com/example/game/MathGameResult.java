@@ -16,8 +16,6 @@ public class MathGameResult extends AppCompatActivity {
     TextView textTotalCorrect, textFailedAttempts, textSpeed;
     CurrUser user;
 
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
