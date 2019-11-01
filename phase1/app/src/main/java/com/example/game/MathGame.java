@@ -137,7 +137,6 @@ public class MathGame extends AppCompatActivity {
         textScore.setText(Integer.toString(numCorrect) + " | " + Integer.toString(numFailedAttempts));
     }
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
