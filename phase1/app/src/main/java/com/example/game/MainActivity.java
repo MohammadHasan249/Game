@@ -17,20 +17,6 @@ import android.widget.Toast;
 import com.example.game.FlipCardGame.FlipCardInit;
 
 public class MainActivity extends AppCompatActivity {
-    public void goFlipCard(View view) {
-        Intent start = new Intent(getApplicationContext(), FlipCardInit.class);
-        startActivity(start);
-    }
-
-    public void goMathGame(View view) {
-        Intent start = new Intent(getApplicationContext(), MathGame.class);
-        startActivity(start);
-    }
-
-    public void goButtonClick(View view) {
-        Intent start = new Intent(getApplicationContext(), ButtonClickMain.class);
-        startActivity(start);
-    }
 
 /////////////////////////////////////////////////////////////////////////////////////////////
 
