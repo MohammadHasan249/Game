@@ -9,80 +9,83 @@ import android.widget.TableRow;
 import android.graphics.drawable.GradientDrawable;
 
 class FlipCards {
-    private Button btnInstance;
-    private String symbol;
-    private boolean flipped;
-    private Drawable fullColor;
-    private boolean enabled;
-    private FlipCardGameManager manager;
-    static boolean disableCards = false;
+  private Button btnInstance;
+  private String symbol;
+  private boolean flipped;
+  private Drawable fullColor;
+  private boolean enabled;
+  private FlipCardGameManager manager;
+  static boolean disableCards = false;
 
-    FlipCards(Context packageContext, int cardBackColor, String symbol, TableRow row, int btnHeight, int btnWidth, FlipCardGameManager manager)
-    {
-        this.flipped = false;
-        btnInstance = new Button(packageContext);
-        this.symbol = symbol;
-        row.addView(btnInstance);
-        this.btnInstance.setOnClickListener(handleOnClick(this.btnInstance));
-        this.btnInstance.setWidth(btnWidth);
-        this.btnInstance.setHeight(btnHeight);
-        this.fullColor = this.setBoarderColor(this.btnInstance, cardBackColor, btnWidth);
-        this.enabled = true;
-        this.manager = manager;
+  FlipCards(
+      Context packageContext,
+      int cardBackColor,
+      String symbol,
+      TableRow row,
+      int btnHeight,
+      int btnWidth,
+      FlipCardGameManager manager) {
+    this.flipped = false;
+    btnInstance = new Button(packageContext);
+    this.symbol = symbol;
+    row.addView(btnInstance);
+    this.btnInstance.setOnClickListener(handleOnClick(this.btnInstance));
+    this.btnInstance.setWidth(btnWidth);
+    this.btnInstance.setHeight(btnHeight);
+    this.fullColor = this.setBoarderColor(this.btnInstance, cardBackColor, btnWidth);
+    this.enabled = true;
+    this.manager = manager;
+  }
+
+  // setting the color with the boarder of the card
+  private Drawable setBoarderColor(Button btnInstance, int cardBackColor, int btnWidth) {
+    GradientDrawable drawable = new GradientDrawable();
+    drawable.setShape(GradientDrawable.RECTANGLE);
+    drawable.setStroke(btnWidth, Color.BLACK);
+    drawable.setColor(cardBackColor);
+    btnInstance.setBackground(drawable);
+    return drawable;
+  }
+
+  boolean isFlipped() {
+    return this.flipped;
+  }
+
+  // flip the card
+  void flipCard() {
+    if (enabled) {
+      if (!flipped) {
+        this.btnInstance.setText(symbol);
+        btnInstance.setBackgroundColor(Color.WHITE);
+        flipped = !flipped;
+      } else {
+        this.btnInstance.setText("");
+        btnInstance.setBackground(fullColor);
+        flipped = !flipped;
+      }
     }
+  }
 
-    //setting the color with the boarder of the card
-    private Drawable setBoarderColor(Button btnInstance, int cardBackColor, int btnWidth) {
-        GradientDrawable drawable = new GradientDrawable();
-        drawable.setShape(GradientDrawable.RECTANGLE);
-        drawable.setStroke(btnWidth, Color.BLACK);
-        drawable.setColor(cardBackColor);
-        btnInstance.setBackground(drawable);
-        return drawable;
-    }
+  String getSymbol() {
+    return this.symbol;
+  }
 
-    boolean isFlipped()
-    {
-        return this.flipped;
-    }
+  // disables the card and prevents it from being clicked again
+  void lockCard() {
+    this.btnInstance.setEnabled(false);
+    this.enabled = false;
+    this.flipped = false;
+  }
 
-    //flip the card
-    void flipCard() {
-        if (enabled) {
-            if (!flipped) {
-                this.btnInstance.setText(symbol);
-                btnInstance.setBackgroundColor(Color.WHITE);
-                flipped = !flipped;
-            } else {
-                this.btnInstance.setText("");
-                btnInstance.setBackground(fullColor);
-                flipped = !flipped;
-            }
+  // when the card is clicked, it flips then call the update on the observer(FlipCardGameManager)
+  private View.OnClickListener handleOnClick(final Button button) {
+    return new View.OnClickListener() {
+      public void onClick(View v) {
+        if (!disableCards) {
+          flipCard();
+          manager.update();
         }
-    }
-
-    String getSymbol()
-    {
-        return this.symbol;
-    }
-
-    //disables the card and prevents it from being clicked again
-    void lockCard()
-    {
-        this.btnInstance.setEnabled(false);
-        this.enabled = false;
-        this.flipped= false;
-    }
-
-    //when the card is clicked, it flips then call the update on the observer(FlipCardGameManager)
-    private View.OnClickListener handleOnClick(final Button button) {
-        return new View.OnClickListener() {
-            public void onClick(View v) {
-                if (!disableCards) {
-                    flipCard();
-                    manager.update();
-                }
-            }
-        };
-    }
+      }
+    };
+  }
 }
