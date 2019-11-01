@@ -44,7 +44,7 @@ public class MathGameResult extends AppCompatActivity {
         user.setCurrLevel(3);
     }
 
-    private void btnContinueFunc (View view){
+    public void btnContinueFunc (View view){
         Intent l3Game = new Intent(this, FlipCardMain.class);
         startActivity(l3Game);
         finish();
