@@ -37,7 +37,7 @@ public class FlipCardResultViewHandler extends AppCompatActivity {
     user.setL3RecentScore(newResult.getTimeToCompletion());
   }
 
-  // recieves an instance of the FlipCardResult Class then display the scores within that object
+  // receives an instance of the FlipCardResult Class then display the scores within that object
   @Override
   protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);

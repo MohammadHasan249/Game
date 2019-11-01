@@ -22,14 +22,6 @@ class FlipCardResult implements Serializable {
     return Math.round(time / 1000);
   }
 
-  int getNumCorrect() {
-    return this.numCorrect;
-  }
-
-  int getnumIncorrect() {
-    return this.numTotalMatches - this.numCorrect;
-  }
-
   int getTimeToCompletion() {
     return this.timeToCompletion;
   }
