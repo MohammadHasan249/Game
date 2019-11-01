@@ -9,6 +9,7 @@ import android.widget.TableLayout;
 import android.widget.TextView;
 
 import com.example.game.CurrUser;
+import com.example.game.HomePage;
 import com.example.game.R;
 
 
@@ -42,6 +43,9 @@ public class FlipCardMain extends AppCompatActivity {
     @Override
     public void onBackPressed() {
         user.stopMusic();
+        Intent start = new Intent(getApplicationContext(), HomePage.class);
+        start.putExtra("androidBack",1);
+        startActivity(start);
         finish();
     }
 }

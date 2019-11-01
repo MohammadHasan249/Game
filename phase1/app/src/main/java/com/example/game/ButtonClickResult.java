@@ -29,12 +29,20 @@ public class ButtonClickResult extends AppCompatActivity {
         numCorrectClicksText.setText(String.valueOf(correctScore));
         user.setL1RecentScore(correctScore);
         user.updateL1BestScore();
+        user.setCurrLevel(2);
     }
 
     public void tol2Game(View view) {
-        user.setCurrLevel(2);
         Intent l2Game = new Intent(this, MathGame.class);
         startActivity(l2Game);
+        finish();
+    }
+
+    @Override
+    public void onBackPressed() {
+        Intent start = new Intent(getApplicationContext(), HomePage.class);
+        start.putExtra("androidBack",1);
+        startActivity(start);
         finish();
     }
 }

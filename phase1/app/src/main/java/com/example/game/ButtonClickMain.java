@@ -124,7 +124,11 @@ public class ButtonClickMain extends AppCompatActivity {
     }
     @Override
     public void onBackPressed() {
+        timer.cancel();
         user.stopMusic();
+        Intent start = new Intent(getApplicationContext(), HomePage.class);
+        start.putExtra("androidBack",1);
+        startActivity(start);
         finish();
     }
 }

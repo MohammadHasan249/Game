@@ -34,6 +34,7 @@ public class HomePage extends AppCompatActivity {
     public void btnNewGameFunc(View view){
         Intent start = new Intent(getApplicationContext(), CustomizationScreen.class);
         startActivity(start);
+        finish();
     }
 
     public void logout(){
@@ -48,16 +49,18 @@ public class HomePage extends AppCompatActivity {
 
     public void goCurrentLevel(){
         int level = user.getCurrLevel();
-
         if (level == 1){
             Intent start = new Intent(getApplicationContext(), ButtonClickMain.class);
             startActivity(start);
+            finish();
         }else if (level == 2){
             Intent start = new Intent(getApplicationContext(), MathGame.class);
             startActivity(start);
+            finish();
         }else if (level == 3){
             Intent start = new Intent(getApplicationContext(), FlipCardMain.class);
             startActivity(start);
+            finish();
         }
     }
     @Override
@@ -69,7 +72,15 @@ public class HomePage extends AppCompatActivity {
         user = new CurrUser(this);
         textViewUsername = findViewById(R.id.textViewUsername);
         textViewUsername.setText(user.getUsername());
-        goCurrentLevel();
+
+        Intent previousIntent = getIntent();
+        int androidBack = previousIntent.getIntExtra("androidBack", 0);
+
+        if (androidBack != 1){
+            goCurrentLevel();
+        }
+
+
 
     }
 

@@ -2,6 +2,7 @@ package com.example.game;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
@@ -33,7 +34,19 @@ public class EndGameResultPage extends AppCompatActivity {
         l3TextView.setText(l3score);
     }
 
-    public void btnFinishFunc(View view){
+    public void backToHome(){
+        Intent start = new Intent(getApplicationContext(), HomePage.class);
+        start.putExtra("androidBack",1);
+        startActivity(start);
         finish();
+    }
+
+    public void btnFinishFunc(View view){
+        backToHome();
+    }
+
+    @Override
+    public void onBackPressed() {
+        backToHome();
     }
 }

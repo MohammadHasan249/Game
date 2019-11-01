@@ -16,6 +16,7 @@ public class CustomizationScreen extends AppCompatActivity {
 
     RadioGroup radioGroupColor, radioGroupDifficulty, radioGroupSoundtrack;
     RadioButton radioCheckedColor, radioCheckedDifficulty, radioCheckedSoundtrack;
+    RadioButton radioRed, radioBlue, radioGreen;
     RadioButton radioNoSoundtrack, radioSoundtrack1, radioSoundtrack2;
     CurrUser user;
     MediaPlayer currMedia;
@@ -29,6 +30,7 @@ public class CustomizationScreen extends AppCompatActivity {
         user.setColorSelected(Integer.parseInt(radioCheckedColor.getTag().toString()));
         user.setDifficultySelected(radioCheckedDifficulty.getTag().toString());
         user.setMusicSelected(Integer.parseInt(radioCheckedSoundtrack.getTag().toString()));
+
         user.setCurrLevel(1);
 
         Intent goLevel1 = new Intent(this, ButtonClickMain.class);
@@ -45,6 +47,18 @@ public class CustomizationScreen extends AppCompatActivity {
         radioGroupColor = findViewById(R.id.radioGroupColor);
         radioGroupDifficulty = findViewById(R.id.radioGroupDifficulty);
         radioGroupSoundtrack = findViewById(R.id.radioGroupSoundtrack);
+
+        radioRed = findViewById(R.id.radioRed);
+        radioBlue = findViewById(R.id.radioBlue);
+        radioGreen = findViewById(R.id.radioGreen);
+
+        radioRed.setTag(Color.RED);
+
+        int lightBlue = Color.parseColor("#4290f5");
+        radioBlue.setTag(lightBlue);
+
+        radioGreen.setTag(Color.GREEN);
+
 
         radioSoundtrack1 = findViewById(R.id.radioSoundtrack1);
         radioSoundtrack2 = findViewById(R.id.radioSoundtrack2);

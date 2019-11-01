@@ -49,4 +49,12 @@ public class MathGameResult extends AppCompatActivity {
         startActivity(l3Game);
         finish();
     }
+
+    @Override
+    public void onBackPressed() {
+        Intent start = new Intent(getApplicationContext(), HomePage.class);
+        start.putExtra("androidBack",1);
+        startActivity(start);
+        finish();
+    }
 }
