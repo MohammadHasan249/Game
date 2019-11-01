@@ -15,6 +15,7 @@ public class FlipCardResultViewHandler extends AppCompatActivity {
     CurrUser user;
 
     public void endGame(View view) {
+        user.setCurrLevel(0);
         Intent endGameResult = new Intent(this, EndGameResultPage.class);
         startActivity(endGameResult);
         finish();
@@ -47,7 +48,6 @@ public class FlipCardResultViewHandler extends AppCompatActivity {
             this.displayScores(newResult, difficulty, timeToCompletion, numCorrect, numIncorrect);
             //put user back to level 0 since they are done all their games
             user = new CurrUser(this);
-            user.setCurrLevel(0);
             this.setScore(newResult, user);
         }
     }

@@ -123,7 +123,7 @@ public class MathGame extends AppCompatActivity {
             public void onFinish() {
                 // So far have made intent to go to result screen
                 goMathGameResult();
-
+                finish();
                 // Should also save data to SQL from here
             }
         };

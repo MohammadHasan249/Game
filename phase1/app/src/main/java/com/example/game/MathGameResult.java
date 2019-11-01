@@ -4,12 +4,13 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.TextView;
 
 import com.example.game.FlipCardGame.FlipCardMain;
 
 public class MathGameResult extends AppCompatActivity {
-
+    CurrUser user;
     int totalCorrect, totalFailedAttempts, time;
     double speed;
     TextView textTotalCorrect, textFailedAttempts, textSpeed;
@@ -35,15 +36,11 @@ public class MathGameResult extends AppCompatActivity {
         textTotalCorrect.setText(Integer.toString(totalCorrect));
         textFailedAttempts.setText(Integer.toString(totalFailedAttempts));
         textSpeed.setText(Double.toString(speed) + "/s");
-
-
-        //PLEASE CHANGE THIS TO A BUTTON
-        this.tol3Game();
+        user = new CurrUser(this);
+        user.setL2RecentScore(totalCorrect);
     }
 
-
-    //PLEASE BIND THIS BUTTON TO NEXT GAME
-    private void tol3Game() {
+    public void tol3Game(View view) {
         Intent l3Game = new Intent(this, FlipCardMain.class);
         startActivity(l3Game);
         finish();
