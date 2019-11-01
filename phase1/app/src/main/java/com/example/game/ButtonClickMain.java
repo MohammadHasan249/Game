@@ -98,7 +98,7 @@ public class ButtonClickMain extends AppCompatActivity {
         }
 
 
-        //---- Creation of Timer/Difficulty Customization-----
+        //---- Creation of CountDownTimer/Difficulty Customization-----
         diff_time = 1000;
     timer =
         new CountDownTimer(60000, diff_time) {
