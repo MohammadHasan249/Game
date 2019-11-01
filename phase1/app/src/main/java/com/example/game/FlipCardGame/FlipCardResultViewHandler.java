@@ -7,13 +7,17 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
 
+import com.example.game.CurrUser;
+import com.example.game.EndGameResultPage;
 import com.example.game.R;
 
 public class FlipCardResultViewHandler extends AppCompatActivity {
+    CurrUser user;
 
-    public void mainBack(View view) {
-        Intent mainActivityIntent = new Intent(this, FlipCardInit.class);
-        startActivity(mainActivityIntent);
+    public void endGame(View view) {
+        Intent endGameResult = new Intent(this, EndGameResultPage.class);
+        startActivity(endGameResult);
+        finish();
     }
 
     private void displayScores(FlipCardResult newResult, TextView difficulty,
@@ -22,6 +26,10 @@ public class FlipCardResultViewHandler extends AppCompatActivity {
         timeToCompletion.setText(newResult.getStrTimeToCompletion());
         numCorrect.setText(newResult.getStrNumCorrect());
         numIncorrect.setText(newResult.getStrNumIncorrect());
+    }
+
+    private void setScore(FlipCardResult newResult, CurrUser user) {
+        user.setL3RecentScore(newResult.getTimeToCompletion());
     }
 
     // recieves an instance of the FlipCardResult Class then display the scores within that object
@@ -37,6 +45,10 @@ public class FlipCardResultViewHandler extends AppCompatActivity {
             TextView numCorrect = findViewById(R.id.NumCorrectMatchesTextView);
             TextView numIncorrect = findViewById(R.id.NumIncorrectTextView);
             this.displayScores(newResult, difficulty, timeToCompletion, numCorrect, numIncorrect);
+            //put user back to level 0 since they are done all their games
+            user = new CurrUser(this);
+            user.setCurrLevel(0);
+            this.setScore(newResult, user);
         }
     }
 

@@ -30,6 +30,7 @@ public class ButtonClickMain extends AppCompatActivity {
         goResult.putExtra("Total Clicks", numClicks);
         goResult.putExtra("Score", score);
         startActivity(goResult);
+        finish();
     }
 
     private void buttonVisVisible(Button[][] buttons){

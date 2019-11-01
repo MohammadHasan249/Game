@@ -10,20 +10,20 @@
         android:id="@+id/EndGameDifficultyTextView"
         android:layout_width="185dp"
         android:layout_height="51dp"
-        android:layout_marginTop="76dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="60dp"
         android:textAlignment="center"
         android:textColor="#923AB7"
         android:textSize="36sp"
-        app:layout_constraintTop_toBottomOf="@+id/resultsTitle2"
-        tools:layout_editor_absoluteX="220dp" />
+        app:layout_constraintStart_toEndOf="@+id/EndGameDifficultyTitle"
+        app:layout_constraintTop_toBottomOf="@+id/resultsTitle2" />
 
     <TextView
         android:id="@+id/EndGameDifficultyTitle"
         android:layout_width="187dp"
         android:layout_height="51dp"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="76dp"
-        android:layout_marginEnd="16dp"
+        android:layout_marginTop="60dp"
         android:fontFamily="sans-serif-medium"
         android:text="Difficulty:"
         android:textAlignment="center"
@@ -35,44 +35,10 @@
         app:layout_constraintTop_toBottomOf="@+id/resultsTitle2" />
 
     <EditText
-        android:id="@+id/Level1ScoreTitle"
-        android:layout_width="211dp"
-        android:layout_height="59dp"
-        android:layout_marginTop="40dp"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:text="Button Click Score"
-        android:textColor="#03A9F4"
-        android:textSize="24sp"
-        android:textStyle="bold"
-        app:layout_constraintTop_toBottomOf="@+id/EndGameDifficultyTitle"
-        tools:layout_editor_absoluteX="16dp" />
-
-    <TextView
-        android:id="@+id/Level1ScoreTextView"
-        android:layout_width="124dp"
-        android:layout_height="56dp"
-        android:layout_marginStart="32dp"
-        android:text="TextView"
-        android:textColor="#000000"
-        app:layout_constraintStart_toEndOf="@+id/Level1ScoreTitle"
-        tools:layout_editor_absoluteY="261dp" />
-
-    <TextView
-        android:id="@+id/Level2ScoreTextView"
-        android:layout_width="128dp"
-        android:layout_height="53dp"
-        android:layout_marginTop="76dp"
-        android:text="TextView"
-        android:textColor="#000000"
-        app:layout_constraintTop_toBottomOf="@+id/Level1ScoreTextView"
-        tools:layout_editor_absoluteX="255dp" />
-
-    <EditText
         android:id="@+id/numIncorrectTitle"
         android:layout_width="213dp"
         android:layout_height="52dp"
-        android:layout_marginTop="80dp"
+        android:layout_marginTop="92dp"
         android:ems="10"
         android:inputType="textPersonName"
         android:text="Flip Card Score"
@@ -80,17 +46,7 @@
         android:textSize="24sp"
         android:textStyle="bold"
         app:layout_constraintTop_toBottomOf="@+id/Level2ScoreTitle"
-        tools:layout_editor_absoluteX="14dp" />
-
-    <TextView
-        android:id="@+id/Level3ScoreTextView"
-        android:layout_width="135dp"
-        android:layout_height="53dp"
-        android:layout_marginTop="80dp"
-        android:text="TextView"
-        android:textColor="#000000"
-        app:layout_constraintTop_toBottomOf="@+id/Level2ScoreTextView"
-        tools:layout_editor_absoluteX="255dp" />
+        tools:layout_editor_absoluteX="7dp" />
 
     <EditText
         android:id="@+id/Level2ScoreTitle"
@@ -105,6 +61,53 @@
         android:textStyle="bold"
         app:layout_constraintTop_toBottomOf="@+id/Level1ScoreTitle"
         tools:layout_editor_absoluteX="16dp" />
+
+    <EditText
+        android:id="@+id/Level1ScoreTitle"
+        android:layout_width="211dp"
+        android:layout_height="59dp"
+        android:layout_marginTop="40dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="Button Click Score"
+        android:textColor="#03A9F4"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintTop_toBottomOf="@+id/EndGameDifficultyTitle"
+        tools:layout_editor_absoluteX="9dp" />
+
+    <TextView
+        android:id="@+id/Level1ScoreTextView"
+        android:layout_width="124dp"
+        android:layout_height="56dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="52dp"
+        android:text="TextView"
+        android:textColor="#000000"
+        app:layout_constraintStart_toEndOf="@+id/Level1ScoreTitle"
+        app:layout_constraintTop_toBottomOf="@+id/EndGameDifficultyTextView" />
+
+    <TextView
+        android:id="@+id/Level2ScoreTextView"
+        android:layout_width="128dp"
+        android:layout_height="53dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="80dp"
+        android:text="TextView"
+        android:textColor="#000000"
+        app:layout_constraintStart_toEndOf="@+id/Level2ScoreTitle"
+        app:layout_constraintTop_toBottomOf="@+id/Level1ScoreTextView" />
+
+    <TextView
+        android:id="@+id/Level3ScoreTextView"
+        android:layout_width="135dp"
+        android:layout_height="53dp"
+        android:layout_marginStart="44dp"
+        android:layout_marginTop="96dp"
+        android:text="TextView"
+        android:textColor="#000000"
+        app:layout_constraintStart_toEndOf="@+id/numIncorrectTitle"
+        app:layout_constraintTop_toBottomOf="@+id/Level2ScoreTextView" />
 
     <EditText
         android:id="@+id/resultsTitle2"

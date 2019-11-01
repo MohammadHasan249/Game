@@ -34,13 +34,13 @@
 
     <EditText
         android:id="@+id/resultsTitle"
-        android:layout_width="165dp"
-        android:layout_height="70dp"
+        android:layout_width="325dp"
+        android:layout_height="72dp"
         android:layout_marginTop="5dp"
         android:ems="10"
         android:fontFamily="sans-serif-black"
         android:inputType="textPersonName"
-        android:text="Results"
+        android:text="FlipCard Results"
         android:textAlignment="center"
         android:textColor="#000000"
         android:textIsSelectable="false"
@@ -139,13 +139,13 @@
         app:layout_constraintTop_toBottomOf="@+id/TimetoCompletionTextView" />
 
     <Button
-        android:id="@+id/playAgainButton"
-        android:layout_width="112dp"
-        android:layout_height="49dp"
+        android:id="@+id/btnEndGameResult"
+        android:layout_width="122dp"
+        android:layout_height="53dp"
         android:layout_marginEnd="5dp"
         android:layout_marginBottom="5dp"
-        android:onClick="mainBack"
-        android:text="Play Again"
+        android:onClick="endGame"
+        android:text="End Game "
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 

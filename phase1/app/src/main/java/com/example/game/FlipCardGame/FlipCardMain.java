@@ -11,25 +11,22 @@ import android.widget.TextView;
 import com.example.game.CurrUser;
 import com.example.game.R;
 
+
 public class FlipCardMain extends AppCompatActivity {
     CurrUser user;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_flip_card);
-        Bundle receiver = getIntent().getExtras();
-        if (receiver != null)
-        {
-//            user = new CurrUser(this);
-//            user.setCurrLevel(3);
+
+        user = new CurrUser(this);
+        user.setCurrLevel(3);
             TextView flipCardScore = findViewById(R.id.flipCardScore);
             TableLayout stk = findViewById(R.id.tableLayoutFlipCard);
             Chronometer timer = findViewById(R.id.flipCardTimer);
-            FlipCardGameManager newGame = new FlipCardGameManager("easy", Color.RED,
+        FlipCardGameManager newGame = new FlipCardGameManager(user.getDifficultySelected(), user.getColorSelected(),
                     flipCardScore, this.getApplicationContext(), stk, this, timer);
-//            FlipCardGameManager newGame = new FlipCardGameManager(user.getDifficultySelected(), user.getColorSelected(),
-//                    flipCardScore, this.getApplicationContext(), stk, this, timer);
-        }
+
     }
 
     void endGame(FlipCardResult newResult) {

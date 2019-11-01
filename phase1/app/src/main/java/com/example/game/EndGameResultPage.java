@@ -12,6 +12,7 @@ public class EndGameResultPage extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_end_game_result_page);
+        user = new CurrUser(this);
         TextView diffcultyTextView = findViewById(R.id.EndGameDifficultyTextView);
         TextView l1TextView = findViewById(R.id.Level1ScoreTextView);
         TextView l2TextView = findViewById(R.id.Level2ScoreTextView);
@@ -25,7 +26,7 @@ public class EndGameResultPage extends AppCompatActivity {
         diffcultyTextView.setText(user.getDifficultySelected());
         String l1score = Integer.toString(user.getL1RecentScore());
         String l2score = Integer.toString(user.getL2RecentScore());
-        String l3score = Integer.toString(user.getL3RecentScore());
+        String l3score = Integer.toString(user.getL3RecentScore()) + " seconds";
         l1TextView.setText(l1score);
         l2TextView.setText(l2score);
         l3TextView.setText(l3score);

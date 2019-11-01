@@ -168,7 +168,5 @@ public class MathGame extends AppCompatActivity {
         numCorrect = 0;
         numFailedAttempts = 0;
         updateScore();
-
-
     }
 }
