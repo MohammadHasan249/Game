@@ -31,17 +31,14 @@ public class CustomizationScreen extends AppCompatActivity {
         user.setMusicSelected(Integer.parseInt(radioCheckedSoundtrack.getTag().toString()));
         user.setCurrLevel(1);
 
-        System.out.println("MARKER 0");
-        if (currMedia != null){
-            System.out.println("MARKER 1");
-            currMedia.stop();
-
-        }
-        if (user.getMusicSelected() != 0){
-            System.out.println("MARKER 2");
-            currMedia = MediaPlayer.create(this, user.getMusicSelected());
-            currMedia.start();
-        }
+//        if (currMedia != null){
+//            currMedia.stop();
+//
+//        }
+//        if (user.getMusicSelected() != 0){
+//            currMedia = MediaPlayer.create(this, user.getMusicSelected());
+//            currMedia.start();
+//        }
 
         Intent goLevel1 = new Intent(this, ButtonClickMain.class);
         startActivity(goLevel1);
@@ -66,13 +63,6 @@ public class CustomizationScreen extends AppCompatActivity {
         radioSoundtrack2.setTag(R.raw.soundtrack2);
 
         user = new CurrUser(this);
-
-
-
-
-
-
-
 
     }
 }

@@ -10,10 +10,13 @@ import android.widget.TextView;
 import com.example.game.FlipCardGame.FlipCardMain;
 
 public class MathGameResult extends AppCompatActivity {
-    CurrUser user;
+
     int totalCorrect, totalFailedAttempts, time;
     double speed;
     TextView textTotalCorrect, textFailedAttempts, textSpeed;
+    CurrUser user;
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,11 +39,14 @@ public class MathGameResult extends AppCompatActivity {
         textTotalCorrect.setText(Integer.toString(totalCorrect));
         textFailedAttempts.setText(Integer.toString(totalFailedAttempts));
         textSpeed.setText(Double.toString(speed) + "/s");
+
         user = new CurrUser(this);
         user.setL2RecentScore(totalCorrect);
+        user.updateL2BestScore();
+        user.setCurrLevel(3);
     }
 
-    public void tol3Game(View view) {
+    private void btnContinueFunc (View view){
         Intent l3Game = new Intent(this, FlipCardMain.class);
         startActivity(l3Game);
         finish();
