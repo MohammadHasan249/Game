@@ -10,6 +10,7 @@ import android.widget.TextView;
 
 import com.example.game.CurrUser;
 import com.example.game.HomePage;
+import com.example.game.LevelOnCreate;
 import com.example.game.R;
 
 
@@ -19,7 +20,7 @@ public class FlipCardMain extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_flip_card);
-
+        LevelOnCreate level3 = new LevelOnCreate(this, "Match The Cards! (Timer goes off when you click on one of them)");
         user = new CurrUser(this);
         user.setCurrLevel(3);
         user.playMusic();
