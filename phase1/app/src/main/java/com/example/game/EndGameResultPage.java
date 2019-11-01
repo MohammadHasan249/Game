@@ -24,8 +24,8 @@ public class EndGameResultPage extends AppCompatActivity {
 
     private void setScore(CurrUser user, TextView diffcultyTextView, TextView l1TextView, TextView l2TextView, TextView l3TextView) {
         diffcultyTextView.setText(user.getDifficultySelected());
-        String l1score = Integer.toString(user.getL1RecentScore());
-        String l2score = Integer.toString(user.getL2RecentScore());
+        String l1score = Integer.toString(user.getL1RecentScore()) + " number of clicks";
+        String l2score = Integer.toString(user.getL2RecentScore()) + " number correct";
         String l3score = Integer.toString(user.getL3RecentScore()) + " seconds";
         l1TextView.setText(l1score);
         l2TextView.setText(l2score);
