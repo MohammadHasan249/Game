@@ -85,4 +85,15 @@
         android:textSize="35sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView3" />
+
+    <Button
+        android:id="@+id/btnContinue"
+        android:layout_width="151dp"
+        android:layout_height="63dp"
+        android:background="#64DD17"
+        android:text="Continue"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:layout_editor_absoluteY="594dp" />
 </androidx.constraintlayout.widget.ConstraintLayout>

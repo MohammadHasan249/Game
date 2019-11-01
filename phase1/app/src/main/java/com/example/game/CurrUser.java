@@ -5,10 +5,14 @@ import android.content.Context;
 import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import android.media.MediaPlayer;
 
 import static android.content.Context.MODE_PRIVATE;
 
 public class CurrUser {
+
+    private MediaPlayer currMedia;
+    private Context context;
 
     private SharedPreferences sharedPreferences;
     private SQLiteDatabase gameDB;
@@ -31,6 +35,8 @@ public class CurrUser {
     private int l3EasyBestScore, l3HardBestScore, l3RecentScore;
 
     public CurrUser(Context context) {
+        this.context = context;
+
         sharedPreferences = context.getSharedPreferences(context.getPackageName(), MODE_PRIVATE);
         username = sharedPreferences.getString("loggedInUsername", "NA");
         gameDB = context.openOrCreateDatabase("gameDB", MODE_PRIVATE, null);
@@ -62,6 +68,17 @@ public class CurrUser {
     }
 
     // Methods
+
+    public void playMusic(){
+        if (currMedia != null){
+            currMedia.stop();
+        }
+        if (this.getMusicSelected() != 0){
+            currMedia = MediaPlayer.create(this.context, this.getMusicSelected());
+            currMedia.start();
+        }
+    }
+
     public void updateL1BestScore(){
         if (this.getDifficultySelected().equals("easy")){
             if (this.getL1RecentScore() > this.getL1EasyBestScore()){

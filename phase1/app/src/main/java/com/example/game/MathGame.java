@@ -20,6 +20,8 @@ public class MathGame extends AppCompatActivity {
     int fourNumBound, numOfAdditions, numOfAdditionBounds, startValue, startValueHolder, randomIndex, time_ms, intHolder;
     boolean timer_set;
     CountDownTimer timer;
+
+    CurrUser user;
 //    Timer timer;
 
     // End result stats variables
@@ -58,11 +60,8 @@ public class MathGame extends AppCompatActivity {
     }
 
     public void btnReduceMethod(View view) {
-        System.out.println("LOCATION 0 MARK");
         startValue -= (Integer) view.getTag();
-        System.out.println("LOCATION 1 MARK");
         textValue.setText(Integer.toString(startValue));
-        System.out.println("LOCATION 2 MARK");
         if (startValue == 0){
             numCorrect += 1;
             updateScore();
@@ -82,14 +81,18 @@ public class MathGame extends AppCompatActivity {
     void reset(){
 
         // Put 4 random numbers into fourNum
-        fourNumBound = 8;
+
+        if (user.getDifficultySelected().equals("easy")){
+            fourNumBound = 8;
+        }else{
+            fourNumBound = 16;
+        }
+
         generateFourNumArray(fourNumBound);
 
         // Generate start value
         numOfAdditionBounds = 8;
         generateStartValue(numOfAdditionBounds);
-
-
 
         setUpReduceBtns();
 
@@ -140,6 +143,10 @@ public class MathGame extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_math_game);
 
+        user = new CurrUser(this);
+        user.playMusic();
+        user.setCurrLevel(2);
+
         btnReduce1 = findViewById(R.id.btnReduce1);
         btnReduce2 = findViewById(R.id.btnReduce2);
         btnReduce3 = findViewById(R.id.btnReduce3);
@@ -156,14 +163,11 @@ public class MathGame extends AppCompatActivity {
         textValue = findViewById(R.id.textValue);
         textTimeDisplay = findViewById(R.id.textTimeDisplay);
 
-
         rand = new Random();
         timer_set = false;
 
-
         reset();
         start_time();
-
 
         numCorrect = 0;
         numFailedAttempts = 0;
