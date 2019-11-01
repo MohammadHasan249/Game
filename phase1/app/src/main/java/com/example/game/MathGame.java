@@ -20,6 +20,8 @@ public class MathGame extends AppCompatActivity {
     int fourNumBound, numOfAdditions, numOfAdditionBounds, startValue, startValueHolder, randomIndex, time_ms, intHolder;
     boolean timer_set;
     CountDownTimer timer;
+    String instructions;
+    LevelOnCreate levelOnCreate;
 
     CurrUser user;
 
@@ -131,7 +133,7 @@ public class MathGame extends AppCompatActivity {
             }
         };
         timer_set = true;
-        timer.start();
+//        timer.start();
     }
     void updateScore(){
         textScore.setText(Integer.toString(numCorrect) + " | " + Integer.toString(numFailedAttempts));
@@ -150,6 +152,8 @@ public class MathGame extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_math_game);
+
+
 
         user = new CurrUser(this);
         user.playMusic();
@@ -182,6 +186,9 @@ public class MathGame extends AppCompatActivity {
         updateScore();
 
         changeBtnColor();
+
+        instructions = "Decrease the displayed value to exactly 0 by clicking the 4 numbered squares";
+        levelOnCreate = new LevelOnCreate (this,instructions, timer);
     }
 
     @Override
