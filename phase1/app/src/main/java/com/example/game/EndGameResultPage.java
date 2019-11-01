@@ -3,6 +3,7 @@ package com.example.game;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.view.View;
 import android.widget.TextView;
 
 public class EndGameResultPage extends AppCompatActivity {
@@ -30,5 +31,9 @@ public class EndGameResultPage extends AppCompatActivity {
         l1TextView.setText(l1score);
         l2TextView.setText(l2score);
         l3TextView.setText(l3score);
+    }
+
+    public void btnFinishFunc(View view){
+        finish();
     }
 }
