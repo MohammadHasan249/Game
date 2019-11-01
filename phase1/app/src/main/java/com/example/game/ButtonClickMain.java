@@ -23,6 +23,7 @@ public class ButtonClickMain extends AppCompatActivity {
     int diff_time;
     static int numClicks = 0;
     static int score = 0;
+    TextView scoreTxt;
     //----------------------------------
 
     void goButtonClickResult() {
@@ -47,6 +48,7 @@ public class ButtonClickMain extends AppCompatActivity {
                     numClicks += 1;
                     score += 1;
                 }
+                scoreTxt.setText(score + " | " + numClicks);
             }
         };
     }
@@ -56,6 +58,7 @@ public class ButtonClickMain extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 numClicks += 1;
+                scoreTxt.setText(score + " | " + numClicks);
             }
         };
     }
@@ -64,7 +67,7 @@ public class ButtonClickMain extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_button_click_main);
-        final TextView scoreTxt = findViewById(R.id.scoreBtnClick);
+        scoreTxt = findViewById(R.id.scoreBtnClick);
         final TextView countDownTxt = findViewById(R.id.countDownText);
         TableLayout tableLayout = findViewById(R.id.tableLayoutBtns);
         tableLayout.setOnClickListener(handleIncorrect());
@@ -108,7 +111,6 @@ public class ButtonClickMain extends AppCompatActivity {
             }
             // Set a random button to visible
             buttonVisVisible(buttons);
-            scoreTxt.setText(score + " | " + numClicks);
             countDownTxt.setText((int) millisUntilFinished/1000 + "s");
           }
 
