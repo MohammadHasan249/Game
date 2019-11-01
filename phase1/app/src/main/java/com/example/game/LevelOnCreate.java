@@ -11,7 +11,7 @@ public class LevelOnCreate {
                 .setIcon(android.R.drawable.ic_dialog_alert)
                 .setTitle("Level Instructions")
                 .setMessage(instructions)
-                .setPositiveButton("YES", null)
+                .setPositiveButton("OK", null)
                 .show();
     }
 }
