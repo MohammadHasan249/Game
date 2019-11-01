@@ -125,6 +125,7 @@ public class MathGame extends AppCompatActivity {
             @Override
             public void onFinish() {
                 // So far have made intent to go to result screen
+                user.stopMusic();
                 goMathGameResult();
                 finish();
                 // Should also save data to SQL from here
@@ -135,6 +136,15 @@ public class MathGame extends AppCompatActivity {
     }
     void updateScore(){
         textScore.setText(Integer.toString(numCorrect) + " | " + Integer.toString(numFailedAttempts));
+    }
+
+    private void changeBtnColor(){
+        int k;
+        for(k=0; k < fourBtn.size(); k++){
+            fourBtn.get(k).setBackgroundColor(user.getColorSelected());
+        }
+
+        btnReset.setBackgroundColor(user.getColorSelected());
     }
 
     @Override
@@ -171,5 +181,7 @@ public class MathGame extends AppCompatActivity {
         numCorrect = 0;
         numFailedAttempts = 0;
         updateScore();
+
+        changeBtnColor();
     }
 }

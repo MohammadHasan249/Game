@@ -79,6 +79,12 @@ public class CurrUser {
         }
     }
 
+    public void stopMusic(){
+        if (currMedia != null){
+            currMedia.stop();
+        }
+    }
+
     public void updateL1BestScore(){
         if (this.getDifficultySelected().equals("easy")){
             if (this.getL1RecentScore() > this.getL1EasyBestScore()){
