@@ -22,7 +22,6 @@ public class MathGame extends AppCompatActivity {
     CountDownTimer timer;
 
     CurrUser user;
-//    Timer timer;
 
     // End result stats variables
     int numCorrect, numFailedAttempts, timeHolder;

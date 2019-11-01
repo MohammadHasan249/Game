@@ -28,6 +28,7 @@ public class ButtonClickResult extends AppCompatActivity {
         numClicksText.setText(String.valueOf(numberClicks));
         numCorrectClicksText.setText(String.valueOf(correctScore));
         user.setL1RecentScore(correctScore);
+        user.updateL1BestScore();
     }
 
     public void tol2Game(View view) {
