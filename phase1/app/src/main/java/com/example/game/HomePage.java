@@ -39,7 +39,6 @@ public class HomePage extends AppCompatActivity {
         user = new CurrUser(this);
         textViewUsername = findViewById(R.id.textViewUsername);
         textViewUsername.setText(user.getUsername());
-
-
+        System.out.println("HOME MARKER");
     }
 }

@@ -31,17 +31,9 @@ public class CustomizationScreen extends AppCompatActivity {
         user.setMusicSelected(Integer.parseInt(radioCheckedSoundtrack.getTag().toString()));
         user.setCurrLevel(1);
 
-//        if (currMedia != null){
-//            currMedia.stop();
-//
-//        }
-//        if (user.getMusicSelected() != 0){
-//            currMedia = MediaPlayer.create(this, user.getMusicSelected());
-//            currMedia.start();
-//        }
-
         Intent goLevel1 = new Intent(this, ButtonClickMain.class);
         startActivity(goLevel1);
+        finish();
     }
 
 

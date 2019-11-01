@@ -26,7 +26,7 @@ public class ButtonClickMain extends AppCompatActivity {
     TextView scoreTxt;
     //----------------------------------
 
-    void goButtonClickResult() {
+    public void goButtonClickResult() {
         user.stopMusic();
         Intent goResult = new Intent(this, ButtonClickResult.class);
         goResult.putExtra("Total Clicks", numClicks);
@@ -113,7 +113,7 @@ public class ButtonClickMain extends AppCompatActivity {
             }
             // Set a random button to visible
             buttonVisVisible(buttons);
-            countDownTxt.setText((int) millisUntilFinished/1000 + "s");
+            countDownTxt.setText((int) millisUntilFinished / 1000 + "s");
           }
 
           public void onFinish() {

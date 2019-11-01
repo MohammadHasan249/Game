@@ -88,6 +88,7 @@ public class CurrUser {
     public void updateL1BestScore(){
         if (this.getDifficultySelected().equals("easy")){
             if (this.getL1RecentScore() > this.getL1EasyBestScore()){
+
                 this.setL1EasyBestScore(this.getL1RecentScore());
             }
         }else{
@@ -172,7 +173,7 @@ public class CurrUser {
 
     public void setL1EasyBestScore(int l1EasyBestScore) {
         this.l1EasyBestScore = l1EasyBestScore;
-        gameDB.execSQL("UPDATE users WHERE username = '"+this.getUsername()+"' SET l1EasyBestScore= '"+l1EasyBestScore+"'");
+        gameDB.execSQL("UPDATE users SET l1EasyBestScore= '"+l1EasyBestScore+"' WHERE username = '"+this.getUsername()+"'");
     }
 
     public int getL1HardBestScore() {
@@ -181,7 +182,7 @@ public class CurrUser {
 
     public void setL1HardBestScore(int l1HardBestScore) {
         this.l1HardBestScore = l1HardBestScore;
-        gameDB.execSQL("UPDATE users WHERE username = '"+this.getUsername()+"' SET l1HardBestScore= '"+l1HardBestScore+"'");
+        gameDB.execSQL("UPDATE users SET l1HardBestScore= '"+l1HardBestScore+"' WHERE username = '"+this.getUsername()+"'");
     }
 
     public int getL1RecentScore() {
