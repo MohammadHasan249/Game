@@ -1,0 +1,17 @@
+package com.example.game;
+
+import android.content.Context;
+import android.content.DialogInterface;
+
+import androidx.appcompat.app.AlertDialog;
+
+public class LevelOnCreate {
+    LevelOnCreate(Context context, String instructions){
+        new AlertDialog.Builder(context)
+                .setIcon(android.R.drawable.ic_dialog_alert)
+                .setTitle("Level Instructions")
+                .setMessage(instructions)
+                .setPositiveButton("YES", null)
+                .show();
+    }
+}
