@@ -122,4 +122,9 @@ public class ButtonClickMain extends AppCompatActivity {
           }
         }.start();
     }
+    @Override
+    public void onBackPressed() {
+        user.stopMusic();
+        finish();
+    }
 }

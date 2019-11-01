@@ -34,8 +34,15 @@ public class FlipCardMain extends AppCompatActivity {
         newResult.setFlipCardResult(user);
         Intent showResult = new Intent(this, FlipCardResultViewHandler.class);
         showResult.putExtra("FlipCardResult", newResult);
+        user.stopMusic();
         finish();
         startActivity(showResult);
     }
+
+    @Override
+    public void onBackPressed() {
+        user.stopMusic();
+        finish();
     }
+}
 

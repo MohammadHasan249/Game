@@ -183,4 +183,10 @@ public class MathGame extends AppCompatActivity {
 
         changeBtnColor();
     }
+
+    @Override
+    public void onBackPressed() {
+        user.stopMusic();
+        finish();
+    }
 }
