@@ -25,7 +25,7 @@ public class MainActivity extends AppCompatActivity {
     int passwordIndex;
     SharedPreferences sharedPreferences;
 
-    public void login(){
+    public void login() {
         currUserName = editTextUserName.getText().toString();
 
         sharedPreferences.edit().putString("loggedInUsername", currUserName).apply();
@@ -33,49 +33,49 @@ public class MainActivity extends AppCompatActivity {
         startActivity(start);
     }
 
-    public void btnSignUpFunc (View view){
+    public void btnSignUpFunc(View view) {
         currUserName = editTextUserName.getText().toString();
         currPassword = editTextPassword.getText().toString();
 
-        if (currUserName.isEmpty() || currUserName.length() < 3 ){
+        if (currUserName.isEmpty() || currUserName.length() < 3) {
             Toast.makeText(getApplicationContext(), "Username must contain at least 3 letters", Toast.LENGTH_SHORT).show();
-        }else if (currPassword.isEmpty() || currPassword.length() < 3){
+        } else if (currPassword.isEmpty() || currPassword.length() < 3) {
             Toast.makeText(getApplicationContext(), "Password must contain at least 3 letters", Toast.LENGTH_SHORT).show();
-        }else{
-            Cursor c = gameDB.rawQuery("SELECT * FROM users WHERE username = '"+currUserName+"'", null);
+        } else {
+            Cursor c = gameDB.rawQuery("SELECT * FROM users WHERE username = '" + currUserName + "'", null);
 
-            if (!c.moveToFirst()){  // c.moveToFirst() return true if there is data, false if no data
+            if (!c.moveToFirst()) {  // c.moveToFirst() return true if there is data, false if no data
                 // Sign up the user if the username typed in is not in database
-                gameDB.execSQL("INSERT INTO users (username, password) VALUES ('"+currUserName+"', '"+currPassword+"')");
+                gameDB.execSQL("INSERT INTO users (username, password) VALUES ('" + currUserName + "', '" + currPassword + "')");
                 // Unspecified column values by default become Int = 0, VARCHAR = null
                 c.close();
                 login();
-            }else{
+            } else {
                 Toast.makeText(getApplicationContext(), "Username already exists", Toast.LENGTH_SHORT).show();
             }
         }
     }
 
-    public void btnLoginFunc(View view){
+    public void btnLoginFunc(View view) {
         currUserName = editTextUserName.getText().toString();
         currPassword = editTextPassword.getText().toString();
-        Cursor c = gameDB.rawQuery("SELECT * FROM users WHERE username = '"+currUserName+"'", null);
+        Cursor c = gameDB.rawQuery("SELECT * FROM users WHERE username = '" + currUserName + "'", null);
 
-        if (c.moveToFirst()){
+        if (c.moveToFirst()) {
             passwordIndex = c.getColumnIndex("password");
-            if(currPassword.equals(c.getString(passwordIndex))){
+            if (currPassword.equals(c.getString(passwordIndex))) {
                 //Found existing existing user with username / password matching inputs
                 c.close();
                 login();
-            }else{
+            } else {
                 Toast.makeText(getApplicationContext(), "Incorrect Password", Toast.LENGTH_SHORT).show();
             }
-        }else{
+        } else {
             Toast.makeText(getApplicationContext(), "Username does not exist", Toast.LENGTH_SHORT).show();
         }
     }
 
-    public void hideKeyboard(View view){
+    public void hideKeyboard(View view) {
         InputMethodManager mgr = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
         if (mgr != null)
             mgr.toggleSoftInput(InputMethodManager.SHOW_FORCED, 0);
@@ -104,7 +104,6 @@ public class MainActivity extends AppCompatActivity {
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 
-
         gameDB.execSQL("CREATE TABLE IF NOT EXISTS users (username VARCHAR, password VARCHAR, currLevel INT(2), " +
                 "colorSelected INT(11), difficultySelected VARCHAR, musicSelected INT(11), " +
                 "l1EasyBestScore INT(4), l1HardBestScore INT(4), l1RecentScore INT(4), " +
@@ -113,7 +112,7 @@ public class MainActivity extends AppCompatActivity {
 
         user = sharedPreferences.getString("loggedInUsername", "NA");
 
-        if (!user.equals("NA")){
+        if (!user.equals("NA")) {
             Intent start = new Intent(getApplicationContext(), HomePage.class);
             startActivity(start);
         }

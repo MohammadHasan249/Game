@@ -29,7 +29,7 @@ public class MathGameResult extends AppCompatActivity {
         totalCorrect = intentOrigin.getIntExtra("numCorrect", 0);
         totalFailedAttempts = intentOrigin.getIntExtra("numFailedAttempts", 0);
         time = intentOrigin.getIntExtra("time", 0);
-        speed = Math.round(100*(double)totalCorrect/time)/100.0 ;
+        speed = Math.round(100 * (double) totalCorrect / time) / 100.0;
         // Math.round produces an int, so need to divide by 100.0 to get double
         // Math.round will round to nearest decimal, so if get a value of something like 0.131123 but if round this
         // to nearest decimal will be 0, so need to multiple by 100 --> 13.1123 then round to remove excess digits --> 13 divide by 100 --> 0.13
@@ -46,7 +46,7 @@ public class MathGameResult extends AppCompatActivity {
         user.setCurrLevel(3);
     }
 
-    public void btnContinueFunc (View view){
+    public void btnContinueFunc(View view) {
         Intent l3Game = new Intent(this, FlipCardMain.class);
         startActivity(l3Game);
         finish();
@@ -55,7 +55,7 @@ public class MathGameResult extends AppCompatActivity {
     @Override
     public void onBackPressed() {
         Intent start = new Intent(getApplicationContext(), HomePage.class);
-        start.putExtra("androidBack",1);
+        start.putExtra("androidBack", 1);
         startActivity(start);
         finish();
     }
