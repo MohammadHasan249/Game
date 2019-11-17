@@ -28,8 +28,8 @@ public class FlipCardMain extends AppCompatActivity {
     TextView flipCardScore = findViewById(R.id.flipCardScore);
     TableLayout stk = findViewById(R.id.tableLayoutFlipCard);
     Chronometer timer = findViewById(R.id.flipCardTimer);
-    FlipCardGameManager newGame =
-        new FlipCardGameManager(
+    FlipCardMainGame newGame =
+        new FlipCardMainGame(
             user.getDifficultySelected(),
             user.getColorSelected(),
             flipCardScore,

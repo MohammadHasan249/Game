@@ -13,7 +13,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Random;
 
-class FlipCardGameManager {
+class FlipCardMainGame implements FlipCardManager{
   private String difficulty;
   private int numMatches;
   private int numCorrect;
@@ -27,7 +27,7 @@ class FlipCardGameManager {
   private boolean firstClick;
   private Chronometer timer;
 
-  FlipCardGameManager(
+  FlipCardMainGame(
       String difficulty,
       int colorInt,
       TextView flipCardScore,
@@ -35,6 +35,18 @@ class FlipCardGameManager {
       TableLayout stk,
       FlipCardMain observer,
       Chronometer timer) {
+    this.flipCardGameManagerBuilder(difficulty,colorInt,flipCardScore,packageContext,stk,observer,timer);
+  }
+
+  private void flipCardGameManagerBuilder(
+          String difficulty,
+          int colorInt,
+          TextView flipCardScore,
+          Context packageContext,
+          TableLayout stk,
+          FlipCardMain observer,
+          Chronometer timer)
+  {
     this.difficulty = difficulty;
     this.setNumMatches(this.difficulty);
     this.cardBackColor = colorInt;
@@ -53,7 +65,8 @@ class FlipCardGameManager {
   // if this is the first click, it will start the timer then call updatecards
   // if the game is over when the player got all the matches then stop the timer and pass back
   // the flip card result class to the observer(FlipCardMain) to end the intent there
-  void update() {
+  @Override
+  public void update() {
     if (!this.firstClick) {
       this.timer.setBase(SystemClock.elapsedRealtime());
       this.timer.start();
