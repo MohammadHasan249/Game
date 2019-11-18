@@ -44,7 +44,7 @@ class FlipCards {
     this.btnInstance.setOnClickListener(handleOnClick(this.btnInstance));
     this.btnInstance.setWidth(btnWidth);
     this.btnInstance.setHeight(btnHeight);
-    this.fullColor = this.setBoarderColor(this.btnInstance, cardBackColor, btnWidth);
+    this.fullColor = this.initBoarderColor(this.btnInstance, cardBackColor, btnWidth);
     this.enabled = true;
     this.manager = manager;
   }
@@ -53,7 +53,7 @@ class FlipCards {
     this.manager = manager;
   }
   // setting the color with the boarder of the card
-  private Drawable setBoarderColor(Button btnInstance, int cardBackColor, int btnWidth) {
+  private Drawable initBoarderColor(Button btnInstance, int cardBackColor, int btnWidth) {
     GradientDrawable drawable = new GradientDrawable();
     drawable.setShape(GradientDrawable.RECTANGLE);
     drawable.setStroke(btnWidth, Color.BLACK);
