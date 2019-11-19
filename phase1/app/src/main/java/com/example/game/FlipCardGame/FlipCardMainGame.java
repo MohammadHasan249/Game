@@ -3,15 +3,11 @@ package com.example.game.FlipCardGame;
 import android.content.Context;
 import android.os.CountDownTimer;
 import android.os.SystemClock;
-import android.view.Gravity;
 import android.widget.Chronometer;
 import android.widget.TableLayout;
-import android.widget.TableRow;
 import android.widget.TextView;
 
 import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Random;
 
 class FlipCardMainGame implements FlipCardManager{
   private String difficulty;
@@ -26,7 +22,7 @@ class FlipCardMainGame implements FlipCardManager{
   private FlipCardMain observer;
   private boolean firstClick;
   private Chronometer timer;
-
+    private FlipCardsBuilder flipCardsBuilder;
   FlipCardMainGame(
       String difficulty,
       int colorInt,
@@ -55,10 +51,12 @@ class FlipCardMainGame implements FlipCardManager{
     this.stk = stk;
     this.numCorrect = 0;
     this.numMatchAttempt = 0;
-    this.allCards = this.generateCards(this.numMatches);
     this.observer = observer;
     this.firstClick = false;
     this.timer = timer;
+      this.flipCardsBuilder = new FlipCardsBuilder(this.numMatches, "Ascii",
+              this.packageContext, this.stk, this, this.cardBackColor);
+      this.allCards = this.flipCardsBuilder.createCards();
   }
 
   // this is an update class that is called when the cards are flipped
@@ -136,68 +134,10 @@ class FlipCardMainGame implements FlipCardManager{
     this.flipCardScore.setText(toShow);
   }
 
-  // generates a random list of symbols with size numMatches times 2, so every match will have
-  // 2 cards with the same symbol
-  private ArrayList<Character> symbolGenerator(int numMatches) {
-    Random rand = new Random();
-    ArrayList<Character> charList = new ArrayList<>();
-    for (int i = 0; i < numMatches; i++) {
-      // want to generate a random character to use, since my max number of matches is 20
-      // I have no problem going through the entire alphabet
-      char c = (char) (rand.nextInt(26) + 'a');
-      if (charList.contains(c)) {
-        for (int j = 0; j < numMatches; j++) {
-          char newchar = (char) (rand.nextInt(26) + 'a');
-          if (!charList.contains(newchar)) {
-            charList.add(newchar);
-            charList.add(newchar);
-            break;
-          }
-        }
-      } else {
-        charList.add(c);
-        charList.add(c);
-      }
-    }
-    Collections.shuffle(charList);
-    return charList;
-  }
-
   // set numMatches based on the difficulty of the game selected buy the user
   private void setNumMatches(String difficulty) {
     if (difficulty.equals("easy")) this.numMatches = 8;
     else this.numMatches = 16;
   }
 
-  // generates a new table row in our table layout
-  private TableRow generateNewRow() {
-    TableRow tbrow = new TableRow(this.packageContext);
-    tbrow.setGravity(Gravity.CENTER_HORIZONTAL);
-    tbrow.setLayoutParams(
-        new TableLayout.LayoutParams(
-            TableLayout.LayoutParams.WRAP_CONTENT, TableLayout.LayoutParams.WRAP_CONTENT));
-    return tbrow;
-  }
-
-  // generates cards of the game and adds them to a list to keep track of them.
-  private ArrayList<FlipCards> generateCards(int numMatches) {
-    ArrayList<Character> charList = this.symbolGenerator(numMatches);
-    ArrayList<FlipCards> allCardCreation = new ArrayList<>();
-    this.stk.setGravity(Gravity.CENTER_VERTICAL);
-    int i = 0;
-    TableRow tbrow = this.generateNewRow();
-    for (Character s : charList) {
-      if (i == 4) {
-        this.stk.addView(tbrow);
-        tbrow = this.generateNewRow();
-        i = 0;
-      }
-      FlipCards f1 =
-          new FlipCards(this.packageContext, cardBackColor, s.toString(), tbrow, 3, 3, this);
-      allCardCreation.add(f1);
-      i++;
-    }
-    stk.addView(tbrow);
-    return allCardCreation;
-  }
 }
