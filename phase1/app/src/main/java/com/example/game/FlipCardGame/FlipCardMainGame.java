@@ -63,8 +63,25 @@ class FlipCardMainGame implements FlipCardManager{
   // if this is the first click, it will start the timer then call updatecards
   // if the game is over when the player got all the matches then stop the timer and pass back
   // the flip card result class to the observer(FlipCardMain) to end the intent there
+//  @Override
+//  public void update() {
+//    if (!this.firstClick) {
+//      this.timer.setBase(SystemClock.elapsedRealtime());
+//      this.timer.start();
+//      this.firstClick = true;
+//    }
+//    this.updateCards();
+//    if (this.numCorrect == this.numMatches) {
+//      this.timer.stop();
+//      long timeToCompleteMs = this.returnElapsedTime();
+//      FlipCardResult newResult =
+//          new FlipCardResult(
+//              this.difficulty, this.numCorrect, this.numMatchAttempt, timeToCompleteMs);
+//      this.observer.endGame(newResult);
+//    }
+//  }
   @Override
-  public void update() {
+  public void update(FlipCards currflip) {
     if (!this.firstClick) {
       this.timer.setBase(SystemClock.elapsedRealtime());
       this.timer.start();
@@ -75,8 +92,8 @@ class FlipCardMainGame implements FlipCardManager{
       this.timer.stop();
       long timeToCompleteMs = this.returnElapsedTime();
       FlipCardResult newResult =
-          new FlipCardResult(
-              this.difficulty, this.numCorrect, this.numMatchAttempt, timeToCompleteMs);
+              new FlipCardResult(
+                      this.difficulty, this.numCorrect, this.numMatchAttempt, timeToCompleteMs);
       this.observer.endGame(newResult);
     }
   }

@@ -3,10 +3,10 @@ package com.example.game.FlipCardGame;
 import android.content.Context;
 import android.graphics.Color;
 import android.graphics.drawable.Drawable;
+import android.graphics.drawable.GradientDrawable;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TableRow;
-import android.graphics.drawable.GradientDrawable;
 
 class FlipCards {
   private Button btnInstance;
@@ -92,13 +92,17 @@ class FlipCards {
     this.flipped = false;
   }
 
+  private void callManagerUpdate() {
+    manager.update(this);
+  }
   // when the card is clicked, it flips then call the update on the observer(FlipCardMainGame)
   private View.OnClickListener handleOnClick(final Button button) {
     return new View.OnClickListener() {
       public void onClick(View v) {
         if (!disableCards) {
           flipCard();
-          manager.update();
+          //manager.update();
+          callManagerUpdate();
         }
       }
     };
