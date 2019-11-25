@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">Game</string>
+    <string name="customizations">Extra Customizations</string>
+    <string name="symbolType">Symbol Choice</string>
 </resources>
