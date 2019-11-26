@@ -11,7 +11,6 @@ class AsciiSymbol extends FlipCardSymbol {
     AsciiSymbol(int numMatches) {
         this.asciiList = this.generateSymbol(numMatches);
     }
-
     @Override
     ArrayList<String> generateSymbol(int numMatches) {
         //getting 16 cool ascii art
@@ -27,7 +26,6 @@ class AsciiSymbol extends FlipCardSymbol {
         asciiList = this.shuffleArray(asciiList);
         return asciiList;
     }
-
     @Override
     public ArrayList<String> getSymbols() {
         return this.asciiList;

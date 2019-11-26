@@ -7,7 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
 
-import com.example.game.FlipCardGame.FlipCardMain;
+import com.example.game.FlipCardGame.FlipCardInit;
 
 public class MathGameResult extends AppCompatActivity {
 
@@ -47,8 +47,8 @@ public class MathGameResult extends AppCompatActivity {
     }
 
     public void btnContinueFunc(View view) {
-        Intent l3Game = new Intent(this, FlipCardMain.class);
-        startActivity(l3Game);
+        FlipCardInit newFlipCardGame = new FlipCardInit();
+        newFlipCardGame.startGame(this );
         finish();
     }
 

@@ -10,7 +10,6 @@ class NumberSymbol extends FlipCardSymbol {
     {
         this.numberList = generateSymbol(numMatches);
     }
-
     @Override
     ArrayList<String> generateSymbol(int numMatches)
     {

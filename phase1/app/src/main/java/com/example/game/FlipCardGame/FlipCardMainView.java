@@ -13,7 +13,7 @@ import com.example.game.HomePage;
 import com.example.game.LevelOnCreate;
 import com.example.game.R;
 
-public class FlipCardMain extends AppCompatActivity {
+public class FlipCardMainView extends AppCompatActivity {
   CurrUser user;
 
   @Override

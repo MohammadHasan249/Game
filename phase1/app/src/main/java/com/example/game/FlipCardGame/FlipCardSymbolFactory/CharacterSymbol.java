@@ -6,10 +6,9 @@ import java.util.Random;
 class CharacterSymbol extends FlipCardSymbol {
     private ArrayList<String> charList;
 
-    public CharacterSymbol(int numMatches) {
+    CharacterSymbol(int numMatches) {
         this.charList = this.generateSymbol(numMatches);
     }
-
     @Override
     ArrayList<String> generateSymbol(int numMatches) {
         Random rand = new Random();

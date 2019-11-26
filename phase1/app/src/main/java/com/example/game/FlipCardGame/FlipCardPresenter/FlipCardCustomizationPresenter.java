@@ -1,14 +1,15 @@
 package com.example.game.FlipCardGame.FlipCardPresenter;
 
+import com.example.game.FlipCardGame.FlipCardMainPresenter;
 import com.example.game.FlipCardGame.FlipCardSymbolFactory.FlipCardSymbolFactory;
 import com.example.game.FlipCardGame.FlipCardView.FlipCardCustomizationView;
 
 import java.util.ArrayList;
 
 public class FlipCardCustomizationPresenter {
-    private FlipCardCustomizationView view;
+    private FlipCardCustomizationPresenter.View view;
     private FlipCardSymbolFactory symbolFactory;
-    public FlipCardCustomizationPresenter(FlipCardCustomizationView view)
+    public FlipCardCustomizationPresenter(FlipCardCustomizationPresenter.View view)
     {
         this.symbolFactory = new FlipCardSymbolFactory();
         this.view = view;

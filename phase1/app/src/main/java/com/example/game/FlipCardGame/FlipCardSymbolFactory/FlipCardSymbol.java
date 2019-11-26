@@ -6,11 +6,10 @@ import java.util.Collections;
 public abstract class FlipCardSymbol {
     abstract ArrayList<String> generateSymbol(int numMatches);
 
-    ArrayList<String> shuffleArray(ArrayList list) {
-        ArrayList<String> newList = list;
+    ArrayList<String> shuffleArray(ArrayList listToShuffle) {
+        ArrayList<String> newList = listToShuffle;
         Collections.shuffle(newList);
         return newList;
     }
-
     public abstract ArrayList<String> getSymbols();
 }

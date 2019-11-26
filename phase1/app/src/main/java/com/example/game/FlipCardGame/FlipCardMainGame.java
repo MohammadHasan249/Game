@@ -19,7 +19,7 @@ class FlipCardMainGame implements FlipCardManager{
   private Context packageContext;
   private TableLayout stk;
   private ArrayList<FlipCards> allCards;
-  private FlipCardMain observer;
+  private FlipCardMainView observer;
   private boolean firstClick;
   private Chronometer timer;
     private FlipCardsBuilder flipCardsBuilder;
@@ -29,7 +29,7 @@ class FlipCardMainGame implements FlipCardManager{
       TextView flipCardScore,
       Context packageContext,
       TableLayout stk,
-      FlipCardMain observer,
+      FlipCardMainView observer,
       Chronometer timer) {
     this.flipCardGameManagerBuilder(difficulty,colorInt,flipCardScore,packageContext,stk,observer,timer);
   }
@@ -40,7 +40,7 @@ class FlipCardMainGame implements FlipCardManager{
           TextView flipCardScore,
           Context packageContext,
           TableLayout stk,
-          FlipCardMain observer,
+          FlipCardMainView observer,
           Chronometer timer)
   {
     this.difficulty = difficulty;
@@ -62,7 +62,7 @@ class FlipCardMainGame implements FlipCardManager{
   // this is an update class that is called when the cards are flipped
   // if this is the first click, it will start the timer then call updatecards
   // if the game is over when the player got all the matches then stop the timer and pass back
-  // the flip card result class to the observer(FlipCardMain) to end the intent there
+  // the flip card result class to the observer(FlipCardMainView) to end the intent there
 //  @Override
 //  public void update() {
 //    if (!this.firstClick) {
