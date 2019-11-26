@@ -12,7 +12,7 @@ import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.game.FlipCardGame.FlipCardMain;
+import com.example.game.FlipCardGame.FlipCardMainView;
 
 public class HomePage extends AppCompatActivity {
 
@@ -61,7 +61,7 @@ public class HomePage extends AppCompatActivity {
             startActivity(start);
             finish();
         } else if (level == 3) {
-            Intent start = new Intent(getApplicationContext(), FlipCardMain.class);
+            Intent start = new Intent(getApplicationContext(), FlipCardMainView.class);
             startActivity(start);
             finish();
         }
