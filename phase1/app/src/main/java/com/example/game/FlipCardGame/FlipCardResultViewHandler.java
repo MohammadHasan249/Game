@@ -15,7 +15,6 @@ public class FlipCardResultViewHandler extends AppCompatActivity {
   CurrUser user;
 
   public void endGame(View view) {
-    user.setCurrLevel(0);
     Intent endGameResult = new Intent(this, EndGameResultPage.class);
     startActivity(endGameResult);
     finish();
