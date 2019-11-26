@@ -1,8 +1,6 @@
 package com.example.game.FlipCardGame.FlipCardPresenter;
 
-import com.example.game.FlipCardGame.FlipCardMainPresenter;
 import com.example.game.FlipCardGame.FlipCardSymbolFactory.FlipCardSymbolFactory;
-import com.example.game.FlipCardGame.FlipCardView.FlipCardCustomizationView;
 
 import java.util.ArrayList;
 
