@@ -100,8 +100,6 @@ class FlipCards {
     return new View.OnClickListener() {
       public void onClick(View v) {
         if (!disableCards) {
-          flipCard();
-          //manager.update();
           callManagerUpdate();
         }
       }

@@ -4,9 +4,9 @@ import android.content.Context;
 
 import com.example.game.CurrUser;
 
-public class UserInfoFascade {
+public class UserInfoFacade {
     CurrUser user;
-    UserInfoFascade(Context currContext)
+    UserInfoFacade(Context currContext)
     {
         this.user = new CurrUser(currContext);
     }
@@ -20,5 +20,17 @@ public class UserInfoFascade {
     void stopMusic()
     {
         this.user.stopMusic();
+    }
+    String getSelectedDifficulty()
+    {
+        return this.user.getDifficultySelected();
+    }
+    int getSelectedColor()
+    {
+        return this.user.getColorSelected();
+    }
+    CurrUser getUser()
+    {
+        return this.user;
     }
 }
