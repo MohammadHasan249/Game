@@ -25,10 +25,9 @@
 
     <Spinner
         android:id="@+id/spnPickSymbol"
-        android:layout_width="284dp"
-        android:layout_height="89dp"
-        android:layout_marginTop="8dp"
-        android:textAlignment="textEnd"
+        android:layout_width="286dp"
+        android:layout_height="64dp"
+        android:textAlignment="center"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txtPickSymbol" />
