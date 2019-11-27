@@ -3,12 +3,30 @@ package com.example.game.FlipCardGame.FlipCardSymbolFactory;
 import java.util.ArrayList;
 import java.util.Random;
 
+/**
+ * The CharacterSymbol class is a subclass of the FlipCardSymbol class and deals with the creation
+ * of the character symbols that might appear on the cards
+ *
+ * @author Gerald, Harbaksh
+ */
 class CharacterSymbol extends FlipCardSymbol {
     private ArrayList<String> charList;
 
+    /**
+     * This method assigns a list with numMatches amount of character strings to this.charList
+     *
+     * @param numMatches the number of possible card matches
+     */
     CharacterSymbol(int numMatches) {
         this.charList = this.generateSymbol(numMatches);
     }
+
+    /**
+     * Generates the symbols for the cards
+     *
+     * @param numMatches the number of possible card matches
+     * @return an ArrayList with string objects
+     */
     @Override
     ArrayList<String> generateSymbol(int numMatches) {
         Random rand = new Random();
@@ -33,6 +51,11 @@ class CharacterSymbol extends FlipCardSymbol {
         return charList;
     }
 
+    /**
+     * Symbol getter
+     *
+     * @return an ArrayList with the character symbols
+     */
     @Override
     public ArrayList<String> getSymbols() {
         return this.charList;
