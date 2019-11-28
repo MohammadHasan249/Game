@@ -1,36 +1,45 @@
-package com.example.game.FlipCardGame;
+package com.example.game;
 
 import android.content.Context;
 
-import com.example.game.CurrUser;
-
 public class UserInfoFacade {
-    CurrUser user;
-    UserInfoFacade(Context currContext)
+    private CurrUser user;
+
+    public UserInfoFacade(Context currContext)
     {
         this.user = new CurrUser(currContext);
     }
-    void setLevel(int level){
+
+    public void setLevel(int level) {
         this.user.setCurrLevel(level);
     }
-    void startMusic()
+
+    public void startMusic()
     {
         this.user.playMusic();
     }
-    void stopMusic()
+
+    public void stopMusic()
     {
         this.user.stopMusic();
     }
-    String getSelectedDifficulty()
+
+    public String getSelectedDifficulty()
     {
         return this.user.getDifficultySelected();
     }
-    int getSelectedColor()
+
+    public int getSelectedColor()
     {
         return this.user.getColorSelected();
     }
-    CurrUser getUser()
+
+    public CurrUser getUser()
     {
         return this.user;
+    }
+
+    public void setFlipCardScore(int score) {
+        this.user.setL3RecentScore(score);
     }
 }
