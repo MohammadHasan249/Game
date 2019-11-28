@@ -48,10 +48,15 @@ public class ButtonClickMain extends AppCompatActivity {
 
     private View.OnClickListener handleOnClick(final Button button) {
         return new View.OnClickListener() {
+            int timesClicked = 0;
             public void onClick(View v) {
                 if (button.getVisibility() == View.VISIBLE) {
                     numClicks += 1;
                     score += 1;
+                    timesClicked += 1;
+                }
+                if (timesClicked == 3) {
+                    score = score * 2;
                 }
                 scorePlaceholder = score + " | " + numClicks;
                 scoreTxt.setText(scorePlaceholder);
