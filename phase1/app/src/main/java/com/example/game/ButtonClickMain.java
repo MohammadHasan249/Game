@@ -120,7 +120,7 @@ public class ButtonClickMain extends AppCompatActivity {
                         String countDownPlaceholder = (int) millisUntilFinished / 1000 + "s";
                         countDownTxt.setText(countDownPlaceholder);
                     }
-
+                    // it should push hopefully
                     public void onFinish() {
                         // So far have made intent to go to result screen
                         goButtonClickResult();
