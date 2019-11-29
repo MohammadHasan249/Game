@@ -1,7 +1,6 @@
 package com.example.game.FlipCardGame;
 
-import androidx.appcompat.app.AppCompatActivity;
-
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.SystemClock;
@@ -9,49 +8,39 @@ import android.widget.Chronometer;
 import android.widget.TableLayout;
 import android.widget.TextView;
 
-import com.example.game.UserInfoFacade;
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.example.game.HomePage;
 import com.example.game.LevelOnCreate;
 import com.example.game.R;
+import com.example.game.UserInfoFacade;
 
-public class FlipCardMainView extends AppCompatActivity implements  FlipCardMainPresenter.View{
+public class FlipCardMainView extends AppCompatActivity implements FlipCardGameView {
   private UserInfoFacade currUser;
-  private FlipCardMainPresenter presenter;
+  private FlipCardGamePresenter presenter;
   private TextView flipCardScore;
   private Chronometer timer;
+  private TableLayout tableLayout;
+
   @Override
   protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
     setContentView(R.layout.activity_flip_card);
     this.flipCardScore = findViewById(R.id.flipCardScore);
-    TableLayout tableLayout = findViewById(R.id.tableLayoutFlipCard);
+    this.tableLayout = findViewById(R.id.tableLayoutFlipCard);
     this.timer = findViewById(R.id.flipCardTimer);
-    this.displayPopInstructions();
     currUser = new UserInfoFacade(this);
     this.currUser.setLevel(3);
     this.currUser.startMusic();
-    this.presenter = new FlipCardMainPresenter(this.getApplicationContext(),this);
-    this.presenter.startGame(this.currUser.getSelectedDifficulty(),this.getSelectedSymbol(),this.currUser.getSelectedColor(),tableLayout);
+    this.presenter = new FlipCardGamePresenter(this);
+    this.presenter.startDisplay();
   }
 
-  void displayPopInstructions()
+  @Override
+  public void displayInstructions(String instructions)
   {
     LevelOnCreate level3 =
-            new LevelOnCreate(this, "Match The Cards! (Timer goes off when you click on one of them)");
-  }
-  String getSelectedSymbol()
-  {
-    return getIntent().getStringExtra("symbolChoice");
-  }
-  @Override
-  public void gameEnded(FlipCardResult newResult) {
-    newResult.setFlipCardResult(this.currUser.getUser());
-    Intent showResult = new Intent(this, FlipCardResultViewHandler.class);
-    showResult.putExtra("FlipCardResult", newResult);
-    this.currUser.stopMusic();
-    startActivity(showResult);
-    this.currUser.setLevel(0);
-    finish();
+            new LevelOnCreate(this, instructions);
   }
 
   @Override
@@ -60,6 +49,40 @@ public class FlipCardMainView extends AppCompatActivity implements  FlipCardMain
     Intent start = new Intent(getApplicationContext(), HomePage.class);
     start.putExtra("androidBack", 1);
     startActivity(start);
+    finish();
+  }
+
+  @Override
+  public String getSymbolChoice() {
+    return getIntent().getStringExtra("symbolChoice");
+  }
+
+  @Override
+  public int getColor() {
+    return this.currUser.getSelectedColor();
+  }
+
+  @Override
+  public String getDifficulty() {
+    return this.currUser.getSelectedDifficulty();
+  }
+
+  @Override
+  public TableLayout getTableLayout() {
+    return this.tableLayout;
+  }
+
+  @Override
+  public void gameEnded(FlipCardResult newResult) {
+
+    // ADDD THE PASS THRU HERE AND PASS THE OTHER PRESENTER BACK AND CALL THE displaythere
+    newResult.setFlipCardResult(this.currUser.getUser());
+    Intent showResult = new Intent(this, FlipCardResultView.class);
+    showResult.putExtra("FlipCardResult", newResult);
+    this.currUser.stopMusic();
+    //since we finished the flipcard game, we are at level 0
+    this.currUser.setLevel(0);
+    startActivity(showResult);
     finish();
   }
   @Override
@@ -82,5 +105,10 @@ public class FlipCardMainView extends AppCompatActivity implements  FlipCardMain
   public void updateScore(String toShow)
   {
     this.flipCardScore.setText(toShow);
+  }
+
+  @Override
+  public Context getContext() {
+    return this.getApplicationContext();
   }
 }

@@ -12,7 +12,7 @@
         <activity android:name=".EndGameResultPage"></activity>
         <activity android:name=".CustomizationScreen" />
         <activity android:name=".HomePage" />
-        <activity android:name=".FlipCardGame.FlipCardResultViewHandler" />
+        <activity android:name=".FlipCardGame.FlipCardResultView" />
         <activity android:name=".FlipCardGame.FlipCardInit" />
         <activity android:name=".FlipCardGame.FlipCardMainView" />
         <activity android:name=".MathGameResult" />

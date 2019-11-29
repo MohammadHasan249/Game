@@ -14,7 +14,7 @@ class FlipCards {
   private boolean flipped;
   private Drawable fullColor;
   private boolean enabled;
-    private FlipCardGame manager;
+  private FlipCardGame manager;
   static boolean disableCards = false;
 
   FlipCards(

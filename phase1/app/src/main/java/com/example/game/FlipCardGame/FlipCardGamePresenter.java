@@ -5,27 +5,35 @@ import android.widget.TableLayout;
 
 import java.util.ArrayList;
 
-public class FlipCardMainPresenter {
-    private Context currContext;
+class FlipCardGamePresenter {
     private FlipCardMainGame currGame;
-    private FlipCardMainPresenter.View view;
-    FlipCardMainPresenter(Context currContext, FlipCardMainPresenter.View view)
+    private FlipCardGameView view;
+
+    FlipCardGamePresenter(FlipCardGameView view)
     {
-        this.currContext = currContext;
         this.view = view;
     }
-    void startGame(String difficulty, String symbolChoice , int color, TableLayout tableLayout) {
-        this.currGame = new FlipCardMainGame(difficulty,this);
+
+    void setView(FlipCardGameView view) {
+        this.view = view;
+    }
+
+    void startDisplay() {
+        this.currGame = new FlipCardMainGame(this.view.getDifficulty(), this);
+        this.view.displayInstructions(this.currGame.getInstructions());
         ArrayList<FlipCards> listOfCards =
-                this.buildFlipCards(color, this.currGame.getNumMatches(), symbolChoice, tableLayout);
+                this.buildFlipCards(this.view.getContext(), this.view.getColor(),
+                        this.currGame.getNumMatches(), this.view.getSymbolChoice(),
+                        this.view.getTableLayout());
         this.currGame.setCards(listOfCards);
     }
-    private ArrayList<FlipCards> buildFlipCards(int color ,
+
+    private ArrayList<FlipCards> buildFlipCards(Context currContext, int color,
                                                 int numMatches, String symbolChoice,
                                                 TableLayout tableLayout)
     {
         FlipCardsBuilder cardBuilder = new FlipCardsBuilder(numMatches, symbolChoice,
-                this.currContext,tableLayout, this.currGame, color);
+                currContext, tableLayout, this.currGame, color);
         return cardBuilder.createCards();
     }
     long getTimeElapsed()
@@ -48,12 +56,5 @@ public class FlipCardMainPresenter {
     {
         String toShow = (numCorrect) + " | " + (numMatchAttempt);
         this.view.updateScore(toShow);
-    }
-    public interface View{
-        void gameEnded(FlipCardResult results);
-        void updateScore(String toShow);
-        void startTime();
-        void stopTime();
-        long timeElapsed();
     }
 }

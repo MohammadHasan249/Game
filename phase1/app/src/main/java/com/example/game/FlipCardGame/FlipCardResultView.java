@@ -1,17 +1,17 @@
 package com.example.game.FlipCardGame;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
 
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.example.game.CurrUser;
 import com.example.game.EndGameResultPage;
 import com.example.game.R;
 
-public class FlipCardResultViewHandler extends AppCompatActivity {
+public class FlipCardResultView extends AppCompatActivity {
   CurrUser user;
 
   public void endGame(View view) {
@@ -53,5 +53,8 @@ public class FlipCardResultViewHandler extends AppCompatActivity {
       user = new CurrUser(this);
       this.setScore(newResult, user);
     }
+  }
+
+  public void startInstantReplay(View view) {
   }
 }
