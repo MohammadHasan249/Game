@@ -34,11 +34,9 @@ class NumberSymbol extends FlipCardSymbol {
         for (int i = 0; i < numMatches; i++) {
             int randomInt = rand.nextInt(numMatches);
             String randomIntStr = Integer.toString(randomInt);
-            int counter = 0;
-            while (listOfNumbers.contains(randomIntStr) && counter < numMatches) {
+            while (listOfNumbers.contains(randomIntStr)) {
                 randomInt = rand.nextInt(numMatches);
                 randomIntStr = Integer.toString(randomInt);
-                counter++;
             }
             listOfNumbers.add(randomIntStr);
             listOfNumbers.add(randomIntStr);
