@@ -9,7 +9,7 @@ import android.widget.Chronometer;
 import android.widget.TableLayout;
 import android.widget.TextView;
 
-import com.example.game.CurrUser;
+import com.example.game.UserInfoFacade;
 import com.example.game.HomePage;
 import com.example.game.LevelOnCreate;
 import com.example.game.R;
