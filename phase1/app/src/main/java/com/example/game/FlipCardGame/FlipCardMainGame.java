@@ -1,11 +1,6 @@
 package com.example.game.FlipCardGame;
 
-import android.content.Context;
 import android.os.CountDownTimer;
-import android.os.SystemClock;
-import android.widget.Chronometer;
-import android.widget.TableLayout;
-import android.widget.TextView;
 
 import java.util.ArrayList;
 

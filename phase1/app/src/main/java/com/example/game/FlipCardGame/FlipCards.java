@@ -48,10 +48,6 @@ class FlipCards {
     this.enabled = true;
     this.manager = manager;
   }
-  void setManager(FlipCardManager manager)
-  {
-    this.manager = manager;
-  }
   // setting the color with the boarder of the card
   private Drawable initBoarderColor(Button btnInstance, int cardBackColor, int btnWidth) {
     GradientDrawable drawable = new GradientDrawable();
