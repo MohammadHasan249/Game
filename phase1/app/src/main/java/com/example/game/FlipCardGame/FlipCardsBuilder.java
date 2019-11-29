@@ -17,10 +17,10 @@ class FlipCardsBuilder {
     private TableLayout stk;
     private FlipCardSymbol flipCardSymbol;
     private String symbolType;
-    private FlipCardManager desiredManager;
+    private FlipCardGame desiredManager;
     private int cardBackColor;
 
-    FlipCardsBuilder(int numMatches, String symbolType, Context packageContext, TableLayout stk, FlipCardManager desiredManager, int cardBackColor) {
+    FlipCardsBuilder(int numMatches, String symbolType, Context packageContext, TableLayout stk, FlipCardGame desiredManager, int cardBackColor) {
         this.currContext = packageContext;
         this.numMatches = numMatches;
         this.stk = stk;

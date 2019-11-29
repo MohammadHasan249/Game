@@ -14,28 +14,28 @@ class FlipCards {
   private boolean flipped;
   private Drawable fullColor;
   private boolean enabled;
-  private FlipCardManager manager;
+    private FlipCardGame manager;
   static boolean disableCards = false;
 
   FlipCards(
-      Context packageContext,
-      int cardBackColor,
-      String symbol,
-      TableRow row,
-      int btnHeight,
-      int btnWidth,
-      FlipCardManager manager) {
-      this.flipCardBuilder(packageContext, cardBackColor,symbol,row,btnHeight,btnWidth,manager);
-  }
-
-  private void flipCardBuilder(
           Context packageContext,
           int cardBackColor,
           String symbol,
           TableRow row,
           int btnHeight,
           int btnWidth,
-          FlipCardManager manager)
+          FlipCardGame manager) {
+      this.build(packageContext, cardBackColor, symbol, row, btnHeight, btnWidth, manager);
+  }
+
+    private void build(
+            Context packageContext,
+            int cardBackColor,
+            String symbol,
+            TableRow row,
+            int btnHeight,
+            int btnWidth,
+            FlipCardGame manager)
   {
     this.flipped = false;
     btnInstance = new Button(packageContext);
@@ -70,8 +70,7 @@ class FlipCards {
         btnInstance.setBackgroundColor(Color.WHITE);
         flipped = !flipped;
       } else {
-        this.btnInstance.setText("");
-        btnInstance.setBackground(fullColor);
+          this.turnCardToBack();
         flipped = !flipped;
       }
     }
@@ -88,6 +87,17 @@ class FlipCards {
     this.flipped = false;
   }
 
+    void resetCard() {
+        this.btnInstance.setEnabled(true);
+        this.enabled = true;
+        this.flipped = true;
+        this.turnCardToBack();
+    }
+
+    private void turnCardToBack() {
+        this.btnInstance.setText("");
+        btnInstance.setBackground(fullColor);
+    }
   private void callManagerUpdate() {
     manager.update(this);
   }
