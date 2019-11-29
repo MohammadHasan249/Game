@@ -17,7 +17,7 @@ import com.example.game.UserInfoFacade;
 
 public class FlipCardMainView extends AppCompatActivity implements FlipCardGameView {
   private UserInfoFacade currUser;
-  private FlipCardGamePresenter presenter;
+  private FlipCardMainPresenter presenter;
   private TextView flipCardScore;
   private Chronometer timer;
   private TableLayout tableLayout;
@@ -32,8 +32,19 @@ public class FlipCardMainView extends AppCompatActivity implements FlipCardGameV
     currUser = new UserInfoFacade(this);
     this.currUser.setLevel(3);
     this.currUser.startMusic();
-    this.presenter = new FlipCardGamePresenter(this);
-    this.presenter.startDisplay();
+    this.startPresenter();
+  }
+
+  private void startPresenter() {
+    Bundle receiver = getIntent().getExtras();
+    if (receiver != null) {
+      FlipCardMainPresenter presenter = (FlipCardMainPresenter) receiver.get("presenter");
+      if (presenter != null) {
+        this.presenter = presenter;
+        this.presenter.setView(this);
+        this.presenter.startDisplay();
+      }
+    }
   }
 
   @Override

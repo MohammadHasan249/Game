@@ -5,15 +5,12 @@ import android.widget.TableLayout;
 
 import java.util.ArrayList;
 
-class FlipCardGamePresenter {
+public class FlipCardGamePresenter extends FlipCardMainPresenter {
     private FlipCardMainGameModel currGame;
     private FlipCardGameView view;
 
-    FlipCardGamePresenter(FlipCardGameView view)
-    {
-        this.view = view;
+    public FlipCardGamePresenter() {
     }
-
     void setView(FlipCardGameView view) {
         this.view = view;
     }

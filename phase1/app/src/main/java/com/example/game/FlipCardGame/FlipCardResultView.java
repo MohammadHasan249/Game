@@ -56,5 +56,6 @@ public class FlipCardResultView extends AppCompatActivity {
   }
 
   public void startInstantReplay(View view) {
+
   }
 }
