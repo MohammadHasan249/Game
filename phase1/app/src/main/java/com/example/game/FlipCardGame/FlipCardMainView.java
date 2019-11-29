@@ -82,14 +82,14 @@ public class FlipCardMainView extends AppCompatActivity implements FlipCardGameV
   }
 
   @Override
-  public void gameEnded(FlipCardResult newResult) {
+  public void gameEnded(FlipCardResult newResult, FlipCardReplay replay) {
     // ADDD THE PASS THRU HERE AND PASS THE OTHER PRESENTER BACK AND CALL THE displaythere
     newResult.setFlipCardResult(this.currUser.getUser());
     Intent showResult = new Intent(this, FlipCardResultView.class);
     showResult.putExtra("FlipCardResult", newResult);
+    showResult.putExtra("replay", replay);
     this.currUser.stopMusic();
     //since we finished the flipcard game, we are at level 0
-    this.currUser.setLevel(0);
     startActivity(showResult);
     finish();
   }

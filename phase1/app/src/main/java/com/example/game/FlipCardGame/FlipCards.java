@@ -102,6 +102,10 @@ class FlipCards {
     manager.update(this);
   }
 
+  void removeBtnInstance() {
+    this.btnInstance = null;
+  }
+
   // when the card is clicked, it flips then call the update on the observer(FlipCardMainGameModel)
   private View.OnClickListener handleOnClick(final Button button) {
     return new View.OnClickListener() {

@@ -35,10 +35,6 @@ abstract class FlipCardMainPresenter implements Serializable {
         this.view.stopTime();
     }
 
-    void endGame(FlipCardResult results) {
-        this.view.gameEnded(results);
-    }
-
     void updateScore(int numCorrect, int numMatchAttempt) {
         String toShow = (numCorrect) + " | " + (numMatchAttempt);
         this.view.updateScore(toShow);

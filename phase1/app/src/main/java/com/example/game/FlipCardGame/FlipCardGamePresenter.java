@@ -16,4 +16,9 @@ public class FlipCardGamePresenter extends FlipCardMainPresenter {
                         this.view.getTableLayout(), this.currGame);
         this.currGame.setCards(listOfCards);
     }
+
+    void endGame(FlipCardResult results, FlipCardReplay replay) {
+        this.view.gameEnded(results, replay);
+    }
+
 }

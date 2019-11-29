@@ -12,7 +12,7 @@ class FlipCardMainGameModel implements FlipCardGameModel {
   private ArrayList<FlipCards> allCards;
   private FlipCardGamePresenter presenter;
   private boolean firstClick;
-
+  private FlipCardReplay replayTracker;
   FlipCardMainGameModel(
           String difficulty,
           FlipCardGamePresenter presenter) {
@@ -29,6 +29,7 @@ class FlipCardMainGameModel implements FlipCardGameModel {
     this.numMatchAttempt = 0;
     this.presenter = presenter;
     this.firstClick = false;
+    this.replayTracker = new FlipCardReplay();
   }
 
   int getNumMatches(){return this.numMatches;}
@@ -46,15 +47,15 @@ class FlipCardMainGameModel implements FlipCardGameModel {
     cardCalled.flipCard();
     this.updateCards();
     if (this.numCorrect == this.numMatches) {
+      this.replayTracker.setEndGameStateList(this.allCards);
       this.presenter.stopTimer();
       long timeToCompleteMs = this.returnElapsedTime();
       FlipCardResult newResult =
               new FlipCardResult(
                       this.difficulty, this.numCorrect, this.numMatchAttempt, timeToCompleteMs);
-      this.presenter.endGame(newResult);
+      this.presenter.endGame(newResult, this.replayTracker);
     }
   }
-
   // calculating the time elapsed
   private long returnElapsedTime() {
     return this.presenter.getTimeElapsed();
@@ -109,7 +110,8 @@ class FlipCardMainGameModel implements FlipCardGameModel {
 
   // set numMatches based on the difficulty of the game selected buy the user
   private void setNumMatches(String difficulty) {
-    if (difficulty.equals("easy")) this.numMatches = 8;
+    //if (difficulty.equals("easy")) this.numMatches = 8;
+    if (difficulty.equals("easy")) this.numMatches = 1;
     else this.numMatches = 16;
   }
 
