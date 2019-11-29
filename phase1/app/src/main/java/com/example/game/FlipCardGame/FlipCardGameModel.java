@@ -1,5 +1,5 @@
 package com.example.game.FlipCardGame;
 
-interface FlipCardGame {
+interface FlipCardGameModel {
     void update(FlipCards flipCards);
 }

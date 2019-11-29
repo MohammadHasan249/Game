@@ -6,7 +6,7 @@ import android.widget.TableLayout;
 import java.util.ArrayList;
 
 class FlipCardGamePresenter {
-    private FlipCardMainGame currGame;
+    private FlipCardMainGameModel currGame;
     private FlipCardGameView view;
 
     FlipCardGamePresenter(FlipCardGameView view)
@@ -19,7 +19,7 @@ class FlipCardGamePresenter {
     }
 
     void startDisplay() {
-        this.currGame = new FlipCardMainGame(this.view.getDifficulty(), this);
+        this.currGame = new FlipCardMainGameModel(this.view.getDifficulty(), this);
         this.view.displayInstructions(this.currGame.getInstructions());
         ArrayList<FlipCards> listOfCards =
                 this.buildFlipCards(this.view.getContext(), this.view.getColor(),

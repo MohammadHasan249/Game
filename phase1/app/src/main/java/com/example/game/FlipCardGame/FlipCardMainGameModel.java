@@ -4,7 +4,7 @@ import android.os.CountDownTimer;
 
 import java.util.ArrayList;
 
-class FlipCardMainGame implements FlipCardGame {
+class FlipCardMainGameModel implements FlipCardGameModel {
   private String difficulty;
   private int numMatches;
   private int numCorrect;
@@ -12,7 +12,8 @@ class FlipCardMainGame implements FlipCardGame {
   private ArrayList<FlipCards> allCards;
   private FlipCardGamePresenter presenter;
   private boolean firstClick;
-  FlipCardMainGame(
+
+  FlipCardMainGameModel(
           String difficulty,
           FlipCardGamePresenter presenter) {
     this.flipCardGameManagerBuilder(difficulty,presenter);

@@ -14,7 +14,7 @@ class FlipCards {
   private boolean flipped;
   private Drawable fullColor;
   private boolean enabled;
-  private FlipCardGame manager;
+  private FlipCardGameModel manager;
   static boolean disableCards = false;
 
   FlipCards(
@@ -24,7 +24,7 @@ class FlipCards {
           TableRow row,
           int btnHeight,
           int btnWidth,
-          FlipCardGame manager) {
+          FlipCardGameModel manager) {
       this.build(packageContext, cardBackColor, symbol, row, btnHeight, btnWidth, manager);
   }
 
@@ -35,7 +35,7 @@ class FlipCards {
             TableRow row,
             int btnHeight,
             int btnWidth,
-            FlipCardGame manager)
+            FlipCardGameModel manager)
   {
     this.flipped = false;
     btnInstance = new Button(packageContext);
@@ -101,7 +101,8 @@ class FlipCards {
   private void callManagerUpdate() {
     manager.update(this);
   }
-  // when the card is clicked, it flips then call the update on the observer(FlipCardMainGame)
+
+  // when the card is clicked, it flips then call the update on the observer(FlipCardMainGameModel)
   private View.OnClickListener handleOnClick(final Button button) {
     return new View.OnClickListener() {
       public void onClick(View v) {
