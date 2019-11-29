@@ -5,39 +5,22 @@ import android.view.Gravity;
 import android.widget.TableLayout;
 import android.widget.TableRow;
 
-import com.example.game.FlipCardGame.FlipCardSymbolFactory.FlipCardSymbol;
-import com.example.game.FlipCardGame.FlipCardSymbolFactory.FlipCardSymbolFactory;
-
 import java.util.ArrayList;
 
 class FlipCardsBuilder {
     private Context currContext;
-    private int numMatches;
     private TableLayout stk;
-    private FlipCardSymbol flipCardSymbol;
-    private String symbolType;
+    private ArrayList<String> symbolList;
     private FlipCardGameModel desiredManager;
     private int cardBackColor;
 
-    FlipCardsBuilder(int numMatches, String symbolType, Context packageContext, TableLayout stk, FlipCardGameModel desiredManager, int cardBackColor) {
+    FlipCardsBuilder(ArrayList<String> symbolList, Context packageContext, TableLayout stk, FlipCardGameModel desiredManager, int cardBackColor) {
         this.currContext = packageContext;
-        this.numMatches = numMatches;
         this.stk = stk;
-        this.symbolType = symbolType;
-        this.flipCardSymbol = this.getFlipCardSymbol(this.numMatches, this.symbolType);
         this.desiredManager = desiredManager;
         this.cardBackColor = cardBackColor;
+        this.symbolList = symbolList;
     }
-
-    private FlipCardSymbol getFlipCardSymbol(int numMatches, String symbolType) {
-        FlipCardSymbolFactory localFactory = new FlipCardSymbolFactory();
-        return localFactory.getSymbol(numMatches, this.symbolType);
-    }
-
-    private ArrayList<String> symbolGenerator() {
-        return this.flipCardSymbol.getSymbols();
-    }
-
     // generates a new table row in our table layout
     private TableRow generateNewRow() {
         TableRow tbRow = new TableRow(this.currContext);
@@ -48,8 +31,7 @@ class FlipCardsBuilder {
         return tbRow;
     }
 
-    public ArrayList<FlipCards> createCards() {
-        ArrayList<String> symbolList = this.symbolGenerator();
+    ArrayList<FlipCards> createCards() {
         ArrayList<FlipCards> allCardCreation = new ArrayList<>();
         this.stk.setGravity(Gravity.CENTER_VERTICAL);
         int i = 0;

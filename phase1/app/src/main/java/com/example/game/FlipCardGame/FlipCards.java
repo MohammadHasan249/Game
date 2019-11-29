@@ -87,23 +87,12 @@ class FlipCards {
     this.flipped = false;
   }
 
-    void resetCard() {
-        this.btnInstance.setEnabled(true);
-        this.enabled = true;
-        this.flipped = true;
-        this.turnCardToBack();
-    }
-
-    private void turnCardToBack() {
+  private void turnCardToBack() {
         this.btnInstance.setText("");
         btnInstance.setBackground(fullColor);
     }
   private void callManagerUpdate() {
     manager.update(this);
-  }
-
-  void removeBtnInstance() {
-    this.btnInstance = null;
   }
 
   // when the card is clicked, it flips then call the update on the observer(FlipCardMainGameModel)

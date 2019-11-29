@@ -1,8 +1,5 @@
 package com.example.game.FlipCardGame;
 
-import android.content.Context;
-import android.widget.TableLayout;
-
 import java.io.Serializable;
 import java.util.ArrayList;
 
@@ -15,11 +12,9 @@ abstract class FlipCardMainPresenter implements Serializable {
 
     abstract void startDisplay();
 
-    ArrayList<FlipCards> buildFlipCards(Context currContext, int color,
-                                        int numMatches, String symbolChoice,
-                                        TableLayout tableLayout, FlipCardGameModel model) {
-        FlipCardsBuilder cardBuilder = new FlipCardsBuilder(numMatches, symbolChoice,
-                currContext, tableLayout, model, color);
+    ArrayList<FlipCards> buildFlipCards(ArrayList<String> symbolList, FlipCardGameModel model) {
+        FlipCardsBuilder cardBuilder = new FlipCardsBuilder(symbolList,
+                this.view.getContext(), this.view.getTableLayout(), model, this.view.getColor());
         return cardBuilder.createCards();
     }
 
