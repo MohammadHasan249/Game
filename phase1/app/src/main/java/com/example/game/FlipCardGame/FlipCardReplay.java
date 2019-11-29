@@ -4,21 +4,30 @@ import java.io.Serializable;
 import java.util.ArrayList;
 
 public class FlipCardReplay implements Serializable {
-    private String[] symbolStateList1;
-    private ArrayList<String> actionList;
-    private ArrayList<Long> timeOfActionList;
-    private int endGameCorrect;
-    private int endGameAttempt;
+    private ArrayList<String> startingStateArray;
+    private ArrayList<Long> timeOfAction;
+    private ArrayList<Integer> indexOfCardClicked;
 
-    public FlipCardReplay() {
+    FlipCardReplay(ArrayList<FlipCards> startingState) {
+        this.timeOfAction = new ArrayList<>();
+        this.indexOfCardClicked = new ArrayList<>();
+        this.startingStateArray = this.setStartingStateSymbol(startingState);
     }
 
-    void setEndGameStateList(ArrayList<FlipCards> endGameStateList) {
-        this.symbolStateList1 = new String[endGameStateList.size()];
-        for (int i = 0; i < endGameStateList.size(); i++) {
-            this.symbolStateList1[i] = endGameStateList.get(i).getSymbol();
+    private ArrayList<String> setStartingStateSymbol(ArrayList<FlipCards> startingState) {
+        ArrayList<String> symbolList = new ArrayList<>();
+        for (FlipCards s : startingState) {
+            symbolList.add(s.getSymbol());
         }
+        return symbolList;
     }
-    // void setAction(FlipCards flipcard) {this.actionList.add(flipcard);}
-    //ArrayList<FlipCards> getEndGameState(){return this.endGameStateList;}
+
+    ArrayList<String> getSymbols() {
+        return this.startingStateArray;
+    }
+
+    void addAction(int indexOfCard, long timeAtClick) {
+        this.timeOfAction.add(timeAtClick);
+        this.indexOfCardClicked.add(indexOfCard);
+    }
 }

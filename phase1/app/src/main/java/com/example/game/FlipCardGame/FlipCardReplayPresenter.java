@@ -17,16 +17,8 @@ public class FlipCardReplayPresenter extends FlipCardMainPresenter implements Fl
 
     @Override
     void startDisplay() {
-        FlipCardReplayModel model = new FlipCardReplayModel();
+        FlipCardReplay replay = this.view.getReplay();
         this.view.displayInstructions("Welcome to the Replay!");
-        ArrayList<String> symboltest = new ArrayList<>();
-        symboltest.add("hello");
-        symboltest.add("hello");
-        symboltest.add("hello");
-        symboltest.add("hello");
-        symboltest.add("hello");
-        ArrayList<FlipCards> listOfCards =
-                this.buildFlipCards(symboltest, model);
+        ArrayList<FlipCards> flipCards = this.buildFlipCards(replay.getSymbols(), this);
     }
-
 }

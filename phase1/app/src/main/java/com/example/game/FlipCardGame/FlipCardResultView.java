@@ -61,6 +61,7 @@ public class FlipCardResultView extends AppCompatActivity {
     Intent mainGameIntent = new Intent(this, FlipCardMainView.class);
     mainGameIntent.putExtra("presenter", new FlipCardReplayPresenter());
     mainGameIntent.putExtra("results", this.result);
+    mainGameIntent.putExtra("replay", this.replay);
     startActivity(mainGameIntent);
     finish();
   }

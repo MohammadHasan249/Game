@@ -25,4 +25,6 @@ public interface FlipCardGameView {
     TableLayout getTableLayout();
 
     void displayInstructions(String instructions);
+
+    FlipCardReplay getReplay();
 }

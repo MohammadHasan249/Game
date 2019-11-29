@@ -1,16 +1,15 @@
 package com.example.game.FlipCardGame;
 
-public class FlipCardReplayModel implements FlipCardGameModel {
+public class FlipCardReplayModel {
     private FlipCardReplay replay;
+    private FlipCardReplayPresenter presenter;
 
-    FlipCardReplayModel(FlipCardReplay replay) {
+    FlipCardReplayModel(FlipCardReplay replay, FlipCardReplayPresenter presenter) {
         this.replay = replay;
+        this.presenter = presenter;
     }
 
-    FlipCardReplayModel() {
-    }
+    void startModel() {
 
-    @Override
-    public void update(FlipCards flipCards) {
     }
 }

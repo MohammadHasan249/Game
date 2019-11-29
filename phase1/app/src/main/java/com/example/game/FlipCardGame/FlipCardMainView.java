@@ -119,4 +119,14 @@ public class FlipCardMainView extends AppCompatActivity implements FlipCardGameV
   public Context getContext() {
     return this.getApplicationContext();
   }
+
+  @Override
+  public FlipCardReplay getReplay() {
+    Bundle receiver = getIntent().getExtras();
+    if (receiver != null) {
+      return (FlipCardReplay) receiver.get("replay");
+    }
+    return null;
+  }
+
 }
