@@ -13,7 +13,6 @@ import java.util.ArrayList;
 class FlipCardsBuilder {
     private Context currContext;
     private int numMatches;
-    private ArrayList<FlipCards> flipCards;
     private TableLayout stk;
     private FlipCardSymbol flipCardSymbol;
     private String symbolType;

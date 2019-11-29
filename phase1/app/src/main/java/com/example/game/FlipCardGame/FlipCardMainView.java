@@ -17,7 +17,6 @@ import com.example.game.UserInfoFacade;
 
 public class FlipCardMainView extends AppCompatActivity implements FlipCardGameView {
   private UserInfoFacade currUser;
-  private FlipCardMainPresenter presenter;
   private TextView flipCardScore;
   private Chronometer timer;
   private TableLayout tableLayout;
@@ -40,9 +39,8 @@ public class FlipCardMainView extends AppCompatActivity implements FlipCardGameV
     if (receiver != null) {
       FlipCardMainPresenter presenter = (FlipCardMainPresenter) receiver.get("presenter");
       if (presenter != null) {
-        this.presenter = presenter;
-        this.presenter.setView(this);
-        this.presenter.startDisplay();
+        presenter.setView(this);
+        presenter.startDisplay();
       }
     }
   }
@@ -85,7 +83,6 @@ public class FlipCardMainView extends AppCompatActivity implements FlipCardGameV
 
   @Override
   public void gameEnded(FlipCardResult newResult) {
-
     // ADDD THE PASS THRU HERE AND PASS THE OTHER PRESENTER BACK AND CALL THE displaythere
     newResult.setFlipCardResult(this.currUser.getUser());
     Intent showResult = new Intent(this, FlipCardResultView.class);
