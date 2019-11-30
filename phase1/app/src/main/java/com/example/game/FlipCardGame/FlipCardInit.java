@@ -6,7 +6,7 @@ import android.content.Intent;
 
 import com.example.game.FlipCardGame.FlipCardView.FlipCardCustomizationView;
 
-//this class acts as a front facing interface for others to initialize the FlipCardGame
+//this class acts as a front facing interface for others to initialize the FlipCardGameModel
 public class FlipCardInit {
     public FlipCardInit(){
     }

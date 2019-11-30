@@ -1,6 +1,5 @@
 package com.example.game.FlipCardGame.FlipCardSymbolFactory;
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Collections;
 
@@ -26,11 +25,9 @@ public abstract class FlipCardSymbol {
      * @param listToShuffle the list that has to be shuffled
      * @return the shuffled list
      */
-    ArrayList<String> shuffleArray(ArrayList listToShuffle) {
+    void shuffleArray(ArrayList<String> listToShuffle) {
         // ArrayList<String> newList = listToShuffle;
-        ArrayList<String> newList = (ArrayList<String>)listToShuffle.clone();
-        Collections.shuffle(newList);
-        return newList;
+        Collections.shuffle(listToShuffle);
     }
 
     /**

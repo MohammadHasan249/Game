@@ -47,7 +47,7 @@ class CharacterSymbol extends FlipCardSymbol {
             charList.add(characterStr);
         }
         // need to randomly shuffle them for extra fun
-        charList = this.shuffleArray(charList);
+        this.shuffleArray(charList);
         return charList;
     }
 

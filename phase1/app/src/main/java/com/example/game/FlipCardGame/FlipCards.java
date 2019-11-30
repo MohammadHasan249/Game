@@ -14,28 +14,28 @@ class FlipCards {
   private boolean flipped;
   private Drawable fullColor;
   private boolean enabled;
-  private FlipCardManager manager;
+  private FlipCardGameModel manager;
   static boolean disableCards = false;
 
   FlipCards(
-      Context packageContext,
-      int cardBackColor,
-      String symbol,
-      TableRow row,
-      int btnHeight,
-      int btnWidth,
-      FlipCardManager manager) {
-      this.flipCardBuilder(packageContext, cardBackColor,symbol,row,btnHeight,btnWidth,manager);
-  }
-
-  private void flipCardBuilder(
           Context packageContext,
           int cardBackColor,
           String symbol,
           TableRow row,
           int btnHeight,
           int btnWidth,
-          FlipCardManager manager)
+          FlipCardGameModel manager) {
+      this.build(packageContext, cardBackColor, symbol, row, btnHeight, btnWidth, manager);
+  }
+
+    private void build(
+            Context packageContext,
+            int cardBackColor,
+            String symbol,
+            TableRow row,
+            int btnHeight,
+            int btnWidth,
+            FlipCardGameModel manager)
   {
     this.flipped = false;
     btnInstance = new Button(packageContext);
@@ -46,10 +46,6 @@ class FlipCards {
     this.btnInstance.setHeight(btnHeight);
     this.fullColor = this.initBoarderColor(this.btnInstance, cardBackColor, btnWidth);
     this.enabled = true;
-    this.manager = manager;
-  }
-  void setManager(FlipCardManager manager)
-  {
     this.manager = manager;
   }
   // setting the color with the boarder of the card
@@ -74,8 +70,7 @@ class FlipCards {
         btnInstance.setBackgroundColor(Color.WHITE);
         flipped = !flipped;
       } else {
-        this.btnInstance.setText("");
-        btnInstance.setBackground(fullColor);
+          this.turnCardToBack();
         flipped = !flipped;
       }
     }
@@ -92,10 +87,15 @@ class FlipCards {
     this.flipped = false;
   }
 
+  private void turnCardToBack() {
+        this.btnInstance.setText("");
+        btnInstance.setBackground(fullColor);
+    }
   private void callManagerUpdate() {
     manager.update(this);
   }
-  // when the card is clicked, it flips then call the update on the observer(FlipCardMainGame)
+
+  // when the card is clicked, it flips then call the update on the observer(FlipCardMainGameModel)
   private View.OnClickListener handleOnClick(final Button button) {
     return new View.OnClickListener() {
       public void onClick(View v) {

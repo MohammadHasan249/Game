@@ -1,18 +1,19 @@
 package com.example.game.FlipCardGame.FlipCardView;
 
-import androidx.appcompat.app.AppCompatActivity;
-
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.Spinner;
 
+import androidx.appcompat.app.AppCompatActivity;
+
+import com.example.game.FlipCardGame.FlipCardGamePresenter;
 import com.example.game.FlipCardGame.FlipCardMainView;
 import com.example.game.FlipCardGame.FlipCardPresenter.FlipCardCustomizationPresenter;
 import com.example.game.R;
 
 import java.util.ArrayList;
-import android.widget.ArrayAdapter;
-import android.content.Intent;
 
 public class FlipCardCustomizationView extends AppCompatActivity implements FlipCardCustomizationPresenter.View {
     private Spinner customizationSpn;
@@ -42,6 +43,7 @@ public class FlipCardCustomizationView extends AppCompatActivity implements Flip
     public void btnEndCustomizations(View view) {
         Intent mainGameIntent = new Intent(this , FlipCardMainView.class);
         mainGameIntent.putExtra("symbolChoice", this.spinnerValueGetter());
+        mainGameIntent.putExtra("presenter", new FlipCardGamePresenter());
         startActivity(mainGameIntent);
         finish();
     }

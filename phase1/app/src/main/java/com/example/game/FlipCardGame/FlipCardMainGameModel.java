@@ -1,25 +1,20 @@
 package com.example.game.FlipCardGame;
 
-import android.content.Context;
 import android.os.CountDownTimer;
-import android.os.SystemClock;
-import android.widget.Chronometer;
-import android.widget.TableLayout;
-import android.widget.TextView;
 
 import java.util.ArrayList;
 
-class FlipCardMainGame implements FlipCardManager{
+class FlipCardMainGameModel implements FlipCardGameModel {
   private String difficulty;
   private int numMatches;
   private int numCorrect;
   private int numMatchAttempt;
   private ArrayList<FlipCards> allCards;
-  private FlipCardMainPresenter presenter;
+    private FlipCardMainPresenter presenter;
   private boolean firstClick;
-  FlipCardMainGame(
-      String difficulty,
-      FlipCardMainPresenter presenter) {
+  FlipCardMainGameModel(
+          String difficulty,
+          FlipCardMainPresenter presenter) {
     this.flipCardGameManagerBuilder(difficulty,presenter);
   }
 
@@ -40,35 +35,14 @@ class FlipCardMainGame implements FlipCardManager{
   {
     this.allCards = cardList;
   }
-  // this is an update class that is called when the cards are flipped
-  // if this is the first click, it will start the timer then call updatecards
-  // if the game is over when the player got all the matches then stop the timer and pass back
-  // the flip card result class to the observer(FlipCardMainView) to end the intent there
-//  @Override
-//  public void update() {
-//    if (!this.firstClick) {
-//      this.timer.setBase(SystemClock.elapsedRealtime());
-//      this.timer.start();
-//      this.firstClick = true;
-//    }
-//    this.updateCards();
-//    if (this.numCorrect == this.numMatches) {
-//      this.timer.stop();
-//      long timeToCompleteMs = this.returnElapsedTime();
-//      FlipCardResult newResult =
-//          new FlipCardResult(
-//              this.difficulty, this.numCorrect, this.numMatchAttempt, timeToCompleteMs);
-//      this.observer.endGame(newResult);
-//    }
-//  }
+
   @Override
   public void update(FlipCards cardCalled) {
     if (!this.firstClick) {
       this.presenter.startTimer();
       this.firstClick = true;
     }
-    cardCalled.flipCard();
-    this.updateCards();
+    this.updateCards(cardCalled);
     if (this.numCorrect == this.numMatches) {
       this.presenter.stopTimer();
       long timeToCompleteMs = this.returnElapsedTime();
@@ -78,7 +52,6 @@ class FlipCardMainGame implements FlipCardManager{
       this.presenter.endGame(newResult);
     }
   }
-
   // calculating the time elapsed
   private long returnElapsedTime() {
     return this.presenter.getTimeElapsed();
@@ -87,7 +60,9 @@ class FlipCardMainGame implements FlipCardManager{
   // goes over the list of all cards, if 2 of them are flipped, check if they are a match
   // if they are then update cards and lock them
   // if they aren't then we put a delay then flip them back
-  private void updateCards() {
+  private void updateCards(FlipCards cardCalled) {
+    if (!cardCalled.isFlipped())
+      cardCalled.flipCard();
     ArrayList<FlipCards> flipped = new ArrayList<>();
     for (FlipCards f : this.allCards) {
       if (f.isFlipped()) {
@@ -137,4 +112,7 @@ class FlipCardMainGame implements FlipCardManager{
     else this.numMatches = 16;
   }
 
+  String getInstructions() {
+    return "Match the cards!(Timer goes off when you click on one of them)";
+  }
 }

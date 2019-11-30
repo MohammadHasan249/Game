@@ -3,4 +3,6 @@
     <string name="customizations">Extra Customizations</string>
     <string name="symbolType">Symbol Choice</string>
     <string name="beginGame">Begin Game</string>
+    <string name="replay">Instant Replay</string>
+    <string name="flipcardresult">See Results</string>
 </resources>

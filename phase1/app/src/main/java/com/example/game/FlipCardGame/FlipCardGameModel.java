@@ -1,6 +1,5 @@
 package com.example.game.FlipCardGame;
 
-interface FlipCardManager {
-    // void update();
+interface FlipCardGameModel {
     void update(FlipCards flipCards);
 }

@@ -42,7 +42,7 @@ class AsciiSymbol extends FlipCardSymbol {
             asciiList.add(asciiShuffledList.get(i));
             asciiList.add(asciiShuffledList.get(i));
         }
-        asciiList = this.shuffleArray(asciiList);
+        this.shuffleArray(asciiList);
         return asciiList;
     }
 

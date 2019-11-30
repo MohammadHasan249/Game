@@ -13,6 +13,13 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import java.util.Random;
 
+/**
+ * The ButtonClickMain class is the main class for Level 1, the Button Click game. It houses all the
+ * code for the functionality of the game then sends the results to ButtonClickResult.java.
+ *
+ * @author Mohammad, Aryan
+ */
+
 public class ButtonClickMain extends AppCompatActivity {
 
     // -------Variable Declarations------
@@ -30,6 +37,10 @@ public class ButtonClickMain extends AppCompatActivity {
     LevelOnCreate levelOnCreate;
     // ----------------------------------
 
+    /**
+     * This method sends the score and total number of clicks to the ButtonClickResult class, and
+     * then starts an Activity to go to that class.
+     */
     public void goButtonClickResult() {
         user.stopMusic();
         Intent goResult = new Intent(this, ButtonClickResult.class);
@@ -39,6 +50,11 @@ public class ButtonClickMain extends AppCompatActivity {
         finish();
     }
 
+    /**
+     * This method randomly selects a button to be visible on the screen.
+     *
+     * @param buttons a two-dimensional array/table of Buttons
+     */
     private void buttonVisVisible(Button[][] buttons) {
         // Selects a random button to make visible.
         int testR = r.nextInt(5);
@@ -46,11 +62,17 @@ public class ButtonClickMain extends AppCompatActivity {
         buttons[testR][testC].setVisibility(View.VISIBLE);
     }
 
+    /**
+     * This method handles all the clicks on any visible button on the screen.
+     *
+     * @param button a Button
+     * @return OnClickListener a listener for the button clicks
+     */
     private View.OnClickListener handleOnClick(final Button button) {
         return new View.OnClickListener() {
             int timesClicked = 0;
-            int initialScore = score;
-            int initialNumClick = numClicks;
+//            int initialScore = score;
+//            int initialNumClick = numClicks;
             public void onClick(View v) {
                 if (button.getVisibility() == View.VISIBLE) {
                     numClicks += 1;
@@ -60,17 +82,23 @@ public class ButtonClickMain extends AppCompatActivity {
                 if (timesClicked == 3) {
                     score = score * 2;
                 }
-                if ((score-initialScore) == 5 && (numClicks-initialNumClick) == 5){
-                    //int tempScore = score;
-                    score = 99;
-                    numClicks = 99;
-                }
+//                if ((score-initialScore) == 5 && (numClicks-initialNumClick) == 5){
+//                    //int tempScore = score;
+//                    score = 99;
+//                    numClicks = 99;
+//                }
                 scorePlaceholder = score + " | " + numClicks;
                 scoreTxt.setText(scorePlaceholder);
             }
         };
     }
 
+    /**
+     * This method handles all the incorrect clicks on the screen.
+     *
+     * @return OnClickListener a listener for all the clicks on the screen, including the clicks on
+     * any visible button.
+     */
     private View.OnClickListener handleIncorrect() {
         return new View.OnClickListener() {
             @Override
@@ -143,6 +171,10 @@ public class ButtonClickMain extends AppCompatActivity {
         levelOnCreate = new LevelOnCreate(this, instructions, timer);
     }
 
+    /**
+     * This method overrides the given function onBackPressed, which handles when the user clicks
+     * the back button on the device.
+     */
     @Override
     public void onBackPressed() {
         timer.cancel();
