@@ -49,8 +49,8 @@ public class ButtonClickMain extends AppCompatActivity {
     private View.OnClickListener handleOnClick(final Button button) {
         return new View.OnClickListener() {
             int timesClicked = 0;
-            int initialScore = score;
-            int initialNumClick = numClicks;
+//            int initialScore = score;
+//            int initialNumClick = numClicks;
             public void onClick(View v) {
                 if (button.getVisibility() == View.VISIBLE) {
                     numClicks += 1;
@@ -60,11 +60,11 @@ public class ButtonClickMain extends AppCompatActivity {
                 if (timesClicked == 3) {
                     score = score * 2;
                 }
-                if ((score-initialScore) == 5 && (numClicks-initialNumClick) == 5){
-                    //int tempScore = score;
-                    score = 99;
-                    numClicks = 99;
-                }
+//                if ((score-initialScore) == 5 && (numClicks-initialNumClick) == 5){
+//                    //int tempScore = score;
+//                    score = 99;
+//                    numClicks = 99;
+//                }
                 scorePlaceholder = score + " | " + numClicks;
                 scoreTxt.setText(scorePlaceholder);
             }
