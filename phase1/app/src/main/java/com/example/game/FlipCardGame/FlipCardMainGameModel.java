@@ -10,17 +10,17 @@ class FlipCardMainGameModel implements FlipCardGameModel {
   private int numCorrect;
   private int numMatchAttempt;
   private ArrayList<FlipCards> allCards;
-  private FlipCardGamePresenter presenter;
+    private FlipCardMainPresenter presenter;
   private boolean firstClick;
   FlipCardMainGameModel(
           String difficulty,
-          FlipCardGamePresenter presenter) {
+          FlipCardMainPresenter presenter) {
     this.flipCardGameManagerBuilder(difficulty,presenter);
   }
 
   private void flipCardGameManagerBuilder(
           String difficulty,
-          FlipCardGamePresenter presenter)
+          FlipCardMainPresenter presenter)
   {
     this.difficulty = difficulty;
     this.setNumMatches(this.difficulty);

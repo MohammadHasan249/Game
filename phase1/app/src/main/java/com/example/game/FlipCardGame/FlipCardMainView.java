@@ -145,4 +145,7 @@ public class FlipCardMainView extends AppCompatActivity implements FlipCardGameV
     this.currUser.setLevel(0);
     this.currUser.updateFlipCardScore(this.result.getTimeToCompletion());
   }
+
+  public void btnInstantReplay(View view) {
+  }
 }
