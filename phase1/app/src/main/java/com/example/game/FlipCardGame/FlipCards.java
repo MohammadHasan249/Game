@@ -79,7 +79,6 @@ class FlipCards {
   String getSymbol() {
     return this.symbol;
   }
-
   // disables the card and prevents it from being clicked again
   void lockCard() {
     this.btnInstance.setEnabled(false);
@@ -87,11 +86,21 @@ class FlipCards {
     this.flipped = false;
   }
 
+  void resetState() {
+    this.enabled = true;
+    this.flipped = false;
+    this.turnCardToBack();
+  }
+
+  void disableBtnCall() {
+    this.btnInstance.setEnabled(false);
+  }
   private void turnCardToBack() {
         this.btnInstance.setText("");
         btnInstance.setBackground(fullColor);
     }
-  private void callManagerUpdate() {
+
+  void callManagerUpdate() {
     manager.update(this);
   }
 

@@ -27,4 +27,6 @@ public interface FlipCardGameView {
     void displayInstructions(String instructions);
 
     FlipCardResult getResults();
+
+    FlipCardMainGameModel getCurrGame();
 }

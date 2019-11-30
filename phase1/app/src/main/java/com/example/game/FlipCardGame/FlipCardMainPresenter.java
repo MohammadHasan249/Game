@@ -1,22 +1,8 @@
 package com.example.game.FlipCardGame;
 
-import java.io.Serializable;
-import java.util.ArrayList;
-
-abstract class FlipCardMainPresenter implements Serializable {
+abstract class FlipCardMainPresenter {
     FlipCardGameView view;
-
-    void setView(FlipCardGameView view) {
-        this.view = view;
-    }
-
     abstract void startDisplay();
-
-    ArrayList<FlipCards> buildFlipCards(ArrayList<String> symbolList, FlipCardGameModel model) {
-        FlipCardsBuilder cardBuilder = new FlipCardsBuilder(symbolList,
-                this.view.getContext(), this.view.getTableLayout(), model, this.view.getColor());
-        return cardBuilder.createCards();
-    }
 
     long getTimeElapsed() {
         return this.view.timeElapsed();
