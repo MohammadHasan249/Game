@@ -1,7 +1,5 @@
 package com.example.game.FlipCardGame;
 
-import com.example.game.CurrUser;
-
 import java.io.Serializable;
 
 // a class to keep track of all the results in the flip card game
@@ -40,11 +38,5 @@ class FlipCardResult implements Serializable {
 
   String getStrDifficulty() {
     return this.difficulty;
-  }
-
-  void setFlipCardResult(CurrUser user) {
-    user.setCurrLevel(0);
-    user.setL3RecentScore(this.timeToCompletion);
-    user.updateL3BestScore();
   }
 }

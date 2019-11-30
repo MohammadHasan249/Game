@@ -12,7 +12,6 @@ class FlipCardMainGameModel implements FlipCardGameModel {
   private ArrayList<FlipCards> allCards;
   private FlipCardGamePresenter presenter;
   private boolean firstClick;
-  private FlipCardReplay replayTracker;
   FlipCardMainGameModel(
           String difficulty,
           FlipCardGamePresenter presenter) {
@@ -35,7 +34,6 @@ class FlipCardMainGameModel implements FlipCardGameModel {
   void setCards(ArrayList<FlipCards> cardList)
   {
     this.allCards = cardList;
-    this.replayTracker = new FlipCardReplay(cardList);
   }
 
   @Override
@@ -51,7 +49,7 @@ class FlipCardMainGameModel implements FlipCardGameModel {
       FlipCardResult newResult =
               new FlipCardResult(
                       this.difficulty, this.numCorrect, this.numMatchAttempt, timeToCompleteMs);
-      this.presenter.endGame(newResult, this.replayTracker);
+      this.presenter.endGame(newResult);
     }
   }
   // calculating the time elapsed

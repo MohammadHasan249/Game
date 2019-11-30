@@ -4,6 +4,8 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.SystemClock;
+import android.view.View;
+import android.widget.Button;
 import android.widget.Chronometer;
 import android.widget.TableLayout;
 import android.widget.TextView;
@@ -20,13 +22,19 @@ public class FlipCardMainView extends AppCompatActivity implements FlipCardGameV
   private TextView flipCardScore;
   private Chronometer timer;
   private TableLayout tableLayout;
-
+  private Button btnInstantreplay;
+  private Button btnFlipCardResult;
+  private FlipCardResult result;
   @Override
   protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
     setContentView(R.layout.activity_flip_card);
     this.flipCardScore = findViewById(R.id.flipCardScore);
     this.tableLayout = findViewById(R.id.tableLayoutFlipCard);
+    this.btnFlipCardResult = findViewById(R.id.btnFlipCardResult);
+    this.btnInstantreplay = findViewById(R.id.btnInstantReplay);
+    this.btnInstantreplay.setVisibility(View.INVISIBLE);
+    this.btnFlipCardResult.setVisibility(View.INVISIBLE);
     this.timer = findViewById(R.id.flipCardTimer);
     currUser = new UserInfoFacade(this);
     this.currUser.setLevel(3);
@@ -82,16 +90,11 @@ public class FlipCardMainView extends AppCompatActivity implements FlipCardGameV
   }
 
   @Override
-  public void gameEnded(FlipCardResult newResult, FlipCardReplay replay) {
-    // ADDD THE PASS THRU HERE AND PASS THE OTHER PRESENTER BACK AND CALL THE displaythere
-    newResult.setFlipCardResult(this.currUser.getUser());
-    Intent showResult = new Intent(this, FlipCardResultView.class);
-    showResult.putExtra("FlipCardResult", newResult);
-    showResult.putExtra("replay", replay);
-    this.currUser.stopMusic();
-    //since we finished the flipcard game, we are at level 0
-    startActivity(showResult);
-    finish();
+  public void gameEnded(FlipCardResult newResult) {
+    this.btnInstantreplay.setVisibility(View.VISIBLE);
+    this.btnFlipCardResult.setVisibility(View.VISIBLE);
+    this.result = newResult;
+
   }
   @Override
   public void startTime()
@@ -121,12 +124,25 @@ public class FlipCardMainView extends AppCompatActivity implements FlipCardGameV
   }
 
   @Override
-  public FlipCardReplay getReplay() {
+  public FlipCardResult getResults() {
     Bundle receiver = getIntent().getExtras();
     if (receiver != null) {
-      return (FlipCardReplay) receiver.get("replay");
+      return (FlipCardResult) receiver.get("flipCardResults");
     }
     return null;
   }
 
+  public void btnFlipCardResult(View view) {
+    Intent showResult = new Intent(this, FlipCardResultView.class);
+    showResult.putExtra("FlipCardResult", this.result);
+    this.updateUserScore();
+    startActivity(showResult);
+    finish();
+  }
+
+  private void updateUserScore() {
+    this.currUser.stopMusic();
+    this.currUser.setLevel(0);
+    this.currUser.updateFlipCardScore(this.result.getTimeToCompletion());
+  }
 }

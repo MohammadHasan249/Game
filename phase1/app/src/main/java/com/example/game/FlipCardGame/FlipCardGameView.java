@@ -4,7 +4,7 @@ import android.content.Context;
 import android.widget.TableLayout;
 
 public interface FlipCardGameView {
-    void gameEnded(FlipCardResult results, FlipCardReplay replay);
+    void gameEnded(FlipCardResult results);
 
     void updateScore(String toShow);
 
@@ -26,5 +26,5 @@ public interface FlipCardGameView {
 
     void displayInstructions(String instructions);
 
-    FlipCardReplay getReplay();
+    FlipCardResult getResults();
 }

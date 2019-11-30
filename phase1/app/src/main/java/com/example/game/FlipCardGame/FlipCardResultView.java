@@ -13,7 +13,6 @@ import com.example.game.UserInfoFacade;
 
 public class FlipCardResultView extends AppCompatActivity {
   UserInfoFacade user;
-  private FlipCardReplay replay;
   private FlipCardResult result;
   public void endGame(View view) {
     Intent endGameResult = new Intent(this, EndGameResultPage.class);
@@ -40,12 +39,10 @@ public class FlipCardResultView extends AppCompatActivity {
     super.onCreate(savedInstanceState);
     setContentView(R.layout.activity_flip_card_result);
     this.user = new UserInfoFacade(this);
-    this.user.setLevel(0);
     Bundle receiver = getIntent().getExtras();
     if (receiver != null) {
       this.result = (FlipCardResult) receiver.get("FlipCardResult");
       this.setResult(this.result);
-      this.replay = (FlipCardReplay) receiver.get("replay");
     }
   }
 
@@ -56,13 +53,5 @@ public class FlipCardResultView extends AppCompatActivity {
     TextView numIncorrect = findViewById(R.id.NumIncorrectTextView);
     this.displayScores(result, difficulty, timeToCompletion, numCorrect, numIncorrect);
     this.user.setFlipCardScore(result.getTimeToCompletion());
-  }
-  public void startInstantReplay(View view) {
-    Intent mainGameIntent = new Intent(this, FlipCardMainView.class);
-    mainGameIntent.putExtra("presenter", new FlipCardReplayPresenter());
-    mainGameIntent.putExtra("results", this.result);
-    mainGameIntent.putExtra("replay", this.replay);
-    startActivity(mainGameIntent);
-    finish();
   }
 }
