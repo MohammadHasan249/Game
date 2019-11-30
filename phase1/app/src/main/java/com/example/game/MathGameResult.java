@@ -15,6 +15,7 @@ public class MathGameResult extends AppCompatActivity {
     double speed;
     TextView textTotalCorrect, textFailedAttempts, textSpeed;
     CurrUser user;
+    ResultFacade resultFacade;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,6 +40,10 @@ public class MathGameResult extends AppCompatActivity {
         textTotalCorrect.setText(strTotalCorrect);
         textFailedAttempts.setText(strTotalFailedAttempts);
         textSpeed.setText(strSpeed);
+
+
+//        resultFacade = new ResultFacade(this);
+//        resultFacade.dataSave(totalCorrect);
 
         user = new CurrUser(this);
         user.setL2RecentScore(totalCorrect);
