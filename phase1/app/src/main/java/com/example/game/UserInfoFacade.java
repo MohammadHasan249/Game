@@ -42,4 +42,10 @@ public class UserInfoFacade {
     public void setFlipCardScore(int score) {
         this.user.setL3RecentScore(score);
     }
+
+    public void updateFlipCardScore(int score) {
+        this.user.setCurrLevel(0);
+        this.user.setL3RecentScore(score);
+        this.user.updateL3BestScore();
+    }
 }
