@@ -25,6 +25,7 @@ public class FlipCardMainView extends AppCompatActivity implements FlipCardGameV
   private Button btnInstantreplay;
   private Button btnFlipCardResult;
   private FlipCardResult result;
+  private FlipCardGamePresenter presenter;
   @Override
   protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
@@ -39,18 +40,8 @@ public class FlipCardMainView extends AppCompatActivity implements FlipCardGameV
     currUser = new UserInfoFacade(this);
     this.currUser.setLevel(3);
     this.currUser.startMusic();
-    this.startPresenter();
-  }
-
-  private void startPresenter() {
-    Bundle receiver = getIntent().getExtras();
-    if (receiver != null) {
-      FlipCardMainPresenter presenter = (FlipCardMainPresenter) receiver.get("presenter");
-      if (presenter != null) {
-        presenter.setView(this);
-        presenter.startDisplay();
-      }
-    }
+    this.presenter = new FlipCardGamePresenter(this);
+    this.presenter.startDisplay();
   }
 
   @Override
@@ -132,6 +123,11 @@ public class FlipCardMainView extends AppCompatActivity implements FlipCardGameV
     return null;
   }
 
+  @Override
+  public FlipCardMainGameModel getCurrGame() {
+    return this.presenter.getCurrGame();
+  }
+
   public void btnFlipCardResult(View view) {
     Intent showResult = new Intent(this, FlipCardResultView.class);
     showResult.putExtra("FlipCardResult", this.result);
@@ -147,5 +143,8 @@ public class FlipCardMainView extends AppCompatActivity implements FlipCardGameV
   }
 
   public void btnInstantReplay(View view) {
+    this.btnInstantreplay.setVisibility(View.INVISIBLE);
+    FlipCardMainGameModel currModel = this.presenter.getCurrGame();
+
   }
 }
