@@ -86,6 +86,12 @@ public class HomePage extends AppCompatActivity {
         }
     }
 
+    public void btnScoresFunc(View view){
+        Intent start = new Intent(getApplicationContext(), ScoreBoard.class);
+        startActivity(start);
+        finish();
+    }
+
     @Override
     public void onBackPressed() {
         new AlertDialog.Builder(this)

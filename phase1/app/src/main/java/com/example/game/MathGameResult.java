@@ -42,13 +42,13 @@ public class MathGameResult extends AppCompatActivity {
         textSpeed.setText(strSpeed);
 
 
-//        resultFacade = new ResultFacade(this);
-//        resultFacade.dataSave(totalCorrect);
+        resultFacade = new ResultFacade(this);
+        resultFacade.dataSave(totalCorrect);
 
-        user = new CurrUser(this);
-        user.setL2RecentScore(totalCorrect);
-        user.updateL2BestScore();
-        user.setCurrLevel(3);
+//        user = new CurrUser(this);
+//        user.setL2RecentScore(totalCorrect);
+//        user.updateL2BestScore();
+//        user.setCurrLevel(3);
     }
 
     public void btnContinueFunc(View view) {
