@@ -87,7 +87,8 @@ public class HomePage extends AppCompatActivity {
         }
     }
 
-    public void btnScoresFunc(View view){
+
+    public void btnScoresFunc(View view) {
         Intent start = new Intent(getApplicationContext(), ScoreBoard.class);
         startActivity(start);
         finish();

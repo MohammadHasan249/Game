@@ -35,6 +35,8 @@ public class ScoreBoard extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_score_board);
 
+        System.out.println("MARKKKKKKER");
+
         scoreBoard = findViewById(R.id.scoreBoard);
         gameNameText = findViewById(R.id.gameNameText);
         easyBtn = findViewById(R.id.easyBtn);
