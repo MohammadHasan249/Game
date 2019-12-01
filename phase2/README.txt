@@ -2,8 +2,9 @@ README file for Trifecta Game:
 
 - General Application:
     No need to install any plugins or anything, just run the app and sign up/login.
-    	-It should all work upon clone
-    We accidently did all our work for phase 2 in the phase 1 folder. But we also managed to migrate the	 files to phase 2 folder so it should work in this folder too
+    	- It should all work upon cloning.
+    We accidentally did all our work for phase 2 in the phase 1 folder, but we also managed to migrate the files to the phase 2 folder
+     so it should work in this folder too.
 
 - Button Click Game (Whack-A-Button):
     Once you choose your customizations, start this game and every second or so, you'll see a button
@@ -17,7 +18,7 @@ README file for Trifecta Game:
 
 
 - Flip Card Game:
-	The FlipCardGame do not require any additional modules to run
-	We implemented MVP design pattern! Please have a look
-	INSTANT REPLAY: the flipcard game has a replay button when the game ends, it will display
-		the replay of every exact action you took when playing
+	The FlipCardGame does not require any additional modules to run.
+	We implemented MVP design pattern! Please have a look.
+	INSTANT REPLAY: the FlipCard game has a replay button when the game ends, it will display
+		the replay of every exact action you took while playing.
