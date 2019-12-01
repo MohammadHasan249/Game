@@ -11,9 +11,17 @@ import com.example.game.FlipCardGame.FlipCardView.FlipCardGameView;
 
 import java.util.ArrayList;
 
+/**
+ * The FlipCardGamePresenter class, starts the FlipCard game
+ *
+ * @author Gerald, Harbaksh
+ */
 public class FlipCardGamePresenter extends FlipCardMainPresenter {
     private FlipCardMainGameModel currGame;
 
+    /**
+     * setting the view
+     */
     public FlipCardGamePresenter(FlipCardGameView view) {
         this.view = view;
     }
@@ -24,6 +32,11 @@ public class FlipCardGamePresenter extends FlipCardMainPresenter {
         return cardBuilder.createCards();
     }
 
+    /**
+     * Starting the game with the selected difficulty and displaying the instructions on a pop up,
+     * Using a Factory to make the symbols according to the user's symbol selection, and
+     * creating/setting the cards
+     */
     @Override
     public void startDisplay() {
         this.currGame = new FlipCardMainGameModel(this.view.getDifficulty(), this);
@@ -35,11 +48,19 @@ public class FlipCardGamePresenter extends FlipCardMainPresenter {
         this.currGame.setCards(listOfCards);
     }
 
+    /**
+     * Finish the game and display the results and possibly replay
+     *
+     * @param results type FlipCardResult
+     */
     @Override
     public void endGame(FlipCardResult results) {
         this.view.gameEnded(results);
     }
 
+    /**
+     * @return the current game
+     */
     public FlipCardMainGameModel getCurrGame() {
         return this.currGame;
     }
