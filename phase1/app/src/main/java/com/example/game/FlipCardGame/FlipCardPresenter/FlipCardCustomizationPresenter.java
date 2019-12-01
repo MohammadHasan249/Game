@@ -26,7 +26,7 @@ public class FlipCardCustomizationPresenter {
     }
 
     /**
-     *
+     * Initialize the screen with the specific card symbols
      */
     public void initializeScreen() {
         this.view.addToSpinner(this.symbolFactory.getSupportedSymbols());
