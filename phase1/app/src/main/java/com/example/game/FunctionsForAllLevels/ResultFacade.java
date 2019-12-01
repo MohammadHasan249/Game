@@ -1,8 +1,9 @@
-package com.example.game;
+package com.example.game.FunctionsForAllLevels;
 
 import android.content.Context;
 
 import com.example.game.ScoreBoard.ScoreBoardDataInput;
+import com.example.game.User.CurrUser;
 
 /**
  * ResultFacade, groups together functions from CurrUser and ScoreBoardDataInput

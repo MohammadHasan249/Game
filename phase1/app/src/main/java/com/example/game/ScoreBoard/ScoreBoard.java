@@ -1,7 +1,5 @@
 package com.example.game.ScoreBoard;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
@@ -12,8 +10,10 @@ import android.widget.TableLayout;
 import android.widget.TableRow;
 import android.widget.TextView;
 
-import com.example.game.HomePage;
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.example.game.R;
+import com.example.game.UserHome.HomePage;
 
 import java.util.ArrayList;
 

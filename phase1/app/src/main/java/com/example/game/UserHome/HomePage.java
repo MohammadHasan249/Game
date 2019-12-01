@@ -1,4 +1,4 @@
-package com.example.game;
+package com.example.game.UserHome;
 
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
@@ -15,7 +15,9 @@ import android.widget.Toast;
 import com.example.game.ButtonClickGame.ButtonClickMain;
 import com.example.game.FlipCardGame.FlipCardView.FlipCardCustomizationView;
 import com.example.game.MathGame.MathGame;
+import com.example.game.R;
 import com.example.game.ScoreBoard.ScoreBoard;
+import com.example.game.User.CurrUser;
 
 /**
  * This class contains the HomePage of the entire application. It's the starting point.

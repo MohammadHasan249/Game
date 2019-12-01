@@ -1,4 +1,4 @@
-package com.example.game;
+package com.example.game.LoginScreen;
 
 import android.database.sqlite.SQLiteDatabase;
 

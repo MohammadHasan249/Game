@@ -1,4 +1,4 @@
-package com.example.game;
+package com.example.game.User;
 
 import android.content.Context;
 import android.content.SharedPreferences;
@@ -95,7 +95,7 @@ public class CurrUser {
     /**
      * Updates user's best score for Button press Game to the corresponding difficulty
      */
-    void updateL1BestScore() {
+    public void updateL1BestScore() {
         if (this.getDifficultySelected().equals("easy")) {
             if (this.getL1RecentScore() > this.getL1EasyBestScore()) {
                 this.setL1EasyBestScore(this.getL1RecentScore());
@@ -110,7 +110,7 @@ public class CurrUser {
     /**
      * Updates user's best score for Math Game to the corresponding difficulty
      */
-    void updateL2BestScore() {
+    public void updateL2BestScore() {
         if (this.getDifficultySelected().equals("easy")) {
             if (this.getL2RecentScore() > this.getL2EasyBestScore()) {
                 this.setL2EasyBestScore(this.getL2RecentScore());
@@ -138,7 +138,7 @@ public class CurrUser {
     }
 
 
-    String getUsername() {
+    public String getUsername() {
         return username;
     }
 
@@ -151,7 +151,7 @@ public class CurrUser {
      *
      * @param colorSelected int value corresponding to the color selected by user in customization screen
      */
-    void setColorSelected(int colorSelected) {
+    public void setColorSelected(int colorSelected) {
         this.colorSelected = colorSelected;
         gameDB.execSQL(
                 "UPDATE users SET colorSelected= '"
@@ -170,7 +170,7 @@ public class CurrUser {
      *
      * @param difficultySelected String corresponding to the difficulty selected by user in customization screen
      */
-    void setDifficultySelected(String difficultySelected) {
+    public void setDifficultySelected(String difficultySelected) {
         this.difficultySelected = difficultySelected;
         gameDB.execSQL(
                 "UPDATE users SET difficultySelected= '"
@@ -189,7 +189,7 @@ public class CurrUser {
      *
      * @param musicSelected int value corresponding to the music selected by user in customization screen
      */
-    void setMusicSelected(int musicSelected) {
+    public void setMusicSelected(int musicSelected) {
         this.musicSelected = musicSelected;
 
         gameDB.execSQL(
@@ -200,7 +200,7 @@ public class CurrUser {
                         + "'");
     }
 
-    int getCurrLevel() {
+    public int getCurrLevel() {
         return currLevel;
     }
 
@@ -266,7 +266,7 @@ public class CurrUser {
      *
      * @param l1RecentScore most recent score achieved by user in button press game (any difficulty)
      */
-    void setL1RecentScore(int l1RecentScore) {
+    public void setL1RecentScore(int l1RecentScore) {
         this.l1RecentScore = l1RecentScore;
         gameDB.execSQL(
                 "UPDATE users SET l1RecentScore= '"
@@ -323,7 +323,7 @@ public class CurrUser {
      *
      * @param l2RecentScore Most recent score on level 2 by achieved by user (any mode)
      */
-    void setL2RecentScore(int l2RecentScore) {
+    public void setL2RecentScore(int l2RecentScore) {
         this.l2RecentScore = l2RecentScore;
         gameDB.execSQL(
                 "UPDATE users SET l2RecentScore= '"

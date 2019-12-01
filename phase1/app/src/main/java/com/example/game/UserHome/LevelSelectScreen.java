@@ -1,4 +1,4 @@
-package com.example.game;
+package com.example.game.UserHome;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -8,6 +8,8 @@ import android.view.View;
 import android.widget.Button;
 
 import com.example.game.ButtonClickGame.ButtonClickMain;
+import com.example.game.R;
+import com.example.game.User.CurrUser;
 
 /**
  * Activity page for user to select the game they want to play

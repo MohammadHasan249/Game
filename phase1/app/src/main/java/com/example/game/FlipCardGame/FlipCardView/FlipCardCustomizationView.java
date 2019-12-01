@@ -9,9 +9,9 @@ import android.widget.Spinner;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.game.FlipCardGame.FlipCardPresenter.FlipCardCustomizationPresenter;
-import com.example.game.HomePage;
+import com.example.game.UserHome.HomePage;
 import com.example.game.R;
-import com.example.game.UserInfoFacade;
+import com.example.game.User.UserInfoFacade;
 
 import java.util.ArrayList;
 

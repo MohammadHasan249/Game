@@ -7,11 +7,11 @@ import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-//import com.example.game.CurrUser;
-import com.example.game.HomePage;
+//import com.example.game.User.CurrUser;
+import com.example.game.UserHome.HomePage;
 import com.example.game.MathGame.MathGame;
 import com.example.game.R;
-import com.example.game.ResultFacade;
+import com.example.game.FunctionsForAllLevels.ResultFacade;
 
 /**
  * This class displays the final results from the ButtonClick Game. It shows Total Clicks

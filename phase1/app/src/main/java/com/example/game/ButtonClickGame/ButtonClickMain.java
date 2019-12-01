@@ -11,9 +11,9 @@ import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.game.CurrUser;
-import com.example.game.HomePage;
-import com.example.game.LevelOnCreate;
+import com.example.game.User.CurrUser;
+import com.example.game.UserHome.HomePage;
+import com.example.game.FunctionsForAllLevels.LevelOnCreate;
 import com.example.game.R;
 
 import java.util.Random;

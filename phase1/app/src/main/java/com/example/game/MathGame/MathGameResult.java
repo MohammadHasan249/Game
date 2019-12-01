@@ -7,11 +7,11 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
 
-import com.example.game.CurrUser;
+import com.example.game.User.CurrUser;
 import com.example.game.FlipCardGame.FlipCardInit;
-import com.example.game.HomePage;
+import com.example.game.UserHome.HomePage;
 import com.example.game.R;
-import com.example.game.ResultFacade;
+import com.example.game.FunctionsForAllLevels.ResultFacade;
 
 /**
  * Activity used to display result statistics for level 2 (MathGame)

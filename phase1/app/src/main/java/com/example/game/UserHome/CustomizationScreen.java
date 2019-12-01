@@ -1,4 +1,4 @@
-package com.example.game;
+package com.example.game.UserHome;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -12,6 +12,8 @@ import android.widget.RadioGroup;
 import com.example.game.ButtonClickGame.ButtonClickMain;
 import com.example.game.FlipCardGame.FlipCardInit;
 import com.example.game.MathGame.MathGame;
+import com.example.game.R;
+import com.example.game.User.CurrUser;
 
 /**
  * This Activity allows the user to select customizations going into our games

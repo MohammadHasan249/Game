@@ -1,4 +1,4 @@
-package com.example.game;
+package com.example.game.LoginScreen;
 
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -7,6 +7,8 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.Window;
+
+import com.example.game.R;
 
 /**
  * Startup Class is the class for the window of the startup splash screen. It shows a gif,

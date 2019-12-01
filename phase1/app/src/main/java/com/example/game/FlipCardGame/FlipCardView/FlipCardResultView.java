@@ -8,10 +8,10 @@ import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.game.FlipCardGame.FlipCardResult.FlipCardResult;
-import com.example.game.HomePage;
+import com.example.game.UserHome.HomePage;
 import com.example.game.R;
-import com.example.game.ResultFacade;
-import com.example.game.UserInfoFacade;
+import com.example.game.FunctionsForAllLevels.ResultFacade;
+import com.example.game.User.UserInfoFacade;
 
 /**
  * The FlipCardResultView class

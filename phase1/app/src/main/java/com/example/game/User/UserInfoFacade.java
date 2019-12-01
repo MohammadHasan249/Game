@@ -1,4 +1,4 @@
-package com.example.game;
+package com.example.game.User;
 
 import android.content.Context;
 

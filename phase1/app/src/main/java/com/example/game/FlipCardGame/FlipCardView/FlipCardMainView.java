@@ -16,10 +16,10 @@ import com.example.game.FlipCardGame.FlipCardModels.FlipCardMainGameModel;
 import com.example.game.FlipCardGame.FlipCardPresenter.FlipCardGamePresenter;
 import com.example.game.FlipCardGame.FlipCardPresenter.FlipCardReplayPresenter;
 import com.example.game.FlipCardGame.FlipCardResult.FlipCardResult;
-import com.example.game.HomePage;
-import com.example.game.LevelOnCreate;
+import com.example.game.UserHome.HomePage;
+import com.example.game.FunctionsForAllLevels.LevelOnCreate;
 import com.example.game.R;
-import com.example.game.UserInfoFacade;
+import com.example.game.User.UserInfoFacade;
 
 /**
  * The FlipCardMainView class
