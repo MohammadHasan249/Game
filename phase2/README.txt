@@ -15,6 +15,10 @@ README file for Trifecta Game:
     by 2!
 
 - Math Game:
+There will be one displayed number on the screen, and 4 buttons each displaying a negative value.
+  The objective of the game is, to click the negative value buttons in any order and any amount of times
+  to decrease the displayed value to 0 as many times as possible. New values are generated if the displayed value
+  reaches zero or lower, points are only scored if user manages to decrease number to exactly zero.
 
 
 - Flip Card Game:
