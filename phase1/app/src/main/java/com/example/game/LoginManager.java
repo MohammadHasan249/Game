@@ -12,7 +12,6 @@ import android.widget.Toast;
  *
  * @author Henry
  */
-
 public class LoginManager{
 
     SharedPreferences sharedPreferences;
@@ -25,25 +24,26 @@ public class LoginManager{
         this.context = context;
     }
 
+    /**
+     * Saves to shared preference that a user is logged in
+     *
+     * @param username username of the successfully logged in user
+     */
     public void notifyLoginSuccess(String username){
-        /**
-         * Saves to shared preference that a user is logged in
-         *
-         * @param username username of the successfully logged in user
-         */
         sharedPreferences.edit().putString("loggedInUsername", username).apply();
     }
 
+    /**
+     * Checks if there exists a user with the given username and password in SQLite database
+     * If one exists, save username to currently logged in user in shared preferences
+     * else display a toast message indicating possible input errors
+     *
+     * @param username username input in MainActivity's username EditText view
+     * @param password password input in MainActivity's password EditText view
+     * @return true if there exists a user with given username/password, false otherwise
+     */
     public boolean attemptLogin (String username, String password){
-        /**
-         * Checks if there exists a user with the given username and password in SQLite database
-         * If one exists, save username to currently logged in user in shared preferences
-         * else display a toast message indicating possible input errors
-         *
-         * @param username username input in MainActivity's username EditText view
-         * @param password password input in MainActivity's password EditText view
-         * @return true if there exists a user with given username/password, false otherwise
-         */
+
 
         Cursor c = gameDB.rawQuery("SELECT * FROM users WHERE username = '" + username + "'", null);
         int passwordIndex;
@@ -65,16 +65,15 @@ public class LoginManager{
         }
     }
 
+    /**
+     * Checks if there already exists a user in the database with the given username input
+     * if one doesn't exist, sign up user (store username / password) in SQLite database
+     *
+     * @param username username input in MainActivity's username EditText view
+     * @param password password input in MainActivity's password EditText view
+     * @return true if there are no users in the database with the input username, false otherwise
+     */
     public boolean attemptSignUp(String username, String password){
-        /**
-         * Checks if there already exists a user in the database with the given username input
-         * if one doesn't exist, sign up user (store username / password) in SQLite database
-         *
-         * @param username username input in MainActivity's username EditText view
-         * @param password password input in MainActivity's password EditText view
-         * @return true if there are no users in the database with the input username, false otherwise
-         */
-
         Cursor c = gameDB.rawQuery("SELECT * FROM users WHERE username = '" + username + "'", null);
 
         if (!c.moveToFirst()) {  // c.moveToFirst() return true if there is data, false if no data

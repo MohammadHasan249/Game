@@ -20,7 +20,6 @@ import android.widget.Toast;
  *
  * @author Henry
  */
-
 public class MainActivity extends AppCompatActivity {
 
 /////////////////////////////////////////////////////////////////////////////////////////////
@@ -63,17 +62,17 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-
+    /**
+     * function called upon clicking the Sign Up button
+     * Checks if username input is valid, and if it already exists in the database
+     * If username input is invalid, displays toast message explaining why it is invalid
+     * if username input is valid the username and password input is saved to the database and initiates intent to HomePage
+     *
+     * @param view sign up button
+     */
     public void btnSignUpFunc(View view) {
 
-        /**
-         * function called upon clicking the Sign Up button
-         * Checks if username input is valid, and if it already exists in the database
-         * If username input is invalid, displays toast message explaining why it is invalid
-         * if username input is valid the username and password input is saved to the database and initiates intent to HomePage
-         *
-         * @param view sign up button
-         */
+
 
         currUserName = editTextUserName.getText().toString();
         currPassword = editTextPassword.getText().toString();
@@ -91,16 +90,14 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
+    /**
+     * Function called upon login button pressed
+     * checks if username / password inputs match a user in the database
+     * If it matches, login the user and go to HomePage
+     *
+     * @param view login button
+     */
     public void btnLoginFunc(View view) {
-
-        /**
-         * Function called upon login button pressed
-         * checks if username / password inputs match a user in the database
-         * If it matches, login the user and go to HomePage
-         *
-         * @param view login button
-         */
-
         currUserName = editTextUserName.getText().toString();
         currPassword = editTextPassword.getText().toString();
         if (loginManager.attemptLogin(currUserName, currPassword)){
@@ -108,15 +105,13 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
+    /**
+     * Method is called upon clicking on the background of the login screen
+     * Closes any displaying android keyboard
+     *
+     * @param view MainActivity background
+     */
     public void hideKeyboard(View view) {
-
-        /**
-         * Method is called upon clicking on the background of the login screen
-         * Closes any displaying android keyboard
-         *
-         * @param view MainActivity background
-         */
-
         InputMethodManager mgr = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
         if (mgr != null)
             mgr.toggleSoftInput(InputMethodManager.SHOW_FORCED, 0);

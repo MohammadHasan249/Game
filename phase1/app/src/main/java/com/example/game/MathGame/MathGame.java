@@ -198,13 +198,11 @@ public class MathGame extends AppCompatActivity {
         textScore.setText(strScore);
     }
 
+    /**
+     * Method to change all button colors to correspond with the user's selected color
+     * in customization screen.
+     */
     private void changeBtnColor() {
-
-        /**
-         * Method to change all button colors to correspond with the user's selected color
-         * in customization screen.
-         */
-
         int k;
         for (k = 0; k < fourBtn.size(); k++) {
             fourBtn.get(k).setBackgroundColor(user.getColorSelected());
@@ -255,15 +253,14 @@ public class MathGame extends AppCompatActivity {
         levelOnCreate = new LevelOnCreate(this, instructions, timer);
     }
 
+
+    /**
+     * Overide android back button to stop timer and music and initiate an intent
+     * to HomePage, while finishing this current activity page
+     */
     @Override
     public void onBackPressed() {
-
-        /**
-         * Overrided android back button to stop timer and music and initiate an intent
-         * to HomePage, while finishing this current activity page
-         */
-
-        timer.cancel();
+                timer.cancel();
         user.stopMusic();
         Intent start = new Intent(getApplicationContext(), HomePage.class);
         start.putExtra("androidBack", 1);
