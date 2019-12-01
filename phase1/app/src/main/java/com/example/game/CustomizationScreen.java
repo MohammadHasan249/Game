@@ -11,6 +11,12 @@ import android.widget.RadioGroup;
 
 import com.example.game.ButtonClickGame.ButtonClickMain;
 
+/**
+ * This Activity allows the user to select customizations going into our games
+ *
+ * @author Henry
+ */
+
 public class CustomizationScreen extends AppCompatActivity {
 
     RadioGroup radioGroupColor, radioGroupDifficulty, radioGroupSoundtrack;
@@ -20,6 +26,12 @@ public class CustomizationScreen extends AppCompatActivity {
     CurrUser user;
 
     public void btnStartFunc(View view) {
+
+        /**
+         * Saves customizations selected by user into SQLite database and starts a level
+         *
+         * @param view Start button
+         */
 
         radioCheckedColor = findViewById(radioGroupColor.getCheckedRadioButtonId());
         radioCheckedDifficulty = findViewById(radioGroupDifficulty.getCheckedRadioButtonId());
