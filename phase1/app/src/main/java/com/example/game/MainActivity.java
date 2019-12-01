@@ -14,6 +14,13 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+
+/**
+ * MainActivity is the login/sign up activity screen
+ *
+ * @author Henry
+ */
+
 public class MainActivity extends AppCompatActivity {
 
 /////////////////////////////////////////////////////////////////////////////////////////////
@@ -58,6 +65,16 @@ public class MainActivity extends AppCompatActivity {
 
 
     public void btnSignUpFunc(View view) {
+
+        /**
+         * function called upon clicking the Sign Up button
+         * Checks if username input is valid, and if it already exists in the database
+         * If username input is invalid, displays toast message explaining why it is invalid
+         * if username input is valid the username and password input is saved to the database and initiates intent to HomePage
+         *
+         * @param view sign up button
+         */
+
         currUserName = editTextUserName.getText().toString();
         currPassword = editTextPassword.getText().toString();
 
@@ -75,6 +92,15 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void btnLoginFunc(View view) {
+
+        /**
+         * Function called upon login button pressed
+         * checks if username / password inputs match a user in the database
+         * If it matches, login the user and go to HomePage
+         *
+         * @param view login button
+         */
+
         currUserName = editTextUserName.getText().toString();
         currPassword = editTextPassword.getText().toString();
         if (loginManager.attemptLogin(currUserName, currPassword)){
@@ -83,6 +109,14 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void hideKeyboard(View view) {
+
+        /**
+         * Method is called upon clicking on the background of the login screen
+         * Closes any displaying android keyboard
+         *
+         * @param view MainActivity background
+         */
+
         InputMethodManager mgr = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
         if (mgr != null)
             mgr.toggleSoftInput(InputMethodManager.SHOW_FORCED, 0);

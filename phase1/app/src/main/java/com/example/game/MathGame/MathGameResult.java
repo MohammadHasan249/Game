@@ -13,6 +13,11 @@ import com.example.game.HomePage;
 import com.example.game.R;
 import com.example.game.ResultFacade;
 
+/**
+ * Activity used to display result statistics for level 2 (MathGame)
+ * @author Henry
+ */
+
 public class MathGameResult extends AppCompatActivity {
 
     int totalCorrect, totalFailedAttempts, time;
