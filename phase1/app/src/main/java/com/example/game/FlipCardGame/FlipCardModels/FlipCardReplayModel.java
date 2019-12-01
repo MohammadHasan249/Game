@@ -43,6 +43,7 @@ public class FlipCardReplayModel extends FlipCardGameModel {
     }
 
     /**
+     * recursive function to replay the cards again at the exact time they were pressed
      * @param delay the duration of the delay
      */
     private void replay(final long delay) {
