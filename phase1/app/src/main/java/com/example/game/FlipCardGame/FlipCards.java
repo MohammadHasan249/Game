@@ -92,8 +92,12 @@ class FlipCards {
     this.turnCardToBack();
   }
 
+  void setManager(FlipCardGameModel manager) {
+    this.manager = manager;
+  }
   void disableBtnCall() {
-    this.btnInstance.setEnabled(false);
+    this.btnInstance.setEnabled(true);
+    this.btnInstance.setOnClickListener(null);
   }
   private void turnCardToBack() {
         this.btnInstance.setText("");

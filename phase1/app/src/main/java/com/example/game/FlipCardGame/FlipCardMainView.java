@@ -144,7 +144,7 @@ public class FlipCardMainView extends AppCompatActivity implements FlipCardGameV
 
   public void btnInstantReplay(View view) {
     this.btnInstantreplay.setVisibility(View.INVISIBLE);
-    FlipCardMainGameModel currModel = this.presenter.getCurrGame();
-
+    FlipCardReplayPresenter replayPresenter = new FlipCardReplayPresenter(this);
+    replayPresenter.startDisplay();
   }
 }

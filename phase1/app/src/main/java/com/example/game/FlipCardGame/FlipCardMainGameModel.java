@@ -5,8 +5,8 @@ import java.util.ArrayList;
 class FlipCardMainGameModel extends FlipCardGameModel {
   private String difficulty;
   private boolean firstClick;
-  private ArrayList<Long> timeOfActionList;
-  private ArrayList<FlipCards> flipCardActionList;
+  private ArrayList<Long> timeActionList;
+  private ArrayList<FlipCards> cardActionList;
   FlipCardMainGameModel(
           String difficulty,
           FlipCardMainPresenter presenter) {
@@ -23,22 +23,23 @@ class FlipCardMainGameModel extends FlipCardGameModel {
     this.numMatchAttempt = 0;
     this.presenter = presenter;
     this.firstClick = false;
-    this.timeOfActionList = new ArrayList<>();
-    this.flipCardActionList = new ArrayList<>();
+    this.timeActionList = new ArrayList<>();
+    this.cardActionList = new ArrayList<>();
   }
-  void setCards(ArrayList<FlipCards> cardList)
-  {
-    this.allCards = cardList;
-  }
+
   @Override
   public void update(FlipCards cardCalled) {
     if (!this.firstClick) {
       this.presenter.startTimer();
       this.firstClick = true;
     }
-    this.flipCardActionList.add(cardCalled);
-    this.timeOfActionList.add(this.returnElapsedTime());
-    this.updateCards(cardCalled);
+    if (!cardCalled.isFlipped()) {
+
+      this.cardActionList.add(cardCalled);
+      this.timeActionList.add(this.returnElapsedTime());
+      cardCalled.flipCard();
+    }
+    this.updateCards();
     if (this.numCorrect == this.numMatches) {
       this.presenter.stopTimer();
       long timeToCompleteMs = this.returnElapsedTime();
@@ -60,15 +61,15 @@ class FlipCardMainGameModel extends FlipCardGameModel {
     return "Match the cards!(Timer goes off when you click on one of them)";
   }
 
-  ArrayList<FlipCards> getFlipCardActionList() {
-    return this.flipCardActionList;
+  ArrayList<FlipCards> getCardActionList() {
+    return this.cardActionList;
   }
 
-  ArrayList<Long> getTimeOfActionList() {
-    return this.timeOfActionList;
+  ArrayList<Long> getTimeActionList() {
+    return this.timeActionList;
   }
 
-  ArrayList<FlipCards> getLastState() {
+  ArrayList<FlipCards> getLastStateList() {
     return this.allCards;
   }
 }
