@@ -1,4 +1,4 @@
-package com.example.game;
+package com.example.game.ButtonClickGame;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -10,6 +10,11 @@ import android.widget.TableRow;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import com.example.game.CurrUser;
+import com.example.game.HomePage;
+import com.example.game.LevelOnCreate;
+import com.example.game.R;
 
 import java.util.Random;
 

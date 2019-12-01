@@ -17,8 +17,8 @@
         <activity android:name=".FlipCardGame.FlipCardView.FlipCardMainView" />
         <activity android:name=".MathGame.MathGameResult" />
         <activity android:name=".MathGame.MathGame" />
-        <activity android:name=".ButtonClickMain" />
-        <activity android:name=".ButtonClickResult" />
+        <activity android:name=".ButtonClickGame.ButtonClickMain" />
+        <activity android:name=".ButtonClickGame.ButtonClickResult" />
         <activity android:name=".FlipCardGame.FlipCardView.FlipCardCustomizationView" />
         <activity android:name=".ScoreBoard.ScoreBoard" />
         <activity android:name=".Startup">

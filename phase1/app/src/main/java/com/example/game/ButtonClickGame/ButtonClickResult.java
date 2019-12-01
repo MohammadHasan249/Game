@@ -1,4 +1,4 @@
-package com.example.game;
+package com.example.game.ButtonClickGame;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -13,7 +13,10 @@ import androidx.appcompat.app.AppCompatActivity;
  * @author Aryan Ahmad, Mohammed Hasan
  */
 
+import com.example.game.CurrUser;
+import com.example.game.HomePage;
 import com.example.game.MathGame.MathGame;
+import com.example.game.R;
 
 public class ButtonClickResult extends AppCompatActivity {
 

@@ -9,6 +9,8 @@ import android.view.View;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 
+import com.example.game.ButtonClickGame.ButtonClickMain;
+
 public class CustomizationScreen extends AppCompatActivity {
 
     RadioGroup radioGroupColor, radioGroupDifficulty, radioGroupSoundtrack;
