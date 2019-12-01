@@ -120,11 +120,11 @@ public class MainActivity extends AppCompatActivity {
 
         user = sharedPreferences.getString("loggedInUsername", "NA");
 
+//        ScoreBoardDataOutput s = new ScoreBoardDataOutput(this, "easy", 1);
+
         if (!user.equals("NA")) {
             Intent start = new Intent(getApplicationContext(), HomePage.class);
             startActivity(start);
         }
-
-
     }
 }

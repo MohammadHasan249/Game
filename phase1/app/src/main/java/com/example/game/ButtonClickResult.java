@@ -6,6 +6,14 @@ import android.view.View;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
+/**
+ * This class displays the final results from the ButtonClick Game. It shows Total Clicks
+ * as well as Score.
+ *
+ * @author Aryan Ahmad, Mohammed Hasan
+ */
+
+import com.example.game.MathGame.MathGame;
 
 public class ButtonClickResult extends AppCompatActivity {
 
@@ -32,11 +40,21 @@ public class ButtonClickResult extends AppCompatActivity {
         user.setCurrLevel(2);
     }
 
+    /**
+     * This Method Sends the game to the next game, the Math game.
+     * @param view The Current view module
+     */
+
     public void tol2Game(View view) {
         Intent l2Game = new Intent(this, MathGame.class);
         startActivity(l2Game);
         finish();
     }
+
+    /**
+     * This Method overrides the built in onBackPressed, which is what happeneds when back
+     * is pressed. Overriden to restart the game.
+     */
 
     @Override
     public void onBackPressed() {

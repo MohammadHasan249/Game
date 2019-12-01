@@ -12,8 +12,9 @@ import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.game.FlipCardGame.FlipCardMainView;
 import com.example.game.FlipCardGame.FlipCardView.FlipCardCustomizationView;
+import com.example.game.MathGame.MathGame;
+import com.example.game.ScoreBoard.ScoreBoard;
 
 public class HomePage extends AppCompatActivity {
 
@@ -84,6 +85,12 @@ public class HomePage extends AppCompatActivity {
         if (androidBack != 1) {
             goCurrentLevel();
         }
+    }
+
+    public void btnScoresFunc(View view){
+        Intent start = new Intent(getApplicationContext(), ScoreBoard.class);
+        startActivity(start);
+        finish();
     }
 
     @Override
