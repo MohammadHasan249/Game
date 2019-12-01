@@ -6,9 +6,6 @@ README file for Trifecta Game:
     We accidentally did all our work for phase 2 in the phase 1 folder please mark everything in
     	the phase 1 folder
 	- The UML is in this phase2 folder   
-    Sometimes android studio will give errors right after cloning but that is all solved when we click
-    	run, we tested this multiple times and the game should work by clicking run despite Android
-	studio indicating errors 
 
 - Button Click Game (Whack-A-Button):
     Once you choose your customizations, start this game and every second or so, you'll see a button
