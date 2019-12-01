@@ -55,7 +55,12 @@ public class ScoreBoardDataOutput {
         scoresArray.clear();
 
         Cursor c;
-        c = this.gameDB.rawQuery("SELECT * FROM '"+this.table+"' ORDER BY score", null);
+        if (level == 3){
+            c = this.gameDB.rawQuery("SELECT * FROM '"+this.table+"' ORDER BY score DESC", null);
+        }else{
+            c = this.gameDB.rawQuery("SELECT * FROM '"+this.table+"' ORDER BY score ASC", null);
+        }
+
         boolean hasData = c.moveToFirst(); // c.moveToFirst() return true if there are items in database
 
         while (hasData){

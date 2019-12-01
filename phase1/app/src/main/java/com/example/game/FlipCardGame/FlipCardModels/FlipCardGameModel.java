@@ -7,6 +7,11 @@ import com.example.game.FlipCardGame.FlipCardPresenter.FlipCardMainPresenter;
 
 import java.util.ArrayList;
 
+/**
+ * The FlipCardGameModel Abstract class is one of the blueprints for the FlipCard game
+ *      This specifies the functions that a class must implement if it wants to manage FlipCards
+ * @author Gerald, Harbaksh
+ */
 public abstract class FlipCardGameModel {
     int numMatches;
     int numCorrect;
@@ -14,23 +19,41 @@ public abstract class FlipCardGameModel {
     ArrayList<FlipCards> allCards;
     FlipCardMainPresenter presenter;
 
+    /**
+     * Abstract method to update the flipCards
+     *
+     * @param flipCards
+     */
     public abstract void update(FlipCards flipCards);
 
+    /**
+     * @return the number of matches
+     */
     public int getNumMatches() {
         return this.numMatches;
     }
 
+    /**
+     * @param cardList the cards that will be played with
+     */
     public void setCards(ArrayList<FlipCards> cardList) {
         this.allCards = cardList;
     }
-    // calculating the time elapsed
+
+    /**
+     * calculating the time elapsed
+     *
+     * @return the elapsed time
+     */
     long returnElapsedTime() {
         return this.presenter.getTimeElapsed();
     }
 
-    // goes over the list of all cards, if 2 of them are flipped, check if they are a match
-    // if they are then update cards and lock them
-    // if they aren't then we put a delay then flip them back
+    /**
+     * goes over the list of all cards, if 2 of them are flipped, check if they are a match
+     * if they are then update cards and lock them
+     * if they aren't then we put a delay then flip them back
+     */
     void updateCards() {
         ArrayList<FlipCards> flipped = new ArrayList<>();
         for (FlipCards f : this.allCards) {
@@ -57,7 +80,12 @@ public abstract class FlipCardGameModel {
         }
     }
 
-    // putting delay then flipping the 2 in correctly matched cards back
+    /**
+     * putting delay then flipping the 2 in correctly matched cards back
+     *
+     * @param f1 FlipCards obj
+     * @param f2 FlipCards obj
+     */
     private void nonMatchCardDelay(final FlipCards f1, final FlipCards f2) {
         new CountDownTimer(450, 450) {
             public void onTick(long millisUntilFinished) {
@@ -71,7 +99,9 @@ public abstract class FlipCardGameModel {
         }.start();
     }
 
-    // update score board
+    /**
+     * update score board
+     */
     private void updateScore() {
         this.presenter.updateScore(this.numCorrect, this.numMatchAttempt);
     }

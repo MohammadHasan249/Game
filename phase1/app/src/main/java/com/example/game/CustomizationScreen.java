@@ -10,7 +10,14 @@ import android.widget.RadioButton;
 import android.widget.RadioGroup;
 
 import com.example.game.ButtonClickGame.ButtonClickMain;
+import com.example.game.FlipCardGame.FlipCardInit;
+import com.example.game.MathGame.MathGame;
 
+/**
+ * This Activity allows the user to select customizations going into our games
+ *
+ * @author Henry
+ */
 public class CustomizationScreen extends AppCompatActivity {
 
     RadioGroup radioGroupColor, radioGroupDifficulty, radioGroupSoundtrack;
@@ -19,8 +26,12 @@ public class CustomizationScreen extends AppCompatActivity {
     RadioButton radioNoSoundtrack, radioSoundtrack1, radioSoundtrack2;
     CurrUser user;
 
+    /**
+     * Saves customizations selected by user into SQLite database and starts a level
+     *
+     * @param view Start button
+     */
     public void btnStartFunc(View view) {
-
         radioCheckedColor = findViewById(radioGroupColor.getCheckedRadioButtonId());
         radioCheckedDifficulty = findViewById(radioGroupDifficulty.getCheckedRadioButtonId());
         radioCheckedSoundtrack = findViewById(radioGroupSoundtrack.getCheckedRadioButtonId());
@@ -29,11 +40,26 @@ public class CustomizationScreen extends AppCompatActivity {
         user.setDifficultySelected(radioCheckedDifficulty.getTag().toString());
         user.setMusicSelected(Integer.parseInt(radioCheckedSoundtrack.getTag().toString()));
 
-        user.setCurrLevel(1);
+        Intent intent = getIntent();
+        int level = intent.getIntExtra("Level", 1);
+        user.setCurrLevel(level);
 
-        Intent goLevel1 = new Intent(this, ButtonClickMain.class);
-        startActivity(goLevel1);
-        finish();
+        Intent goLevel;
+        if (level == 1){
+            goLevel = new Intent(this, ButtonClickMain.class);
+            startActivity(goLevel);
+            finish();
+        }else if (level == 2){
+            goLevel = new Intent(this, MathGame.class);
+            startActivity(goLevel);
+            finish();
+        }else{
+            FlipCardInit newFlipCardGame = new FlipCardInit();
+            newFlipCardGame.startGame(this );
+            finish();
+        }
+
+
     }
 
     @Override

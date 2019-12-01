@@ -6,12 +6,26 @@ import android.content.Intent;
 
 import com.example.game.FlipCardGame.FlipCardView.FlipCardCustomizationView;
 
-//this class acts as a front facing interface for others to initialize the FlipCardGameModel
+/**
+ * The FlipCardInit class, this class acts as a front facing interface for others to initialize the
+ * FlipCardGameModel
+ *
+ * @author Gerald, Harbaksh
+ */
 public class FlipCardInit {
-    public FlipCardInit(){
+
+    /**
+     * empty constructor
+     */
+    public FlipCardInit() {
     }
-    public void startGame(Context currContext)
-    {
+
+    /**
+     * creating a new intent with the current Context and starting the activity
+     *
+     * @param currContext Context
+     */
+    public void startGame(Context currContext) {
         Intent toCustomizationScreen = new Intent(currContext, FlipCardCustomizationView.class);
         currContext.startActivity(toCustomizationScreen);
     }
