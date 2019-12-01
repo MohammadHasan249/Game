@@ -52,7 +52,7 @@ public class HomePage extends AppCompatActivity {
      * @param view the current view module
      */
     public void btnNewGameFunc(View view) {
-        Intent start = new Intent(getApplicationContext(), CustomizationScreen.class);
+        Intent start = new Intent(getApplicationContext(), LevelSelectScreen.class);
         startActivity(start);
         finish();
     }

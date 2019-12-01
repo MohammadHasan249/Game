@@ -50,27 +50,25 @@ public class MathGameResult extends AppCompatActivity {
         textFailedAttempts.setText(strTotalFailedAttempts);
         textSpeed.setText(strSpeed);
 
-
         resultFacade = new ResultFacade(this);
         resultFacade.dataSave(totalCorrect);
-
-//        user = new CurrUser(this);
-//        user.setL2RecentScore(totalCorrect);
-//        user.updateL2BestScore();
-//        user.setCurrLevel(3);
     }
 
-    public void btnContinueFunc(View view) {
-        FlipCardInit newFlipCardGame = new FlipCardInit();
-        newFlipCardGame.startGame(this );
+    /**
+     * Goes back to HomePage
+     */
+    public void goHome (){
+        Intent start = new Intent(getApplicationContext(), HomePage.class);
+        startActivity(start);
         finish();
+    }
+
+    public void btnFinishFunc(View view) {
+        goHome();
     }
 
     @Override
     public void onBackPressed() {
-        Intent start = new Intent(getApplicationContext(), HomePage.class);
-        start.putExtra("androidBack", 1);
-        startActivity(start);
-        finish();
+        goHome();
     }
 }

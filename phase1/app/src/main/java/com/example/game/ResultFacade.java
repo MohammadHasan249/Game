@@ -25,6 +25,9 @@ public class ResultFacade {
         this.currLevel = this.user.getCurrLevel();
     }
 
+    public CurrUser getUser() {
+        return user;
+    }
 
     /**
      * Saves the achieved score to corresponding difficulty / level field in SQLite database
