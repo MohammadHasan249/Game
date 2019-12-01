@@ -39,7 +39,7 @@ public class ScoreBoardDataInput {
         // add user's score to the scoreboard with the user's name of choice
 
         final EditText userInput = new EditText(context);
-
+        userInput.setHint("Enter Name");
         final String tableName = this.tableDB;
         // can't access this.tableDB inside the AlertDialog object
         // Since this refers to the AlertDialog object
@@ -59,7 +59,6 @@ public class ScoreBoardDataInput {
                 button.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
-                        // TODO Do something
                         if(userInput.getText().toString().equals("")){
                             Toast.makeText(context, "Please enter a Name", Toast.LENGTH_SHORT).show();
                         }else{
