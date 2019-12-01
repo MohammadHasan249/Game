@@ -7,18 +7,34 @@ import com.example.game.FlipCardGame.FlipCardPresenter.FlipCardMainPresenter;
 
 import java.util.ArrayList;
 
+/**
+ * The FlipCardReplayModel class deals with the replay aspects of the flip card game
+ *
+ * @author Gerald, Harbaksh
+ */
 public class FlipCardReplayModel extends FlipCardGameModel {
     private ArrayList<FlipCards> cardActionList;
     private ArrayList<Long> timeActionList;
 
+    /**
+     * @param cardActionList ArrayList<FlipCards>
+     * @param timeActionList ArrayList<Long>
+     * @param lastStateList  ArrayList<FlipCards>
+     * @param presenter      FlipCardMainPresenter
+     */
     public FlipCardReplayModel(ArrayList<FlipCards> cardActionList,
-                               ArrayList<Long> timeActionList, ArrayList<FlipCards> lastStateList, FlipCardMainPresenter presenter) {
+                               ArrayList<Long> timeActionList,
+                               ArrayList<FlipCards> lastStateList,
+                               FlipCardMainPresenter presenter) {
         this.cardActionList = cardActionList;
         this.timeActionList = timeActionList;
         this.allCards = lastStateList;
         this.presenter = presenter;
     }
 
+    /**
+     * starting the replay display
+     */
     public void startDisplay() {
         this.presenter.updateScore(0, 0);
         this.restoreStartState();
@@ -26,6 +42,9 @@ public class FlipCardReplayModel extends FlipCardGameModel {
         this.replay(this.timeActionList.get(0));
     }
 
+    /**
+     * @param delay the duration of the delay
+     */
     private void replay(final long delay) {
         new CountDownTimer(delay, 1) {
             public void onFinish() {
@@ -48,6 +67,9 @@ public class FlipCardReplayModel extends FlipCardGameModel {
         }.start();
     }
 
+    /**
+     * restoring the starting state
+     */
     private void restoreStartState() {
         for (FlipCards f : this.allCards) {
             f.resetState();
@@ -56,6 +78,9 @@ public class FlipCardReplayModel extends FlipCardGameModel {
         }
     }
 
+    /**
+     * @param cardCalled the card called
+     */
     @Override
     public void update(FlipCards cardCalled) {
         if (!cardCalled.isFlipped())
