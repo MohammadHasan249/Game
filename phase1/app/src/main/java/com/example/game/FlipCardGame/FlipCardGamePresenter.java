@@ -5,7 +5,7 @@ import com.example.game.FlipCardGame.FlipCardSymbolFactory.FlipCardSymbolFactory
 
 import java.util.ArrayList;
 
-public class FlipCardGamePresenter extends FlipCardMainPresenter {
+class FlipCardGamePresenter extends FlipCardMainPresenter {
     private FlipCardMainGameModel currGame;
 
     FlipCardGamePresenter(FlipCardGameView view) {

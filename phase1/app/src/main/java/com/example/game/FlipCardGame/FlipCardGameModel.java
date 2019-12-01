@@ -17,6 +17,9 @@ abstract class FlipCardGameModel {
         return this.numMatches;
     }
 
+    void setCards(ArrayList<FlipCards> cardList) {
+        this.allCards = cardList;
+    }
     // calculating the time elapsed
     long returnElapsedTime() {
         return this.presenter.getTimeElapsed();
@@ -25,9 +28,7 @@ abstract class FlipCardGameModel {
     // goes over the list of all cards, if 2 of them are flipped, check if they are a match
     // if they are then update cards and lock them
     // if they aren't then we put a delay then flip them back
-    void updateCards(FlipCards cardCalled) {
-        if (!cardCalled.isFlipped())
-            cardCalled.flipCard();
+    void updateCards() {
         ArrayList<FlipCards> flipped = new ArrayList<>();
         for (FlipCards f : this.allCards) {
             if (f.isFlipped()) {
