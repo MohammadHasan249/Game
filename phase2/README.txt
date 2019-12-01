@@ -3,8 +3,9 @@ README file for Trifecta Game:
 - General Application:
     No need to install any plugins or anything, just run the app and sign up/login.
     	- It should all work upon cloning.
-    We accidentally did all our work for phase 2 in the phase 1 folder, but we also managed to migrate the files to the phase 2 folder
-     so it should work in this folder too.
+    We accidentally did all our work for phase 2 in the phase 1 folder please mark everything in
+    	the phase 1 folder
+	- The UML are there too 
 
 - Button Click Game (Whack-A-Button):
     Once you choose your customizations, start this game and every second or so, you'll see a button
