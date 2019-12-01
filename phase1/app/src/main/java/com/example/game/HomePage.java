@@ -17,12 +17,22 @@ import com.example.game.FlipCardGame.FlipCardView.FlipCardCustomizationView;
 import com.example.game.MathGame.MathGame;
 import com.example.game.ScoreBoard.ScoreBoard;
 
+/**
+ * This class contains the HomePage of the entire application. It's the starting point.
+ *
+ * @author Aryan Ahmad, Mohammed Hasan
+ */
 public class HomePage extends AppCompatActivity {
 
     SharedPreferences sharedPreferences;
     TextView textViewUsername;
     CurrUser user;
 
+    /**
+     * this method checks if the user currently has more levels to play.
+     *
+     * @param view the current view module
+     */
     public void btnContinueFunc(View view) {
         int lev = user.getCurrLevel();
         if (lev == 0) {
@@ -36,12 +46,21 @@ public class HomePage extends AppCompatActivity {
         }
     }
 
+    /**
+     * This method starts a new game from level 1.
+     *
+     * @param view the current view module
+     */
     public void btnNewGameFunc(View view) {
         Intent start = new Intent(getApplicationContext(), CustomizationScreen.class);
         startActivity(start);
         finish();
     }
 
+    /**
+     * The next two methods let the user logout.
+     *
+     */
     public void logout() {
         // Separating this into a new function in case want to override Android back button with logout
         // function
@@ -53,6 +72,10 @@ public class HomePage extends AppCompatActivity {
         logout();
     }
 
+    /**
+     * This method sends the user to the current level they're at.
+     *
+     */
     public void goCurrentLevel() {
         int level = user.getCurrLevel();
         if (level == 1) {
@@ -88,13 +111,21 @@ public class HomePage extends AppCompatActivity {
         }
     }
 
-
+    /**
+     * This method goes to the ScoreBoard class.
+     *
+     * @param view the current view module
+     */
     public void btnScoresFunc(View view) {
         Intent start = new Intent(getApplicationContext(), ScoreBoard.class);
         startActivity(start);
         finish();
     }
 
+    /**
+     * This Method overrides the built in onBackPressed, which is what happens when the back button
+     * is pressed on the device. Overridden to either let the user logout or stay on the homepage.
+     */
     @Override
     public void onBackPressed() {
         new AlertDialog.Builder(this)

@@ -22,7 +22,7 @@ import java.util.Random;
  * The ButtonClickMain class is the main class for Level 1, the Button Click game. It houses all the
  * code for the functionality of the game then sends the results to ButtonClickResult.java.
  *
- * @author Mohammad, Aryan
+ * @author Mohammad Hasan, Aryan Ahmad
  */
 
 public class ButtonClickMain extends AppCompatActivity {
