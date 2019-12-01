@@ -1,23 +1,23 @@
 package com.example.game.MathGame;
-
 import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
-
 import com.example.game.CurrUser;
 import com.example.game.HomePage;
 import com.example.game.LevelOnCreate;
 import com.example.game.R;
-
-
-
 import java.util.ArrayList;
 import java.util.Random;
+
+/**
+ * This activity contains all display functions and logic behind button interactions in level 2 (MathGame)
+ * @author Henry
+ */
+
 
 public class MathGame extends AppCompatActivity {
 
@@ -38,6 +38,11 @@ public class MathGame extends AppCompatActivity {
     int numCorrect, numFailedAttempts, timeHolder;
 
     void generateFourNumArray(int bound) {
+        /**
+         * Populates the declared ArrayList (fourNums) with 4 random integers from 3 to bound parameter
+         *
+         * @param bound upper bound for ints to be randomly generated into (fourNums)
+         */
         fourNum = new ArrayList<>();
         for (int i = 0; i < 4; i++) {
 
@@ -52,6 +57,13 @@ public class MathGame extends AppCompatActivity {
     }
 
     void generateStartValue(int bound) {
+        /**
+         * Generates a random number to be displayed as the number, the user attempts to decrease to zero in the game
+         * This value is created by summing up the random numbers in fourNum (ArrayList) a random number of times
+         *
+         * @param bound upper-bound to number of times each number can be used in the display number's sum
+         */
+
         startValue = 0;
         randomIndex = rand.nextInt(4);  // 0 - 3
         numOfAdditions = rand.nextInt(bound) + 2; // Random int from 2 to bounds + 1
@@ -63,6 +75,11 @@ public class MathGame extends AppCompatActivity {
     }
 
     void setUpReduceBtns() {
+        /**
+         * Set tags and text to corresponding values for each of the 4 buttons used
+         * to decrease a display value in the game
+         */
+
         for (int k = 0; k < fourBtn.size(); k++) {
             String strFourBtn = "-" + fourNum.get(k).toString();
             fourBtn.get(k).setTag((fourNum.get(k)));
@@ -71,6 +88,13 @@ public class MathGame extends AppCompatActivity {
     }
 
     public void btnReduceMethod(View view) {
+
+        /**
+         * Function for the four buttons used to reduce the display value to zero
+         * Reduces the display value based on which of the 4 reducing buttons were pressed by checking button tags
+         * If the reduction causes display value to go below zero, re-display a new value with 4 new reducing buttons
+         */
+
         startValue -= (Integer) view.getTag();
         String strTextValueLocal = Integer.toString(startValue);
         textValue.setText(strTextValueLocal);
@@ -92,7 +116,10 @@ public class MathGame extends AppCompatActivity {
 
     void reset() {
 
-        // Put 4 random numbers into fourNum
+        /**
+         * Groups together methods required to re-randomize a new display value
+         * with 4 reducing buttons, and their values
+         */
 
         if (user.getDifficultySelected().equals("easy")) {
             fourNumBound = 8;
@@ -114,6 +141,11 @@ public class MathGame extends AppCompatActivity {
     }
 
     void goMathGameResult() {
+        /**
+         * Initiates an intent to go to the result screen upon level 2 (MathGame) finish
+         * while passing extra values (game statistics) to the result screen
+         */
+
         Intent goResultScreen = new Intent(getApplicationContext(), MathGameResult.class);
         goResultScreen.putExtra("numCorrect", numCorrect);
         goResultScreen.putExtra("numFailedAttempts", numFailedAttempts);
@@ -122,6 +154,14 @@ public class MathGame extends AppCompatActivity {
     }
 
     public void start_time() {
+
+        /**
+         * Begins the timer used in MathGame
+         * Updates a text view that displays the time every second and
+         * Stops the any playing music and calls functions needed to go the result screen
+         * upon timer finish
+         */
+
         time_ms = 45000;    // Sets timer to go for 30s
         // Only need to change time in one place for if later create classes
         timeHolder = time_ms / 1000;
@@ -151,11 +191,20 @@ public class MathGame extends AppCompatActivity {
     }
 
     void updateScore() {
+        /**
+         * updates the user's score (stored value) and displayed text view
+         */
         String strScore = (numCorrect) + " | " + (numFailedAttempts);
         textScore.setText(strScore);
     }
 
     private void changeBtnColor() {
+
+        /**
+         * Method to change all button colors to correspond with the user's selected color
+         * in customization screen.
+         */
+
         int k;
         for (k = 0; k < fourBtn.size(); k++) {
             fourBtn.get(k).setBackgroundColor(user.getColorSelected());
@@ -208,6 +257,12 @@ public class MathGame extends AppCompatActivity {
 
     @Override
     public void onBackPressed() {
+
+        /**
+         * Overrided android back button to stop timer and music and initiate an intent
+         * to HomePage, while finishing this current activity page
+         */
+
         timer.cancel();
         user.stopMusic();
         Intent start = new Intent(getApplicationContext(), HomePage.class);

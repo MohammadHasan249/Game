@@ -4,6 +4,12 @@ import android.content.Context;
 
 import com.example.game.ScoreBoard.ScoreBoardDataInput;
 
+/**
+ * ResultFacade, groups together functions from CurrUser and ScoreBoardDataInput
+ * that would be called in the same sequence in all 3 game's result screen
+ * @author Henry
+ */
+
 public class ResultFacade {
 
     private CurrUser user;
@@ -21,7 +27,12 @@ public class ResultFacade {
     }
 
     public void dataSave (int score){
-        // Saves to user best / recent score
+        /**
+         * Saves the achieved score to corresponding difficulty / level field in SQLite database
+         * and initiates popup asking to save the score to the public ScoreBoard
+         *
+         * @param score score achieved by user in any of our 3 games on any difficulty
+         */
 
         if (this.currLevel == 1){
             user.setL1RecentScore(score);
@@ -39,9 +50,6 @@ public class ResultFacade {
 
         // updates currLevel back to 0
         this.user.setCurrLevel(0);
-
-
-
     }
 
 }

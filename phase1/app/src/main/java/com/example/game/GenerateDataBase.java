@@ -2,6 +2,11 @@ package com.example.game;
 
 import android.database.sqlite.SQLiteDatabase;
 
+/**
+ * This class sets up the tables used in SQLite database for user and public ScoreBoard data
+ * @author Henry
+ */
+
 public class GenerateDataBase {
 
     SQLiteDatabase gameDB;

@@ -12,6 +12,13 @@ import androidx.appcompat.app.AlertDialog;
 
 import static android.content.Context.MODE_PRIVATE;
 
+
+/**
+ * ScoreBoardDataInput is responsible for saving data generated from game results
+ * into SQLite database to be displayed on ScoreBoard
+ * @author Henry
+ */
+
 public class ScoreBoardDataInput {
     private Context context;
     private SQLiteDatabase gameDB;

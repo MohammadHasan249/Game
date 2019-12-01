@@ -8,6 +8,12 @@ import android.media.MediaPlayer;
 
 import static android.content.Context.MODE_PRIVATE;
 
+/**
+ * CurrUser class is a object that retrieves all data from SQLite database corresponding to
+ * the currently logged in user, other classes access the users data / update new data through this class
+ * @author Henry
+ */
+
 public class CurrUser {
 
     private MediaPlayer currMedia;
@@ -69,6 +75,10 @@ public class CurrUser {
     // Methods
 
     public void playMusic() {
+        /**
+         * Stops any music that is currently playing, and starts the most recently chosen music
+         * customization associated with the user
+         */
         if (currMedia != null) {
             currMedia.stop();
         }
@@ -85,9 +95,11 @@ public class CurrUser {
     }
 
     void updateL1BestScore() {
+        /**
+         * Updates user's best score for Button press Game to the corresponding difficulty
+         */
         if (this.getDifficultySelected().equals("easy")) {
             if (this.getL1RecentScore() > this.getL1EasyBestScore()) {
-
                 this.setL1EasyBestScore(this.getL1RecentScore());
             }
         } else {
@@ -98,6 +110,9 @@ public class CurrUser {
     }
 
     void updateL2BestScore() {
+        /**
+         * Updates user's best score for Math Game to the corresponding difficulty
+         */
         if (this.getDifficultySelected().equals("easy")) {
             if (this.getL2RecentScore() > this.getL2EasyBestScore()) {
                 this.setL2EasyBestScore(this.getL2RecentScore());
@@ -110,6 +125,9 @@ public class CurrUser {
     }
 
     public void updateL3BestScore() {
+        /**
+         * Updates user's best score for Flip Card Game to the corresponding difficulty
+         */
         if (this.getDifficultySelected().equals("easy")) {
             if (this.getL3RecentScore() < this.getL3EasyBestScore()) {
                 this.setL1EasyBestScore(this.getL1RecentScore());
@@ -132,6 +150,11 @@ public class CurrUser {
     }
 
     void setColorSelected(int colorSelected) {
+        /**
+         * Updates the color selected field corresponding the user in SQLite Database
+         *
+         * @param colorSelected int value corresponding to the color selected by user in customization screen
+         */
         this.colorSelected = colorSelected;
         gameDB.execSQL(
                 "UPDATE users SET colorSelected= '"
@@ -146,6 +169,11 @@ public class CurrUser {
     }
 
     void setDifficultySelected(String difficultySelected) {
+        /**
+         * Updates the difficulty field corresponding the user in SQLite Database
+         *
+         * @param difficultySelected String corresponding to the difficulty selected by user in customization screen
+         */
         this.difficultySelected = difficultySelected;
         gameDB.execSQL(
                 "UPDATE users SET difficultySelected= '"
@@ -160,6 +188,11 @@ public class CurrUser {
     }
 
     void setMusicSelected(int musicSelected) {
+        /**
+         * Updates the music selected field corresponding the user in SQLite Database
+         *
+         * @param musicSelected int value corresponding to the music selected by user in customization screen
+         */
         this.musicSelected = musicSelected;
 
         gameDB.execSQL(
@@ -175,6 +208,11 @@ public class CurrUser {
     }
 
     public void setCurrLevel(int currLevel) {
+        /**
+         * Updates the current level field corresponding the user in SQLite Database
+         *
+         * @param currLevel int value corresponding the level the user most recently left off at without completing
+         */
         this.currLevel = currLevel;
         gameDB.execSQL(
                 "UPDATE users SET currLevel= '"
@@ -189,6 +227,11 @@ public class CurrUser {
     }
 
     private void setL1EasyBestScore(int l1EasyBestScore) {
+        /**
+         * Updates the user's best score in button press game on easy mode in SQLite Database
+         *
+         * @param l1EasyBestScore best score achieved by user in button press game, easy mode
+         */
         this.l1EasyBestScore = l1EasyBestScore;
         gameDB.execSQL(
                 "UPDATE users SET l1EasyBestScore= '"
@@ -203,6 +246,11 @@ public class CurrUser {
     }
 
     private void setL1HardBestScore(int l1HardBestScore) {
+        /**
+         * Updates the user's best score in button press game on hard mode in SQLite Database
+         *
+         * @param l1HardBestScore best score achieved by user in button press game, hard mode
+         */
         this.l1HardBestScore = l1HardBestScore;
         gameDB.execSQL(
                 "UPDATE users SET l1HardBestScore= '"
@@ -217,6 +265,11 @@ public class CurrUser {
     }
 
     void setL1RecentScore(int l1RecentScore) {
+        /**
+         * Updates the user's most recent score in button press game to SQLite database
+         *
+         * @param l1RecentScore most recent score achieved by user in button press game (any difficulty)
+         */
         this.l1RecentScore = l1RecentScore;
         gameDB.execSQL(
                 "UPDATE users SET l1RecentScore= '"
