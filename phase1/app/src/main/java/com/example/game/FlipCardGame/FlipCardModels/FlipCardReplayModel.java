@@ -1,22 +1,25 @@
-package com.example.game.FlipCardGame;
+package com.example.game.FlipCardGame.FlipCardModels;
 
 import android.os.CountDownTimer;
 
+import com.example.game.FlipCardGame.Cards.FlipCards;
+import com.example.game.FlipCardGame.FlipCardPresenter.FlipCardMainPresenter;
+
 import java.util.ArrayList;
 
-class FlipCardReplayModel extends FlipCardGameModel {
+public class FlipCardReplayModel extends FlipCardGameModel {
     private ArrayList<FlipCards> cardActionList;
     private ArrayList<Long> timeActionList;
 
-    FlipCardReplayModel(ArrayList<FlipCards> cardActionList,
-                        ArrayList<Long> timeActionList, ArrayList<FlipCards> lastStateList, FlipCardMainPresenter presenter) {
+    public FlipCardReplayModel(ArrayList<FlipCards> cardActionList,
+                               ArrayList<Long> timeActionList, ArrayList<FlipCards> lastStateList, FlipCardMainPresenter presenter) {
         this.cardActionList = cardActionList;
         this.timeActionList = timeActionList;
         this.allCards = lastStateList;
         this.presenter = presenter;
     }
 
-    void startDisplay() {
+    public void startDisplay() {
         this.presenter.updateScore(0, 0);
         this.restoreStartState();
         this.presenter.startTimer();
@@ -54,7 +57,7 @@ class FlipCardReplayModel extends FlipCardGameModel {
     }
 
     @Override
-    void update(FlipCards cardCalled) {
+    public void update(FlipCards cardCalled) {
         if (!cardCalled.isFlipped())
             cardCalled.flipCard();
         this.updateCards();

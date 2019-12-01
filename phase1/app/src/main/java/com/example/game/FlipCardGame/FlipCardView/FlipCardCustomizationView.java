@@ -8,7 +8,6 @@ import android.widget.Spinner;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.game.FlipCardGame.FlipCardMainView;
 import com.example.game.FlipCardGame.FlipCardPresenter.FlipCardCustomizationPresenter;
 import com.example.game.R;
 

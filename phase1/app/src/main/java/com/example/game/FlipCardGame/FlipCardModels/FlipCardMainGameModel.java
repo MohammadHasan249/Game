@@ -1,13 +1,18 @@
-package com.example.game.FlipCardGame;
+package com.example.game.FlipCardGame.FlipCardModels;
+
+import com.example.game.FlipCardGame.Cards.FlipCards;
+import com.example.game.FlipCardGame.FlipCardPresenter.FlipCardMainPresenter;
+import com.example.game.FlipCardGame.FlipCardResult.FlipCardResult;
 
 import java.util.ArrayList;
 
-class FlipCardMainGameModel extends FlipCardGameModel {
+public class FlipCardMainGameModel extends FlipCardGameModel {
   private String difficulty;
   private boolean firstClick;
   private ArrayList<Long> timeActionList;
   private ArrayList<FlipCards> cardActionList;
-  FlipCardMainGameModel(
+
+  public FlipCardMainGameModel(
           String difficulty,
           FlipCardMainPresenter presenter) {
     this.flipCardGameManagerBuilder(difficulty,presenter);
@@ -57,19 +62,19 @@ class FlipCardMainGameModel extends FlipCardGameModel {
     else this.numMatches = 16;
   }
 
-  String getInstructions() {
+  public String getInstructions() {
     return "Match the cards!(Timer goes off when you click on one of them)";
   }
 
-  ArrayList<FlipCards> getCardActionList() {
+  public ArrayList<FlipCards> getCardActionList() {
     return this.cardActionList;
   }
 
-  ArrayList<Long> getTimeActionList() {
+  public ArrayList<Long> getTimeActionList() {
     return this.timeActionList;
   }
 
-  ArrayList<FlipCards> getLastStateList() {
+  public ArrayList<FlipCards> getLastStateList() {
     return this.allCards;
   }
 }

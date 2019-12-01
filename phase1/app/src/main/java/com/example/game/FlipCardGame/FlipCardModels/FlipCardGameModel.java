@@ -1,23 +1,26 @@
-package com.example.game.FlipCardGame;
+package com.example.game.FlipCardGame.FlipCardModels;
 
 import android.os.CountDownTimer;
 
+import com.example.game.FlipCardGame.Cards.FlipCards;
+import com.example.game.FlipCardGame.FlipCardPresenter.FlipCardMainPresenter;
+
 import java.util.ArrayList;
 
-abstract class FlipCardGameModel {
+public abstract class FlipCardGameModel {
     int numMatches;
     int numCorrect;
     int numMatchAttempt;
     ArrayList<FlipCards> allCards;
     FlipCardMainPresenter presenter;
 
-    abstract void update(FlipCards flipCards);
+    public abstract void update(FlipCards flipCards);
 
-    int getNumMatches() {
+    public int getNumMatches() {
         return this.numMatches;
     }
 
-    void setCards(ArrayList<FlipCards> cardList) {
+    public void setCards(ArrayList<FlipCards> cardList) {
         this.allCards = cardList;
     }
     // calculating the time elapsed

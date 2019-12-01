@@ -1,7 +1,10 @@
-package com.example.game.FlipCardGame;
+package com.example.game.FlipCardGame.FlipCardView;
 
 import android.content.Context;
 import android.widget.TableLayout;
+
+import com.example.game.FlipCardGame.FlipCardModels.FlipCardMainGameModel;
+import com.example.game.FlipCardGame.FlipCardResult.FlipCardResult;
 
 public interface FlipCardGameView {
     void gameEnded(FlipCardResult results);

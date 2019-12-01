@@ -1,20 +1,22 @@
-package com.example.game.FlipCardGame;
+package com.example.game.FlipCardGame.Cards;
 
 import android.content.Context;
 import android.view.Gravity;
 import android.widget.TableLayout;
 import android.widget.TableRow;
 
+import com.example.game.FlipCardGame.FlipCardModels.FlipCardGameModel;
+
 import java.util.ArrayList;
 
-class FlipCardsBuilder {
+public class FlipCardsBuilder {
     private Context currContext;
     private TableLayout stk;
     private ArrayList<String> symbolList;
     private FlipCardGameModel desiredManager;
     private int cardBackColor;
 
-    FlipCardsBuilder(ArrayList<String> symbolList, Context packageContext, TableLayout stk, FlipCardGameModel desiredManager, int cardBackColor) {
+    public FlipCardsBuilder(ArrayList<String> symbolList, Context packageContext, TableLayout stk, FlipCardGameModel desiredManager, int cardBackColor) {
         this.currContext = packageContext;
         this.stk = stk;
         this.desiredManager = desiredManager;
@@ -31,7 +33,7 @@ class FlipCardsBuilder {
         return tbRow;
     }
 
-    ArrayList<FlipCards> createCards() {
+    public ArrayList<FlipCards> createCards() {
         ArrayList<FlipCards> allCardCreation = new ArrayList<>();
         this.stk.setGravity(Gravity.CENTER_VERTICAL);
         int i = 0;

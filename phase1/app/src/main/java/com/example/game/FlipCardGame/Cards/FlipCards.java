@@ -1,4 +1,4 @@
-package com.example.game.FlipCardGame;
+package com.example.game.FlipCardGame.Cards;
 
 import android.content.Context;
 import android.graphics.Color;
@@ -8,14 +8,16 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TableRow;
 
-class FlipCards {
+import com.example.game.FlipCardGame.FlipCardModels.FlipCardGameModel;
+
+public class FlipCards {
   private Button btnInstance;
   private String symbol;
   private boolean flipped;
   private Drawable fullColor;
   private boolean enabled;
   private FlipCardGameModel manager;
-  static boolean disableCards = false;
+  public static boolean disableCards = false;
 
   FlipCards(
           Context packageContext,
@@ -58,12 +60,12 @@ class FlipCards {
     return drawable;
   }
 
-  boolean isFlipped() {
+  public boolean isFlipped() {
     return this.flipped;
   }
 
   // flip the card
-  void flipCard() {
+  public void flipCard() {
     if (enabled) {
       if (!flipped) {
         this.btnInstance.setText(symbol);
@@ -76,26 +78,27 @@ class FlipCards {
     }
   }
 
-  String getSymbol() {
+  public String getSymbol() {
     return this.symbol;
   }
   // disables the card and prevents it from being clicked again
-  void lockCard() {
+  public void lockCard() {
     this.btnInstance.setEnabled(false);
     this.enabled = false;
     this.flipped = false;
   }
 
-  void resetState() {
+  public void resetState() {
     this.enabled = true;
     this.flipped = false;
     this.turnCardToBack();
   }
 
-  void setManager(FlipCardGameModel manager) {
+  public void setManager(FlipCardGameModel manager) {
     this.manager = manager;
   }
-  void disableBtnCall() {
+
+  public void disableBtnCall() {
     this.btnInstance.setEnabled(true);
     this.btnInstance.setOnClickListener(null);
   }
@@ -104,7 +107,7 @@ class FlipCards {
         btnInstance.setBackground(fullColor);
     }
 
-  void callManagerUpdate() {
+  public void callManagerUpdate() {
     manager.update(this);
   }
 

@@ -1,4 +1,4 @@
-package com.example.game.FlipCardGame;
+package com.example.game.FlipCardGame.FlipCardView;
 
 import android.content.Context;
 import android.content.Intent;
@@ -12,6 +12,10 @@ import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.game.FlipCardGame.FlipCardModels.FlipCardMainGameModel;
+import com.example.game.FlipCardGame.FlipCardPresenter.FlipCardGamePresenter;
+import com.example.game.FlipCardGame.FlipCardPresenter.FlipCardReplayPresenter;
+import com.example.game.FlipCardGame.FlipCardResult.FlipCardResult;
 import com.example.game.HomePage;
 import com.example.game.LevelOnCreate;
 import com.example.game.R;

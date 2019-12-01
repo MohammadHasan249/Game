@@ -1,4 +1,4 @@
-package com.example.game.FlipCardGame;
+package com.example.game.FlipCardGame.FlipCardView;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -8,6 +8,7 @@ import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.game.EndGameResultPage;
+import com.example.game.FlipCardGame.FlipCardResult.FlipCardResult;
 import com.example.game.R;
 import com.example.game.UserInfoFacade;
 
