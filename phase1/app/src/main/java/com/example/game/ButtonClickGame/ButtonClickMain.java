@@ -29,17 +29,15 @@ public class ButtonClickMain extends AppCompatActivity {
 
     // -------Variable Declarations------
     private Button[][] buttons = new Button[5][4];
-    Random r = new Random();
-    CountDownTimer timer;
-    CurrUser user;
-    int diff_time;
-    int numClicks = 0;
-    int score = 0;
-    TextView scoreTxt;
-    String scorePlaceholder;
+    private Random r = new Random();
+    private CountDownTimer timer;
+    private CurrUser user;
+    private int diff_time;
+    private int numClicks = 0;
+    private int score = 0;
+    private TextView scoreTxt;
+    private String scorePlaceholder;
 
-    String instructions;
-    LevelOnCreate levelOnCreate;
     // ----------------------------------
 
     /**
@@ -76,22 +74,19 @@ public class ButtonClickMain extends AppCompatActivity {
     private View.OnClickListener handleOnClick(final Button button) {
         return new View.OnClickListener() {
             int timesClicked = 0;
-//            int initialScore = score;
-//            int initialNumClick = numClicks;
+            boolean b = false;
+
             public void onClick(View v) {
                 if (button.getVisibility() == View.VISIBLE) {
                     numClicks += 1;
                     score += 1;
                     timesClicked += 1;
                 }
-                if (timesClicked == 3) {
+                if (timesClicked == 3 && !b) {
+                    b = true;
                     score = score * 2;
                 }
-//                if ((score-initialScore) == 5 && (numClicks-initialNumClick) == 5){
-//                    //int tempScore = score;
-//                    score = 99;
-//                    numClicks = 99;
-//                }
+
                 scorePlaceholder = score + " | " + numClicks;
                 scoreTxt.setText(scorePlaceholder);
             }
@@ -172,8 +167,9 @@ public class ButtonClickMain extends AppCompatActivity {
                     }
                 };
 
+        String instructions;
         instructions = "Click on the moving button as many times as you can";
-        levelOnCreate = new LevelOnCreate(this, instructions, timer);
+        LevelOnCreate levelOnCreate = new LevelOnCreate(this, instructions, timer);
     }
 
     /**

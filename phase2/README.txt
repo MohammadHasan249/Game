@@ -5,7 +5,7 @@ README file for Trifecta Game:
     	- It should all work upon cloning.
     We accidentally did all our work for phase 2 in the phase 1 folder please mark everything in
     	the phase 1 folder
-	- The UML is in this phase2 folder   
+	- The UML is in this phase2 folder
 
 - Button Click Game (Whack-A-Button):
     Once you choose your customizations, start this game and every second or so, you'll see a button

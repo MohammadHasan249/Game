@@ -51,9 +51,9 @@ public class ButtonClickResult extends AppCompatActivity {
      * This Method Sends the game to the next Level (Level 2), the Math game.
      * @param view the current view module
      */
-    public void tol2Game(View view) {
-        Intent l2Game = new Intent(this, MathGame.class);
-        startActivity(l2Game);
+    public void toHomePage(View view) {
+        Intent homePage = new Intent(this, HomePage.class);
+        startActivity(homePage);
         finish();
     }
 
