@@ -39,7 +39,7 @@ public class Startup extends AppCompatActivity {
                 startActivity(mainIntent);
                 finish();
             }
-        },1500);
+        },2500);
     }
 
 
