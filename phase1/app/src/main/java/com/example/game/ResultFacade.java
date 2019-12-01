@@ -1,7 +1,8 @@
 package com.example.game;
 
 import android.content.Context;
-import android.database.sqlite.SQLiteDatabase;
+
+import com.example.game.ScoreBoard.ScoreBoardDataInput;
 
 public class ResultFacade {
 

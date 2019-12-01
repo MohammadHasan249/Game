@@ -1,4 +1,4 @@
-package com.example.game;
+package com.example.game.ScoreBoard;
 
 import android.content.Context;
 import android.content.DialogInterface;
@@ -23,7 +23,7 @@ public class ScoreBoardDataInput {
 
     private String tableDB;
 
-    ScoreBoardDataInput (Context context, int level, String difficulty){
+    public ScoreBoardDataInput(Context context, int level, String difficulty){
         this.context = context;
         this.saveRequestMessage = "Save to ScoreBoard?";
 

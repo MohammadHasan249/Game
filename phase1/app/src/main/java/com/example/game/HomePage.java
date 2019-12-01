@@ -14,6 +14,7 @@ import android.widget.Toast;
 
 import com.example.game.FlipCardGame.FlipCardView.FlipCardCustomizationView;
 import com.example.game.MathGame.MathGame;
+import com.example.game.ScoreBoard.ScoreBoard;
 
 public class HomePage extends AppCompatActivity {
 
