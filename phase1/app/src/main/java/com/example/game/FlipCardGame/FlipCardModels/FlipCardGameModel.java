@@ -9,7 +9,7 @@ import java.util.ArrayList;
 
 /**
  * The FlipCardGameModel Abstract class is one of the blueprints for the FlipCard game
- *
+ *      This specifies the functions that a class must implement if it wants to manage FlipCards
  * @author Gerald, Harbaksh
  */
 public abstract class FlipCardGameModel {

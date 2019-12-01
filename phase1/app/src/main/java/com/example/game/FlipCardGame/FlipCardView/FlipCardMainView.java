@@ -23,6 +23,7 @@ import com.example.game.UserInfoFacade;
 
 /**
  * The FlipCardMainView class
+ * This class is responsible for displaying the view of the main game of flipcard
  *
  * @author Gerald, Harbaksh
  */
@@ -53,7 +54,6 @@ public class FlipCardMainView extends AppCompatActivity implements FlipCardGameV
         this.btnFlipCardResult.setVisibility(View.INVISIBLE);
         this.timer = findViewById(R.id.flipCardTimer);
         currUser = new UserInfoFacade(this);
-        this.currUser.setLevel(3);
         this.currUser.startMusic();
         this.presenter = new FlipCardGamePresenter(this);
         this.presenter.startDisplay();
@@ -196,18 +196,9 @@ public class FlipCardMainView extends AppCompatActivity implements FlipCardGameV
     public void btnFlipCardResult(View view) {
         Intent showResult = new Intent(this, FlipCardResultView.class);
         showResult.putExtra("FlipCardResult", this.result);
-        this.updateUserScore();
+        this.currUser.stopMusic();
         startActivity(showResult);
         finish();
-    }
-
-    /**
-     * updating the user's score
-     */
-    private void updateUserScore() {
-        this.currUser.stopMusic();
-        this.currUser.setLevel(0);
-        this.currUser.updateFlipCardScore(this.result.getTimeToCompletion());
     }
 
     /**

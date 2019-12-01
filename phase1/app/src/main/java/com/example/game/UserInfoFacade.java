@@ -4,7 +4,6 @@ import android.content.Context;
 
 public class UserInfoFacade {
     private CurrUser user;
-
     public UserInfoFacade(Context currContext)
     {
         this.user = new CurrUser(currContext);
@@ -37,15 +36,5 @@ public class UserInfoFacade {
     public CurrUser getUser()
     {
         return this.user;
-    }
-
-    public void setFlipCardScore(int score) {
-        this.user.setL3RecentScore(score);
-    }
-
-    public void updateFlipCardScore(int score) {
-        this.user.setCurrLevel(0);
-        this.user.setL3RecentScore(score);
-        this.user.updateL3BestScore();
     }
 }

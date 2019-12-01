@@ -8,6 +8,8 @@ import com.example.game.FlipCardGame.FlipCardResult.FlipCardResult;
 
 /**
  * The FlipCardGameView Interface is one of the blueprints for the Flip Card game
+ * This is an interface that specifies what functions that must be implemented for a class
+ *       to become the main view of the FlipCard game
  *
  * @author Gerald, Harbaksh
  */

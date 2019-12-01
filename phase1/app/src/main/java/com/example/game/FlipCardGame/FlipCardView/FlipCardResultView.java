@@ -7,13 +7,15 @@ import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.game.EndGameResultPage;
 import com.example.game.FlipCardGame.FlipCardResult.FlipCardResult;
+import com.example.game.HomePage;
 import com.example.game.R;
+import com.example.game.ResultFacade;
 import com.example.game.UserInfoFacade;
 
 /**
  * The FlipCardResultView class
+ * Responsible for displaying the results of the FlipCard Game
  *
  * @author Gerald, Harbaksh
  */
@@ -27,8 +29,8 @@ public class FlipCardResultView extends AppCompatActivity {
      * @param view View
      */
     public void endGame(View view) {
-        Intent endGameResult = new Intent(this, EndGameResultPage.class);
-        startActivity(endGameResult);
+        Intent start = new Intent(getApplicationContext(), HomePage.class);
+        startActivity(start);
         finish();
     }
 
@@ -69,6 +71,8 @@ public class FlipCardResultView extends AppCompatActivity {
             this.result = (FlipCardResult) receiver.get("FlipCardResult");
             this.setResult(this.result);
         }
+        ResultFacade facade = new ResultFacade(this);
+        facade.dataSave(result.getTimeToCompletion());
     }
 
     /**
@@ -82,6 +86,17 @@ public class FlipCardResultView extends AppCompatActivity {
         TextView numCorrect = findViewById(R.id.NumCorrectMatchesTextView);
         TextView numIncorrect = findViewById(R.id.NumIncorrectTextView);
         this.displayScores(result, difficulty, timeToCompletion, numCorrect, numIncorrect);
-        this.user.setFlipCardScore(result.getTimeToCompletion());
     }
+
+    /**
+     * Overriding the android default back button so it goes back to the home page
+     */
+    @Override
+    public void onBackPressed() {
+        Intent start = new Intent(getApplicationContext(), HomePage.class);
+        start.putExtra("androidBack", 1);
+        startActivity(start);
+        finish();
+    }
+
 }

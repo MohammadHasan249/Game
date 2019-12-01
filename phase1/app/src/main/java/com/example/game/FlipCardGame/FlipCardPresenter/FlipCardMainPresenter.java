@@ -5,7 +5,8 @@ import com.example.game.FlipCardGame.FlipCardView.FlipCardGameView;
 
 /**
  * The FlipCardMainPresenter Abstract class is one for the blueprints for the Flip Card game
- *
+ * Specifies the functions that must be implemented for a presenter to be able to present
+ *         things on the Main View of the FlipCard Game
  * @author Gerald, Harbaksh
  */
 public abstract class FlipCardMainPresenter {

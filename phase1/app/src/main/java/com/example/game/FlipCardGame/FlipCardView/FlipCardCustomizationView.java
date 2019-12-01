@@ -9,7 +9,9 @@ import android.widget.Spinner;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.game.FlipCardGame.FlipCardPresenter.FlipCardCustomizationPresenter;
+import com.example.game.HomePage;
 import com.example.game.R;
+import com.example.game.UserInfoFacade;
 
 import java.util.ArrayList;
 
@@ -20,7 +22,7 @@ import java.util.ArrayList;
  */
 public class FlipCardCustomizationView extends AppCompatActivity implements FlipCardCustomizationPresenter.View {
     private Spinner customizationSpn;
-
+    private UserInfoFacade currUser;
     /**
      * Calling the super constructor and setting the spinner
      *
@@ -32,6 +34,8 @@ public class FlipCardCustomizationView extends AppCompatActivity implements Flip
         setContentView(R.layout.activity_flip_card_customization);
         this.customizationSpn = findViewById(R.id.spnPickSymbol);
         this.initializeScreenViaPresenter();
+        this.currUser = new UserInfoFacade(this);
+        this.currUser.setLevel(3);
     }
 
     /**
@@ -74,4 +78,17 @@ public class FlipCardCustomizationView extends AppCompatActivity implements Flip
         startActivity(mainGameIntent);
         finish();
     }
+
+    /**
+     * Overriding the android default back button so it goes back to the home page
+     */
+    @Override
+    public void onBackPressed() {
+        this.currUser.stopMusic();
+        Intent start = new Intent(getApplicationContext(), HomePage.class);
+        start.putExtra("androidBack", 1);
+        startActivity(start);
+        finish();
+    }
+
 }
