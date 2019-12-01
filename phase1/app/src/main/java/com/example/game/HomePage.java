@@ -12,8 +12,8 @@ import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.game.FlipCardGame.FlipCardMainView;
 import com.example.game.FlipCardGame.FlipCardView.FlipCardCustomizationView;
+import com.example.game.MathGame.MathGame;
 
 public class HomePage extends AppCompatActivity {
 

@@ -11,7 +11,7 @@ public class ResultFacade {
     private Context context;
 
 
-    ResultFacade (Context context){
+    public ResultFacade(Context context){
         this.context = context;
         this.user = new CurrUser(context);
 

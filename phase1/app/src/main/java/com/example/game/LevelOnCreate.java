@@ -17,7 +17,7 @@ public class LevelOnCreate {
                 .show();
     }
 
-    LevelOnCreate(Context context, String instructions, final CountDownTimer t) {
+    public LevelOnCreate(Context context, String instructions, final CountDownTimer t) {
         new AlertDialog.Builder(context)
                 .setIcon(android.R.drawable.ic_dialog_alert)
                 .setTitle("Level Instructions")

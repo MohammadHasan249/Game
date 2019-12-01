@@ -126,7 +126,5 @@ public class MainActivity extends AppCompatActivity {
             Intent start = new Intent(getApplicationContext(), HomePage.class);
             startActivity(start);
         }
-
-
     }
 }
